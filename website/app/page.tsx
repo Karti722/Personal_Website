@@ -720,6 +720,11 @@ export default function HomePage() {
             Website Source Code
             </a>
           </p>
+          <p style={{ marginTop: '3.6rem', fontSize: '0.95rem', color: 'var(--muted-color)' }}>
+            <a href="https://karti722.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">
+              Old portfolio link
+            </a>
+          </p>
         </div>
       </footer>
     </>
