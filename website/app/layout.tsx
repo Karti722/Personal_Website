@@ -6,6 +6,10 @@ import ThemeProvider from "./components/ThemeProvider";
 export const metadata = {
   title: "Kartikeya Kumaria Portfolio",
   description: "Personal portfolio website built with Next.js and TypeScript",
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
