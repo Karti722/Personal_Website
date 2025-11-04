@@ -12,13 +12,14 @@ body {
   background: var(--bg-gradient);
   background-attachment: fixed;
   color: var(--text-color);
-  line-height: 1.7;
-  font-size: 16px;
+  line-height: 1.65;
+  /* responsive base font size for better mobile readability */
+  font-size: clamp(15px, 1.25vw + 0.2rem, 18px);
 }
 
 /* Theme variables: default to day-light */
 :root {
-  --bg-gradient: linear-gradient(135deg, #e6f0ff 0%, #f0e7ff 100%);
+  --bg-gradient: linear-gradient(135deg, #192332 0%, #f0e7ff 100%);
   --header-gradient: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
   --section-bg: rgba(255, 255, 255, 0.95);
   --accent-gradient: linear-gradient(90deg, #667eea, #764ba2);
@@ -53,7 +54,8 @@ body {
   --section-bg: rgba(255, 255, 255, 0.95);
   --accent-gradient: linear-gradient(90deg, #667eea, #764ba2);
   --accent-strong: #1e3a8a;
-  --text-color: #000000;
+  /* softened text color (previous value) for legibility on bright backgrounds */
+  --text-color: #1f2937; /* slate-800 — previous value */
   --link-color: #2563eb;
   --card-bg: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   --skill-bg: linear-gradient(135deg, #60a5fa 0%, #7c3aed 100%);
@@ -139,6 +141,35 @@ body {
   --section-border-color: rgba(255,255,255,0.02);
   --card-accent-gradient: linear-gradient(180deg, #4f46e5, #06b6d4);
   --card-accent-glow: rgba(79,70,229,0.18);
+}
+
+/* Project original / Default theme - distinct from the day/night variants */
+.theme-default {
+  --bg-gradient: linear-gradient(135deg, #fff6ea 0%, #fff2e8 100%);
+  --header-gradient: linear-gradient(135deg, #5b4231 0%, #8a5a41 100%);
+  --section-bg: rgba(255, 250, 243, 0.96);
+  --accent-gradient: linear-gradient(90deg, #d97706, #ef4444);
+  --accent-strong: #b45309;
+  --muted-color: #6b5b4b;
+  --success-gradient: linear-gradient(135deg, #16a34a 0%, #059669 100%);
+  --heading-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  --skill-shadow: 0 6px 20px rgba(217,119,6,0.14);
+  --box-shadow: 0 10px 40px rgba(10,8,6,0.06);
+  --box-shadow-strong: 0 18px 56px rgba(10,8,6,0.08);
+  --profile-shadow: 0 10px 30px rgba(10,8,6,0.10);
+  --toggle-bg: rgba(255,255,255,0.92);
+  --toggle-border: rgba(0,0,0,0.06);
+  --toggle-btn-color: #8a5a41;
+  --toggle-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  --toggle-active-shadow: 0 10px 30px rgba(217,119,6,0.12);
+  --section-border-color: rgba(0,0,0,0.04);
+  --card-accent-gradient: linear-gradient(180deg, #f59e0b, #ef4444);
+  --card-accent-glow: rgba(245,158,11,0.08);
+  /* slightly lighter than before for better readability on warm backgrounds */
+  --text-color: #3b3b33;
+  --link-color: #b45309;
+  --card-bg: linear-gradient(135deg, #fffdf8 0%, #fff6ef 100%);
+  --skill-bg: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
 }
 
 .container {

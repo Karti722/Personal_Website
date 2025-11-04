@@ -32,14 +32,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 // localStorage next
                 const raw = localStorage.getItem('site-theme');
                 if (raw) {
-                  try { const { mode, variant } = JSON.parse(raw); if (mode && variant) { document.documentElement.classList.add('theme-' + mode + '-' + variant); return; } } catch(e) {}
+                  try {
+                    const parsed = JSON.parse(raw);
+                    if (parsed && parsed.mode === 'default') { document.documentElement.classList.add('theme-default'); return; }
+                    const { mode, variant } = parsed;
+                    if (mode && variant) { document.documentElement.classList.add('theme-' + mode + '-' + variant); return; }
+                  } catch(e) {}
                 }
-                // prefers-color-scheme for variant
-                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-                const hour = new Date().getHours();
-                const isDay = hour >= 6 && hour < 19;
-                const variant = prefersDark ? 'dark' : 'light';
-                document.documentElement.classList.add('theme-' + (isDay ? 'day' : 'night') + '-' + variant);
+                // If nothing was found, fall back to the project's default theme to avoid flash-of-theme
+                // The default can later be changed by the user via the theme controls.
+                document.documentElement.classList.add('theme-default');
               } catch (e) {}
             })();`,
           }}

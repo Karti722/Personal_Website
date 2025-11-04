@@ -13,18 +13,20 @@ export default function HomePage() {
               className="profile-photo"
             />
             <div className="profile-info">
-              <h1>Kartikeya Kumaria</h1>
-              <p>
+              <h1 style={{ color: "white" }}>Kartikeya Kumaria</h1>
+              <p style={{ color: "white" }}>
                 Santa Clara, CA |{" "}
-                <a href="mailto:kumaria@ucsc.edu">kumaria@ucsc.edu</a>
+                <a href="mailto:kartikeyaku@gmail.com" style={{ color: "white" }}>
+                  kartikeyaku@gmail.com
+                </a>
               </p>
-              <p>
+              <p style={{ color: "white" }}>
                 <a
                   href="https://linkedin.com/in/kartikeya-kumaria"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  LinkedIn
+                  My LinkedIn Profile
                 </a>{" "}
                 |{" "}
                 <a
@@ -32,7 +34,7 @@ export default function HomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  GitHub
+                  My Personal GitHub
                 </a>
               </p>
             </div>
@@ -45,13 +47,23 @@ export default function HomePage() {
         <div className="container">
           <h2>About Me</h2>
           <p>
-            Aspiring full-stack software developer majoring in Computer Science
-            at UC Santa Cruz, expected to complete Bachelor's degree in December
-            2025. Results-driven Computer Science student with proven skills in
-            software development and analytical problem-solving. Adept at
-            contributing to collaborative projects and delivering effective,
-            user-centered solutions. Brings adaptability, persistence, and a
-            focus on innovation to fast-paced development environments.
+            I’m a software developer 
+            studying Computer Science at UC Santa Cruz, 
+            set to graduate in March 2026. What drives 
+            me most is the process of turning ideas into
+             something real, transforming a blank screen
+              into tools, experiences, and interfaces
+            that make people’s lives easier or a little more inspiring.
+            I love working across the stack, designing clean and responsive
+             front ends while building the logic behind them. I enjoy the
+           problem-solving side of engineering just as much as the human
+              side of collaboration: brainstorming with others, learning
+              from different perspectives, and iterating toward something
+            better together.I’m the kind of person who sticks with a challenge
+            until it’s solved, who believes in learning by doing, and who sees
+            every project as a chance to grow. More than anything, I want to
+            create technology that feels thoughtful, software that not only
+          works well but also connects with the people who use it.
           </p>
         </div>
       </section>
@@ -705,7 +717,7 @@ export default function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub Repository
+            Website Source Code
             </a>
           </p>
         </div>

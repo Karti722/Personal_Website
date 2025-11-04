@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 type Mode = "day" | "night";
 type Variant = "light" | "dark";
@@ -41,9 +41,9 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
   const [mode, setMode] = useState<Mode>(() => {
     if (typeof window === "undefined") return "day";
     const stored = readStored();
-    if (stored && stored.mode) return stored.mode;
+    if (stored && stored.mode && stored.mode !== 'default') return stored.mode;
     const c = readCookie();
-    if (c && c.mode) return c.mode;
+    if (c && c.mode && c.mode !== 'default') return c.mode;
     const hour = new Date().getHours();
     return hour >= DAY_START && hour < DAY_END ? "day" : "night";
   });
@@ -51,9 +51,9 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
   const [variant, setVariant] = useState<Variant>(() => {
     if (typeof window === "undefined") return "light";
     const stored = readStored();
-    if (stored && stored.variant) return stored.variant;
+    if (stored && stored.variant && stored.mode !== 'default') return stored.variant;
     const c = readCookie();
-    if (c && c.variant) return c.variant;
+    if (c && c.variant && c.mode !== 'default') return c.variant;
     // fallback to OS preference if available
     try {
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
@@ -61,33 +61,75 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     return "light";
   });
 
+  // when true, the site uses the project's original/default stylesheet and other toggles are locked
+  const [isDefault, setIsDefault] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    const stored = readStored();
+    if (stored && stored.mode === 'default') return true;
+    const c = readCookie();
+    if (c && c.mode === 'default') return true;
+    // if pre-hydration script set a class of theme-default, respect that on hydrate
+    try { if (document.documentElement && document.documentElement.classList.contains('theme-default')) return true; } catch {}
+    return false;
+  });
+
+  // store previous mode/variant so we can restore them when the user clicks Undo
+  const prevRef = useRef<{ mode: Mode; variant: Variant } | null>(null);
+
   // apply theme class to html element
   useEffect(() => {
-    const applyClass = (m: Mode, v: Variant) => {
-      const cls = `theme-${m}-${v}`;
+    const applyClass = () => {
       const el = document.documentElement;
       // remove possible theme- classes
       Array.from(el.classList).forEach((c) => { if (c.startsWith("theme-")) el.classList.remove(c); });
-      el.classList.add(cls);
+      if (isDefault) {
+        el.classList.add('theme-default');
+      } else {
+        const cls = `theme-${mode}-${variant}`;
+        el.classList.add(cls);
+      }
     };
 
-    applyClass(mode, variant);
-    // persist only mode and variant
-    try { localStorage.setItem(LS_KEY, JSON.stringify({ mode, variant })); } catch { }
+    applyClass();
+    // persist state (mode/variant) or default marker
+    try {
+      if (isDefault) {
+        localStorage.setItem(LS_KEY, JSON.stringify({ mode: 'default' }));
+      } else {
+        localStorage.setItem(LS_KEY, JSON.stringify({ mode, variant }));
+      }
+    } catch { }
     // also set a cookie so the preference can be read quickly on next load
     try {
-      const cookieVal = encodeURIComponent(JSON.stringify({ mode, variant }));
+      const payload = isDefault ? { mode: 'default' } : { mode, variant };
+      const cookieVal = encodeURIComponent(JSON.stringify(payload));
       // 1 year
       document.cookie = `${LS_KEY}=${cookieVal}; path=/; max-age=${60 * 60 * 24 * 365}; samesite=lax`;
     } catch { }
-  }, [mode, variant]);
+  }, [mode, variant, isDefault]);
 
   // No mount-time state mutations needed; initializers read cookie/localStorage/prefers-color-scheme.
 
   // no auto-cycle: user toggles day/night manually
 
-  const toggleVariant = () => setVariant((v) => (v === "light" ? "dark" : "light"));
-  const toggleMode = () => setMode((m) => (m === "day" ? "night" : "day"));
+  const toggleVariant = () => { if (isDefault) return; setVariant((v) => (v === "light" ? "dark" : "light")); };
+  const toggleMode = () => { if (isDefault) return; setMode((m) => (m === "day" ? "night" : "day")); };
+
+  const toggleDefault = () => {
+    if (!isDefault) {
+      // entering default: remember current settings
+      prevRef.current = { mode, variant };
+      setIsDefault(true);
+    } else {
+      // undo: restore previous settings if we have them
+      if (prevRef.current) {
+        setMode(prevRef.current.mode);
+        setVariant(prevRef.current.variant);
+        prevRef.current = null;
+      }
+      setIsDefault(false);
+    }
+  };
 
   return (
     <>
@@ -95,12 +137,35 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
 
       {/* Floating controls */}
       <div className="theme-toggle" aria-hidden={false} role="group" aria-label="Theme controls">
-        <button aria-pressed={mode === "day"} className={`theme-btn ${mode === "day" ? 'active' : ''}`} onClick={toggleMode} title="Toggle Day/Night">
+        <button
+          aria-pressed={mode === "day"}
+          className={`theme-btn ${mode === "day" ? 'active' : ''}`}
+          onClick={toggleMode}
+          title="Toggle Day/Night"
+          disabled={isDefault}
+          aria-disabled={isDefault}
+        >
           {mode === "day" ? "Day" : "Night"}
         </button>
 
-        <button aria-pressed={variant === "light"} className={`theme-btn ${variant === "light" ? 'active' : ''}`} onClick={toggleVariant} title="Toggle Light/Dark variant">
+        <button
+          aria-pressed={variant === "light"}
+          className={`theme-btn ${variant === "light" ? 'active' : ''}`}
+          onClick={toggleVariant}
+          title="Toggle Light/Dark variant"
+          disabled={isDefault}
+          aria-disabled={isDefault}
+        >
           {variant === "light" ? "Light" : "Dark"}
+        </button>
+
+        <button
+          aria-pressed={isDefault}
+          className={`theme-btn ${isDefault ? 'active' : ''} theme-default-btn`}
+          onClick={toggleDefault}
+          title={isDefault ? 'Undo default theme' : 'Use default theme'}
+        >
+          {isDefault ? 'Undo' : 'Default'}
         </button>
       </div>
 
@@ -157,17 +222,33 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
           outline-offset: 3px;
         }
 
-        .theme-btn:hover { opacity: 0.98; transform: translateY(-1px); }
-
-        /* Mobile: move to bottom-right and reduce footprint slightly */
-        @media (max-width:600px) {
-          .theme-toggle { top: auto; bottom: 1rem; right: 1rem; padding: 0.28rem; gap: 0.35rem; }
-          .theme-btn { width: 40px; height: 40px; min-width: 40px; min-height: 40px; font-size: 0.78rem }
+        .theme-btn[disabled], .theme-btn[aria-disabled="true"] {
+          opacity: 0.5;
+          cursor: not-allowed;
+          pointer-events: none;
+          transform: none;
+          box-shadow: none;
         }
 
-        /* Very small screens: center at bottom to avoid overlapping content */
+        /* Slightly differentiate the Default button when active */
+        .theme-default-btn.active {
+          background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(0,0,0,0.06));
+          color: var(--toggle-btn-color);
+          box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .theme-btn:hover { opacity: 0.98; transform: translateY(-1px); }
+
+        /* Mobile: move to bottom-right and increase touch targets for comfortable taps */
+        @media (max-width:600px) {
+          .theme-toggle { top: auto; bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); right: 1rem; padding: 0.32rem; gap: 0.5rem; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+          /* increase to recommended 44-56px touch target; pick 56px for better ergonomics */
+          .theme-btn { width: 56px; height: 56px; min-width: 56px; min-height: 56px; font-size: 0.9rem }
+        }
+
+        /* Very small screens: center at bottom to avoid overlapping content; respect iPhone safe area */
         @media (max-width: 420px) {
-          .theme-toggle { left: 50%; right: auto; transform: translateX(-50%); bottom: 0.9rem; }
+          .theme-toggle { left: 50%; right: auto; transform: translateX(-50%); bottom: calc(0.9rem + env(safe-area-inset-bottom, 0px)); }
         }
       `}</style>
     </>
