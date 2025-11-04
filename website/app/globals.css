@@ -490,13 +490,13 @@ footer {
   border-radius: 50%;
   border: 6px solid rgba(255, 255, 255, 0.3);
   object-fit: cover;
-  animation: fadeInLeft 1.5s ease-out;
+  animation: fadeInLeft 1.8s ease-out;
   box-shadow: var(--profile-shadow, 0 10px 30px rgba(0, 0, 0, 0.3));
   transition: all 0.3s ease;
 }
 
 .profile-photo:hover {
-  transform: scale(1.05);
+  transform: scale(2.05);
   box-shadow: var(--box-shadow-strong, 0 15px 40px rgba(0, 0, 0, 0.4));
 }
 
@@ -504,6 +504,7 @@ footer {
   text-align: left;
   flex: 1;
   min-width: 300px;
+  text-shadow: #020617 0 4px 18px, 0 0 10px rgba(79,70,229,0.06);
 }
 
 .profile-info h1 {

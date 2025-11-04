@@ -681,14 +681,14 @@ export default function HomePage() {
           <div className="resume-container">
             <div className="resume-actions">
               <a
-                href="/files/Resume_kartikeya_SWE.pdf"
+                href="/files/Kartikeya_Resume.pdf"
                 target="_blank"
                 className="resume-btn download-btn"
               >
                 <span>📄</span> Download Resume
               </a>
               <a
-                href="/files/Resume_kartikeya_SWE.pdf"
+                href="/files/Kartikeya_Resume.pdf"
                 target="_blank"
                 className="resume-btn view-btn"
               >
@@ -697,7 +697,7 @@ export default function HomePage() {
             </div>
             <div className="resume-embed">
               <iframe
-                src="/files/Resume_kartikeya_SWE.pdf#toolbar=0&navpanes=0&scrollbar=0"
+                src="/files/Kartikeya_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0"
                 width="100%"
                 height="600"
                 style={{ border: "none" }}
