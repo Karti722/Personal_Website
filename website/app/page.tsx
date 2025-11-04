@@ -701,7 +701,7 @@ export default function HomePage() {
           <p>
             © 2025 Kartikeya Kumaria |{" "}
             <a
-              href="https://github.com/Karti722/Portfolio"
+              href="https://github.com/Karti722/Personal_Website"
               target="_blank"
               rel="noopener noreferrer"
             >
