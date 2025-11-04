@@ -1,9 +1,715 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-     <h1>Kartikeya Kumaria's website being developed</h1>
-    </div>
+    <>
+      {/* ===== HEADER ===== */}
+      <header>
+        <div className="container">
+          <div className="profile-section">
+            <img
+              src="/photos/karti.png"
+              alt="Kartikeya Kumaria Profile Photo"
+              className="profile-photo"
+            />
+            <div className="profile-info">
+              <h1>Kartikeya Kumaria</h1>
+              <p>
+                Santa Clara, CA |{" "}
+                <a href="mailto:kumaria@ucsc.edu">kumaria@ucsc.edu</a>
+              </p>
+              <p>
+                <a
+                  href="https://linkedin.com/in/kartikeya-kumaria"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>{" "}
+                |{" "}
+                <a
+                  href="https://github.com/karti722"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* ===== ABOUT ===== */}
+      <section className="summary">
+        <div className="container">
+          <h2>About Me</h2>
+          <p>
+            Aspiring full-stack software developer majoring in Computer Science
+            at UC Santa Cruz, expected to complete Bachelor's degree in December
+            2025. Results-driven Computer Science student with proven skills in
+            software development and analytical problem-solving. Adept at
+            contributing to collaborative projects and delivering effective,
+            user-centered solutions. Brings adaptability, persistence, and a
+            focus on innovation to fast-paced development environments.
+          </p>
+        </div>
+      </section>
+
+      {/* ===== SKILLS ===== */}
+      <section className="skills">
+        <div className="container">
+          <h2>Skills</h2>
+          <ul>
+            <li>JavaScript / TypeScript</li>
+            <li>React.js / Next.js</li>
+            <li>Django / Django REST Framework</li>
+            <li>Node.js, SQL (MySQL, PostgreSQL)</li>
+            <li>Agile, Git, Debugging, Communication</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* ===== EXPERIENCE ===== */}
+      <section className="experience">
+      <div className="container">
+        <h2>Experience</h2>
+
+          {/* UCSC BLUEPRINT */}
+          <div className="job">
+            <h3>
+              Software Developer @{" "}
+              <a
+                href="https://www.ucscblueprint.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                UCSC BLUEPRINT
+              </a>
+            </h3>
+            <p>
+              <em>Feb 2024 – Present</em>
+            </p>
+            <ul>
+              <li>
+                Built and deployed volunteer registration mobile app for Santa Cruz
+                Mountain Arts Center (SCMAC) using Expo, React Native, and CSS,
+                reducing manual sign-up time by 60% and increasing volunteer
+                conversions by 40% within first 3 months.
+              </li>
+              <li>
+                Translated over 12 Figma components into fully responsive UI for both
+                iOS and Android platforms, ensuring consistent performance across
+                various screen sizes including tablets, improving cross-device
+                compatibility by 95%.
+              </li>
+              <li>
+                Integrated Firebase Firestore to fetch and render user-specific data
+                (name, date of birth, email) on profile views, enhancing data
+                accessibility and improving profile load times by 30%.
+              </li>
+              <li>
+                Implemented custom error-handling for login and profile update
+                workflows using Firebase Authentication, resulting in 50% decrease in
+                failed login attempts and improved user feedback during credential
+                validation.
+              </li>
+              <li>
+                Designed and launched YFIOB, a survey-based web app for K–12 career
+                discovery using React.js, Next.js, Tailwind CSS, and Firebase,
+                achieving 100% functional test coverage with React Testing Library,
+                and onboarding 5+ contributors via documented Notion workflows and
+                pair programming sessions.
+              </li>
+              <li>
+                Successfully deployed YFIOB application to production at{" "}
+                <a
+                  href="https://yfiob2--yfiob2.us-central1.hosted.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  https://yfiob2--yfiob2.us-central1.hosted.app/
+                </a>
+                , providing live access to K–12 students for career exploration and
+                survey completion.
+              </li>
+            </ul>
+          </div>
+
+          {/* CRUZHACKS */}
+          <div className="job">
+            <h3>
+              Webmaster @{" "}
+              <a
+                href="https://cruzhacks.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                CruzHacks
+              </a>
+            </h3>
+            <p>
+              <em>Oct 2024 – Apr 2025</em>
+            </p>
+            <ul>
+              <li>
+                Implemented Figma designs for CruzHacks websites, contributing to a
+                20% increase in task completion.
+              </li>
+              <li>
+                Built 15+ reusable React components, reducing future development time
+                by 30%.
+              </li>
+              <li>
+                Maintained the website codebase and updated 2025 content.
+              </li>
+              <li>
+                Led weekly meetings and boosted team collaboration by 25%.
+              </li>
+            </ul>
+          </div>
+
+          {/* SKYIT (GBCS) */}
+          <div className="job">
+            <h3>
+              Backend Developer Intern @{" "}
+              <a
+                href="https://skyit.services/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                SKYIT (GBCS)
+              </a>
+            </h3>
+            <p>
+              <em>Apr 2024 – Aug 2024</em>
+            </p>
+            <ul>
+              <li>
+                Updated and cleaned client onboarding data by modifying null entries
+                in MySQL and correcting CSV inputs, resolving data mismatches that
+                were causing API ingestion failures and restoring full client
+                onboarding functionality within 2 days.
+              </li>
+              <li>
+                Onboarded 3 backend developer interns by setting up local environments
+                with Python virtualenv, resolving MySQL port and credential issues,
+                and configuring dependency installs using pip, enabling full backend
+                run-time setup in under 1 day.
+              </li>
+              <li>
+                Developed custom Django REST Framework API endpoint to validate user
+                authentication flow, tested POST and GET HTTP response statuses in
+                Postman, and verified accurate field mappings in relational database
+                schema.
+              </li>
+              <li>
+                Managed API enhancement tasks using GBCS University's internal
+                workflow system, identifying and escalating deprecated endpoint logic
+                to executive director, and coordinating updates that reduced internal
+                bug reports by 20%.
+              </li>
+              <li>
+                Participated in cross-team sprint planning to ensure backend timelines
+                aligned with frontend delivery schedules, helping reduce integration
+                rework by 15% and ensuring milestone completeness on time.
+              </li>
+            </ul>
+          </div>
+
+          {/* CODEDAY */}
+          <div className="job">
+            <h3>
+              Software Engineer Intern @{" "}
+              <a
+                href="https://labs.codeday.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                CodeDay
+              </a>
+            </h3>
+            <p>
+              <em>Oct 2023 – Dec 2023</em>
+            </p>
+            <ul>
+              <li>
+                Extended Open Energy Dashboard (OED) by implementing feature modules
+                to meet federal compliance requirements for agencies focused on
+                climate analytics, contributing to dashboard readiness for real-time
+                sustainability data reporting.
+              </li>
+              <li>
+                Successfully merged{" "}
+                <a
+                  href="https://github.com/OpenEnergyDashboard/OED/pull/1087"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Pull Request #1087
+                </a>{" "}
+                to the official OED repository, implementing BTU conversion
+                functionality that enables dual-unit energy reporting for federal
+                compliance requirements.
+              </li>
+              <li>
+                Built custom JavaScript-based conversion engine to process uploaded
+                CSV files and transform kWh energy readings to BTUs, integrating unit
+                logic directly into OED's backend workflow to support dual-unit
+                reporting with zero data loss.
+              </li>
+              <li>
+                Wrote and validated unit and integration tests using Mocha.js for
+                energy conversion functions, CSV parsers, and edge cases (e.g.,
+                null/zero energy values), achieving full validation coverage for all
+                energy data types.
+              </li>
+              <li>
+                Used Git version control, configured Docker containers, and resolved
+                merge conflicts for multi-developer collaboration, reducing
+                environment-related setup issues by 40% and ensuring consistent builds
+                across local and containerized setups.
+              </li>
+              <li>
+                Debugged and deployed Node.js features using Mac/Linux terminal
+                utilities, diagnosing cross-platform dependency issues and improving
+                deployment reliability across development and staging environments.
+              </li>
+            </ul>
+          </div>
+        </div>
+  </section>
+
+
+    {/* ===== PROJECTS ===== */}
+    <section className="projects">
+      <div className="container">
+        <h2>Projects</h2>
+
+        {/* LogBlog */}
+        <div className="project">
+          <h3>
+            <a
+              href="https://logblog-karti.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LogBlog - AI-Powered Full-Stack Blog Platform
+            </a>
+          </h3>
+          <p>
+            <em>June 4 – July 10, 2025</em> |{" "}
+            <a
+              href="https://github.com/Karti722/LogBlog"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Repository
+            </a>
+          </p>
+          <ul>
+            <li>
+              Developed comprehensive full-stack blog platform with AI tutorial
+              generation featuring user authentication, password reset, blog CRUD
+              operations, and ML-powered content creation using Django REST
+              Framework.
+            </li>
+            <li>
+              Built responsive frontend with React 18, JavaScript ES6+, React
+              Router, Context API, and Tailwind CSS with Vite build tool for
+              optimized bundling and hot module replacement.
+            </li>
+            <li>
+              Engineered advanced ML pipeline with SentenceTransformer, PyTorch
+              neural networks, scikit-learn TfidfVectorizer, and NLTK for text
+              preprocessing with cosine similarity matching.
+            </li>
+            <li>
+              Architected production-ready microservices: Django backend on Railway,
+              PostgreSQL on Supabase, React frontend on Vercel with custom domain
+              and global CDN distribution.
+            </li>
+            <li>
+              Implemented advanced features including tutorial progress tracking,
+              rating systems, content categorization, ML-powered suggestions, and
+              fully responsive mobile-first design.
+            </li>
+            <li>
+              Video demonstration:{" "}
+              <a
+                href="https://youtu.be/tTxGYLBY74Y"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                YouTube — LogBlog demo
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* SurveyKarrot */}
+        <div className="project">
+          <h3>
+            <a
+              href="https://survey-karrot.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              SurveyKarrot - Full-Stack Survey Platform
+            </a>
+          </h3>
+          <p>
+            <em>July 18th – September 9th, 2025</em> |{" "}
+            <a
+              href="https://github.com/Karti722/surveyKarrot"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Repository
+            </a>
+          </p>
+          <ul>
+            <li>
+              Full-stack survey platform with React, TypeScript, Vite frontend and
+              Node.js, Express, TypeScript backend, featuring secure PostgreSQL
+              integration and modular architecture.
+            </li>
+            <li>
+              Supports user authentication (JWT, bcrypt), role-based access, and
+              environment-based configuration for scalable deployments.
+            </li>
+            <li>
+              Key features: create/distribute/manage surveys, view submissions,
+              responsive dashboard, and seamless API communication.
+            </li>
+            <li>
+              Comprehensive backend testing (Jest), database migrations, and
+              production-ready deployment on Vercel.
+            </li>
+            <li>
+              Clean, maintainable codebase with ESLint, TypeScript, and public
+              documentation for easy onboarding and future extensibility.
+            </li>
+            <li>
+              Video demonstration:{" "}
+              <a
+                href="https://youtu.be/AyQK4trzsLU"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                YouTube — SurveyKarrot demo
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Evil Number Guessing Game */}
+        <div className="project">
+          <h3>
+            <a
+              href="https://evil-number-guessing-game-kartikeya.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Evil Number Guessing Game
+            </a>
+          </h3>
+          <p>
+            <em>August 22nd–27th, 2024</em> |{" "}
+            <a
+              href="https://github.com/Karti722/NumberGuessingGame"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Repository
+            </a>
+          </p>
+          <ul>
+            <li>
+              Developed full-stack CRUD number guessing game with randomly generated
+              number between -1,000,000 and 1,000,000, integrated background music,
+              sound effects, and dynamic button visibility based on game states.
+            </li>
+            <li>
+              Optimized user experience with interactive elements and real-time
+              feedback, utilizing HTML, CSS, and vanilla JavaScript for frontend to
+              toggle button visibility and send user’s guess.
+            </li>
+            <li>
+              Used Node.js and MongoDB for backend to store game logic, separated
+              logic into API routes for each game state, processing user’s guess
+              data from frontend and delivering appropriate response messages.
+            </li>
+            <li>
+              Implemented game logic to decide responses (Too High, Low, or Exact)
+              and handle user surrender functionality with real-time backend
+              communication.
+            </li>
+            <li>
+              Video demonstration:{" "}
+              <a
+                href="https://youtu.be/VBFLeXFMKIM"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                YouTube — Number Guessing Game demo
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Outer Space 3D World */}
+        <div className="project">
+          <h3>
+            <a
+              href="https://kkumariacse160asgn5threejs.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Outer Space 3D World (Three.js)
+            </a>
+          </h3>
+          <p>
+            <em>Created and finished on March 6th, 2025</em> |{" "}
+            <a
+              href="https://github.com/Karti722/ThreeJS3DWorld_Asgn5_CSE160"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Repository
+            </a>
+          </p>
+          <ul>
+            <li>
+              Designed and implemented an outer space-themed 3D world using
+              Three.js.
+            </li>
+            <li>
+              Created a dynamic environment with randomly placed objects to enhance
+              exploration and immersion.
+            </li>
+            <li>Applied nebula and other space textures for atmospheric effects.</li>
+            <li>
+              Imported and rendered 3D models, including a dog, with realistic
+              materials.
+            </li>
+            <li>
+              Organized resources for efficient asset management and scalability.
+            </li>
+            <li>Set up a local web server for easy testing and demonstration.</li>
+          </ul>
+        </div>
+
+        {/* Task Manager App */}
+        <div className="project">
+          <h3>
+            <a
+              href="https://lumaa-spring-2025-swe-submission-from-tok6.onrender.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Task Manager App
+            </a>
+          </h3>
+          <p>
+            <em>February 21 – May 23, 2025</em> |{" "}
+            <a
+              href="https://github.com/Karti722/lumaa-spring-2025-swe-submission-from-kartikeya"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Repository
+            </a>
+          </p>
+          <ul>
+            <li>
+              Developed full-stack task manager application using React for
+              frontend, Redux for state management, HTML, CSS, JavaScript, Node.js,
+              Express.js for backend, and PostgreSQL17 with PgAdmin4 for database.
+            </li>
+            <li>
+              Implemented user authentication with JSON Web Tokens (JWT), created
+              RESTful APIs using Express.js for CRUD operations for adding, updating
+              and deleting tasks once user logs into their account.
+            </li>
+            <li>
+              Optimized backend performance to handle high concurrency and utilized
+              libraries including Axios for HTTP requests, Sequelize as ORM for
+              PostgreSQL, and React Router for client-side navigation.
+            </li>
+            <li>
+              Enhanced task management efficiency and provided intuitive user
+              interface with seamless task operations and responsive design.
+            </li>
+            <li>
+              Video demonstration:{" "}
+              <a
+                href="https://youtu.be/p-ASm9P76kY"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                YouTube — Task Manager demo
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* TicTacToeWithEmotionAI */}
+        <div className="project">
+          <h3>TicTacToeWithEmotionAI</h3>
+          <p>
+            <em>Collaborated with Peters</em>
+          </p>
+          <ul>
+            <li>
+              Developed a novel Tic-Tac-Toe game controller that uses emotion
+              recognition from webcam images to determine player moves.
+            </li>
+            <li>
+              Implemented and trained deep learning models (using TensorFlow/Keras)
+              to classify facial emotions (neutral, happy, surprise) for game
+              interaction.
+            </li>
+            <li>
+              Designed a modular codebase with clear separation of concerns: data
+              preprocessing, model training, game logic, and GUI.
+            </li>
+            <li>
+              Integrated transfer learning and randomization techniques to compare
+              model performance on emotion classification tasks.
+            </li>
+            <li>
+              Automated dataset extraction and preprocessing from Kaggle, supporting
+              scalable training and validation workflows.
+            </li>
+            <li>
+              Built a user-friendly command-line interface and visualization tools
+              for model evaluation and gameplay.
+            </li>
+            <li>
+              Utilized OpenCV for real-time webcam image capture and processing.
+            </li>
+            <li>
+              Demonstrated proficiency in Python, machine learning, and computer
+              vision for interactive game development.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+      {/* ===== CERTIFICATIONS ===== */}
+      <section className="certifications">
+        <div className="container">
+          <h2>Licenses & Certifications</h2>
+
+          <div className="certification">
+            <h3>WEB 101 - Intro to Web Development</h3>
+            <p>
+              <strong>Issuer:</strong> CodePath | <strong>Issued:</strong> Dec
+              2024
+            </p>
+            <p>
+              <strong>Skills:</strong> HTML, CSS, JavaScript
+            </p>
+            <img
+              src="/photos/codepath.png"
+              alt="WEB 101 Certificate"
+              style={{ maxWidth: "300px" }}
+            />
+          </div>
+
+          <div className="certification">
+            <h3>SkyIT Certificate of Completion</h3>
+            <p>
+              <strong>Issuer:</strong> SkyIT Services (GBCS Group) |{" "}
+              <strong>Issued:</strong> Aug 2024
+            </p>
+            <p>
+              <strong>Skills:</strong> Django REST Framework, Python, MySQL,
+              JSON, Postman, Leadership
+            </p>
+            <a
+              href="https://drive.google.com/file/d/1eLSAd0xzImy1HpPkSSetRVlh00CbomWn/view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Show credential
+            </a>
+          </div>
+
+          <div className="certification">
+            <h3>CodeDay Labs Micro-Intern</h3>
+            <p>
+              <strong>Issuer:</strong> Canvas Credentials |{" "}
+              <strong>Issued:</strong> Apr 2024
+            </p>
+            <p>
+              <strong>Credential ID:</strong> 6629141bb1afdc68657da11e
+            </p>
+            <p>
+              <strong>Skills:</strong> Node.js, Mocha.js, Docker, Teamwork, Test
+              Automation
+            </p>
+            <a
+              href="https://badgr.com/public/assertions/FXrB84uZRIiRGFyJ2a6n3g"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Show credential
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== RESUME ===== */}
+      <section className="resume">
+        <div className="container">
+          <h2>Resume</h2>
+          <div className="resume-container">
+            <div className="resume-actions">
+              <a
+                href="/files/Resume_kartikeya_SWE.pdf"
+                target="_blank"
+                className="resume-btn download-btn"
+              >
+                <span>📄</span> Download Resume
+              </a>
+              <a
+                href="/files/Resume_kartikeya_SWE.pdf"
+                target="_blank"
+                className="resume-btn view-btn"
+              >
+                <span>👁️</span> View Full Screen
+              </a>
+            </div>
+            <div className="resume-embed">
+              <iframe
+                src="/files/Resume_kartikeya_SWE.pdf#toolbar=0&navpanes=0&scrollbar=0"
+                width="100%"
+                height="600"
+                style={{ border: "none" }}
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== FOOTER ===== */}
+      <footer>
+        <div className="container">
+          <p>
+            © 2025 Kartikeya Kumaria |{" "}
+            <a
+              href="https://github.com/Karti722/Portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Repository
+            </a>
+          </p>
+        </div>
+      </footer>
+    </>
   );
 }
