@@ -496,7 +496,7 @@ footer {
 }
 
 .profile-photo:hover {
-  transform: scale(2.05);
+  transform: scale(1.5);
   box-shadow: var(--box-shadow-strong, 0 15px 40px rgba(0, 0, 0, 0.4));
 }
 
