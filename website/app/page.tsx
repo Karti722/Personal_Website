@@ -26,7 +26,7 @@ export default function HomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  My LinkedIn Profile
+                  LinkedIn 
                 </a>{" "}
                 |{" "}
                 <a
@@ -34,7 +34,7 @@ export default function HomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  My Personal GitHub
+                  GitHub
                 </a>
               </p>
             </div>
@@ -47,9 +47,9 @@ export default function HomePage() {
         <div className="container">
           <h2>About Me</h2>
           <p>
-            I’m a software developer 
-            studying Computer Science at UC Santa Cruz, 
-            set to graduate in March 2026. What drives 
+            I’m a software developer who
+            completed a Bachelor of Science in Computer Science from UC Santa Cruz 
+            as of March 2026. What drives 
             me most is the process of turning ideas into
              something real, transforming a blank screen
               into tools, experiences, and interfaces
