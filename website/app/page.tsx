@@ -15,7 +15,7 @@ export default function HomePage() {
             <div className="profile-info">
               <h1 style={{ color: "white" }}>Kartikeya Kumaria</h1>
               <p style={{ color: "white" }}>
-                Santa Clara, CA |{" "}
+                Reach out to me at
                 <a href="mailto:kartikeyaku@gmail.com" style={{ color: "white" }}>
                   kartikeyaku@gmail.com
                 </a>
@@ -711,7 +711,7 @@ export default function HomePage() {
       <footer>
         <div className="container">
           <p>
-            © 2025 Kartikeya Kumaria |{" "}
+            © 2025 Kartikeya Kumaria | {" "}
             <a
               href="https://github.com/Karti722/Personal_Website"
               target="_blank"
