@@ -195,10 +195,10 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
 
         /* Circular buttons: accessible touch targets */
         .theme-btn {
-          width: 50px;
-          height: 50px;
-          min-width: 50px;
-          min-height: 50px;
+          width: 55px;
+          height: 55px;
+          min-width: 55px;
+          min-height: 55px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
