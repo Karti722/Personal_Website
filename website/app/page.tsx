@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
@@ -7,10 +8,12 @@ export default function HomePage() {
       <header>
         <div className="container">
           <div className="profile-section">
-            <img
+            <Image
               src="/photos/karti.png"
               alt="Kartikeya Kumaria Profile Photo"
               className="profile-photo"
+              width={150}
+              height={150}
             />
             <div className="profile-info">
               <h1 style={{ color: "white" }}>Kartikeya Kumaria</h1>

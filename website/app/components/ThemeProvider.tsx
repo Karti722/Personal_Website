@@ -137,6 +137,8 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
 
       {/* Floating controls */}
       <div className="theme-toggle" aria-hidden={false} role="group" aria-label="Theme controls">
+        {!isDefault && 
+        <>
         <button
           aria-pressed={mode === "day"}
           className={`theme-btn ${mode === "day" ? 'active' : ''}`}
@@ -147,17 +149,20 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
         >
           {mode === "day" ? "Day" : "Night"}
         </button>
+        {!isDefault &&
+          <button
+            aria-pressed={variant === "light"}
+            className={`theme-btn ${variant === "light" ? 'active' : ''}`}
+            onClick={toggleVariant}
+            title="Toggle Light/Dark variant"
+            disabled={isDefault}
+            aria-disabled={isDefault}
+            >
+            {variant === "light" ? "Light" : "Dark"}
+          </button>}
+        </>
+        }
 
-        <button
-          aria-pressed={variant === "light"}
-          className={`theme-btn ${variant === "light" ? 'active' : ''}`}
-          onClick={toggleVariant}
-          title="Toggle Light/Dark variant"
-          disabled={isDefault}
-          aria-disabled={isDefault}
-        >
-          {variant === "light" ? "Light" : "Dark"}
-        </button>
 
         <button
           aria-pressed={isDefault}
@@ -165,7 +170,7 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
           onClick={toggleDefault}
           title={isDefault ? 'Undo default theme' : 'Use default theme'}
         >
-          {isDefault ? 'Undo' : 'Default'}
+          {isDefault ? 'Untoggle Default' : 'Toggle Default'}
         </button>
       </div>
 
@@ -190,10 +195,10 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
 
         /* Circular buttons: accessible touch targets */
         .theme-btn {
-          width: 44px;
-          height: 44px;
-          min-width: 44px;
-          min-height: 44px;
+          width: 50px;
+          height: 50px;
+          min-width: 50px;
+          min-height: 50px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
