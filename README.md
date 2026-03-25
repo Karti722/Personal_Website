@@ -9,8 +9,11 @@ Using Typescript + Next.js + Vercel.
 2) Email: [kartikeyaku@gmail.com](mailto:kartikeyaku@gmail.com)
 3) Live site: https://kartikeyakumaria.vercel.app/
 
-Roles I fulfilled:
-Software Developer, Full-Stack Developer, Front-End Developer, Back-End Developer.
+## Roles I fulfilled:
+1) Software Developer
+2) Full-Stack Developer
+3) Front-End Developer
+4) Back-End Developer.
 
-## Old Github Pages Portfolio (replaced)
+## Old Github Pages Portfolio (Not used anymore)
 https://karti722.github.io/Portfolio/
