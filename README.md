@@ -1,5 +1,5 @@
 # My Personal Website
-This is a website describing me haha and my accomplishments - Kartikeya Kumaria  
+This is a deployed web application showcasing my software development milestones - Kartikeya Kumaria  
 
 # Tech Stack
 Using Typescript + Next.js + Vercel.
@@ -9,8 +9,8 @@ Using Typescript + Next.js + Vercel.
 - Email — [kartikeyaku@gmail.com](mailto:kartikeyaku@gmail.com)
 - Live site — https://kartikeyakumaria.vercel.app/
 
-Short bio (optional):
-Frontend developer building with TypeScript & Next.js. Open to collaboration and freelance work.
+Roles I fulfilled:
+Software Developer, Full-Stack Developer, Front-End Developer, Back-End Developer.
 
 ## Old Github Pages Portfolio (replaced)
 https://karti722.github.io/Portfolio/
