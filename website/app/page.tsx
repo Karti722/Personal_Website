@@ -347,13 +347,12 @@ export default function HomePage() {
               fully responsive mobile-first design.
             </li>
             <li>
-              Video demonstration:{" "}
               <a
                 href="https://youtu.be/tTxGYLBY74Y"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                YouTube — LogBlog demo
+                LogBlog Demo Video
               </a>
             </li>
           </ul>
@@ -403,13 +402,12 @@ export default function HomePage() {
               documentation for easy onboarding and future extensibility.
             </li>
             <li>
-              Video demonstration:{" "}
               <a
                 href="https://youtu.be/AyQK4trzsLU"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                YouTube — SurveyKarrot demo
+                SurveyKarrot Demo Video
               </a>
             </li>
           </ul>
@@ -458,13 +456,12 @@ export default function HomePage() {
               communication.
             </li>
             <li>
-              Video demonstration:{" "}
               <a
                 href="https://youtu.be/VBFLeXFMKIM"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                YouTube — Number Guessing Game demo
+                NumberGuessingGame Demo Video
               </a>
             </li>
           </ul>
@@ -500,7 +497,9 @@ export default function HomePage() {
               Created a dynamic environment with randomly placed objects to enhance
               exploration and immersion.
             </li>
-            <li>Applied nebula and other space textures for atmospheric effects.</li>
+            <li>
+              Applied nebula and other space textures for atmospheric effects.
+            </li>
             <li>
               Imported and rendered 3D models, including a dog, with realistic
               materials.
@@ -508,7 +507,9 @@ export default function HomePage() {
             <li>
               Organized resources for efficient asset management and scalability.
             </li>
-            <li>Set up a local web server for easy testing and demonstration.</li>
+            <li>
+              Set up a local web server for easy testing and demonstration.
+            </li>
           </ul>
         </div>
 
@@ -554,13 +555,12 @@ export default function HomePage() {
               interface with seamless task operations and responsive design.
             </li>
             <li>
-              Video demonstration:{" "}
               <a
                 href="https://youtu.be/p-ASm9P76kY"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                YouTube — Task Manager demo
+               TaskManager Demo Video
               </a>
             </li>
           </ul>
