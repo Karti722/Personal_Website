@@ -714,18 +714,13 @@ export default function HomePage() {
       <footer>
         <div className="container">
           <p>
-            © 2025 Kartikeya Kumaria | {" "}
+            © 2026 Kartikeya Kumaria | {" "}
             <a
               href="https://github.com/Karti722/Personal_Website"
               target="_blank"
               rel="noopener noreferrer"
             >
             Website Source Code
-            </a>
-          </p>
-          <p style={{ marginTop: '3.6rem', fontSize: '0.95rem', color: 'var(--muted-color)' }}>
-            <a href="https://karti722.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">
-              Old portfolio link
             </a>
           </p>
         </div>

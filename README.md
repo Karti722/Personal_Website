@@ -14,6 +14,3 @@ Using Typescript + Next.js + Vercel.
 2) Full-Stack Developer
 3) Front-End Developer
 4) Back-End Developer.
-
-## Old Github Pages Portfolio (Not used anymore)
-https://karti722.github.io/Portfolio/
