@@ -50,13 +50,13 @@ export default function HomePage() {
         <div className="container">
           <h2>About Me</h2>
           <p>
-            I’m a software developer who
-            completed a Bachelor of Science in Computer Science from UC Santa Cruz 
-            as of March 2026. What drives 
-            me most is the process of turning ideas into
-             something real, transforming a blank screen
-              into tools, experiences, and interfaces
-            that make people’s lives easier or a little more inspiring.
+            I’m a driven full-stack software developer who
+            completed a Bachelor of Science in Computer Science from
+            <a href="https://www.ucsc.edu/"> University of California, Santa Cruz </a>.
+            What encourages my drive is turning ideas into
+             something real, transforming a idea on paper
+              into full applications with tools, experiences, and interfaces
+            that make people’s lives easier.
             I love working across the stack, designing clean and responsive
              front ends while building the logic behind them. I enjoy the
            problem-solving side of engineering just as much as the human
@@ -103,7 +103,7 @@ export default function HomePage() {
               </a>
             </h3>
             <p>
-              <em>Feb 2024 – Present</em>
+              <em>Feb 2024 – Feb 2026</em>
             </p>
             <ul>
               <li>
