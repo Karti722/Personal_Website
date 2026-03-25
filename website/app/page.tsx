@@ -52,7 +52,7 @@ export default function HomePage() {
           <p>
             I’m a driven full-stack software developer who
             completed a Bachelor of Science in Computer Science from
-            <a href="https://www.ucsc.edu/"> University of California, Santa Cruz </a>.
+            <a href="https://www.ucsc.edu/"> University of California, Santa Cruz</a>.
             What encourages my drive is turning ideas into
              something real, transforming a idea on paper
               into full applications with tools, experiences, and interfaces
