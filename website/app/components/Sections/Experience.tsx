@@ -233,30 +233,36 @@ export default function Experience() {
           </p>
           <ul>
             <li>
-              Extended Open Energy Dashboard (OED) with features for federal climate
-              analytics compliance.
+              Extended the Open Energy Dashboard (OED) with features supporting federal climate analytics compliance.
             </li>
             <li>
-              Merged{" "}
+              Merged{" "} 
               <a
                 href="https://github.com/OpenEnergyDashboard/OED/pull/1087"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Pull Request #1087
-              </a>{" "}
-              implementing BTU conversion functionality; documented the implementation
-              and testing process in a 12 page{" "}
+              </a>
+              {" "} to implement BTU conversion functionality; documented the implementation and testing process in a 12-page {" "} 
               <a
                 href="https://www.linkedin.com/posts/kartikeya-kumaria_the-significance-of-test-driven-development-activity-7137670733308067841-XKA_"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Linkedin blog post
-              </a>.
+                LinkedIn blog post
+              </a>
+              {" "} (also available as a downloadable {" "} 
+              <a
+                href="files/The Significance of Test Driven Development (TDD).pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                PDF
+              </a>).
             </li>
             <li>
-              Built JavaScript-based conversion engine for CSV energy data.
+              Built a JavaScript-based conversion engine for CSV energy data.
             </li>
             <li>
               Wrote unit and integration tests using Mocha.js.
@@ -265,7 +271,7 @@ export default function Experience() {
               Used Docker and Git for collaborative development and deployment.
             </li>
             <li>
-              Debugged and deployed Node.js features across environments.
+              Debugged and deployed Node.js features across multiple environments.
             </li>
           </ul>
         </div>
