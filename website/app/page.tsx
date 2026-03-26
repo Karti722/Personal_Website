@@ -1,11 +1,58 @@
 "use client";
+import { useState } from "react";
 import Image from "next/image";
 
 export default function HomePage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const navItems = [
+    { label: "About", id: "about" },
+    { label: "Skills", id: "skills" },
+    { label: "Experience", id: "experience" },
+    { label: "Projects", id: "projects" },
+    { label: "Certifications", id: "certifications" },
+    { label: "Resume", id: "resume" },
+  ];
+
+  const handleNavClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <>
+      {/* ===== NAVIGATION BAR ===== */}
+      <nav className="navbar">
+        <div className="nav-container">
+          <a href="#" className="nav-logo">
+            <span>KK</span>
+          </a>
+          
+          <div className={`nav-menu ${menuOpen ? "active" : ""}`}>
+            {navItems.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="nav-link"
+                onClick={handleNavClick}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+
+          <div
+            className={`hamburger ${menuOpen ? "active" : ""}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+
       {/* ===== HEADER ===== */}
-      <header>
+      <header id="header">
         <div className="container">
           <div className="profile-section">
             <Image
@@ -46,7 +93,7 @@ export default function HomePage() {
       </header>
 
       {/* ===== ABOUT ===== */}
-      <section className="summary">
+      <section id="about" className="summary">
         <div className="container">
           <h2>About Me</h2>
           <p>
@@ -72,7 +119,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== SKILLS ===== */}
-      <section className="skills">
+      <section id="skills" className="skills">
         <div className="container">
           <h2>Skills</h2>
           <ul>
@@ -86,7 +133,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== EXPERIENCE ===== */}
-      <section className="experience">
+      <section id="experience" className="experience">
       <div className="container">
         <h2>Experience</h2>
 
@@ -297,7 +344,7 @@ export default function HomePage() {
 
 
     {/* ===== PROJECTS ===== */}
-    <section className="projects">
+    <section id="projects" className="projects">
       <div className="container">
         <h2>Projects</h2>
 
@@ -614,7 +661,7 @@ export default function HomePage() {
     </section>
 
       {/* ===== CERTIFICATIONS ===== */}
-      <section className="certifications">
+      <section id="certifications" className="certifications">
         <div className="container">
           <h2>Licenses & Certifications</h2>
 
@@ -678,7 +725,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== RESUME ===== */}
-      <section className="resume">
+      <section id="resume" className="resume">
         <div className="container">
           <h2>Resume</h2>
           <div className="resume-container">

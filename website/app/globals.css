@@ -821,8 +821,239 @@ footer {
   .certification:nth-child(4) { animation-delay: 0.4s; }
 }
 
+/* ===== NAVIGATION BAR STYLES ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--section-bg);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--section-border-color);
+  scroll-behavior: smooth;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 70px;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: var(--accent-gradient);
+  color: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-gradient);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--link-color);
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 0.4rem;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: var(--accent-strong);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(9px, 9px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* Add padding to body to account for fixed navbar */
+body {
+  scroll-behavior: smooth;
+  padding-top: 70px;
+}
+
+/* Adjust header to account for navbar */
+header {
+  margin-top: 0 !important;
+  scroll-margin-top: 70px;
+}
+
+/* Scroll margin for all sections for smooth scrolling */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Mobile responsive navigation */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 1.5rem;
+  }
+
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background: var(--section-bg);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    padding: 2rem 0;
+    gap: 0;
+    border-bottom: 1px solid var(--section-border-color);
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .nav-link:hover {
+    background: rgba(102, 126, 234, 0.15);
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-logo {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+
+  body {
+    padding-top: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    height: 60px;
+    padding: 0 1rem;
+  }
+
+  .navbar {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .nav-menu {
+    top: 60px;
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .nav-logo {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .hamburger span {
+    width: 24px;
+    height: 2.5px;
+  }
+
+  body {
+    padding-top: 60px;
+  }
+
+  section {
+    scroll-margin-top: 65px;
+  }
+}
+
 /* Print styles */
 @media print {
+  .navbar {
+    display: none;
+  }
+
+  body {
+    padding-top: 0;
+  }
+
   body {
     background: white;
     color: black;

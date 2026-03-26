@@ -178,9 +178,10 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
         /* Container: pill background that holds two circular buttons */
         .theme-toggle {
           position: fixed;
-          right: 1rem;
-          top: 1rem;
-          z-index: 9999;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: 1rem;
+          z-index: 1001;
           display: inline-flex;
           gap: 0.45rem;
           align-items: center;
@@ -244,16 +245,16 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
 
         .theme-btn:hover { opacity: 0.98; transform: translateY(-1px); }
 
-        /* Mobile: move to bottom-right and increase touch targets for comfortable taps */
+        /* Mobile: keep aligned at bottom center */
         @media (max-width:600px) {
-          .theme-toggle { top: auto; bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); right: 1rem; padding: 0.32rem; gap: 0.5rem; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+          .theme-toggle { bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%); padding: 0.32rem; gap: 0.5rem; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
           /* increase to recommended 44-56px touch target; pick 56px for better ergonomics */
           .theme-btn { width: 56px; height: 56px; min-width: 56px; min-height: 56px; font-size: 0.9rem }
         }
 
-        /* Very small screens: center at bottom to avoid overlapping content; respect iPhone safe area */
+        /* Very small screens: keep centered at bottom */
         @media (max-width: 420px) {
-          .theme-toggle { left: 50%; right: auto; transform: translateX(-50%); bottom: calc(0.9rem + env(safe-area-inset-bottom, 0px)); }
+          .theme-toggle { left: 50%; transform: translateX(-50%); bottom: calc(0.9rem + env(safe-area-inset-bottom, 0px)); }
         }
       `}</style>
     </>
