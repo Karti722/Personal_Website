@@ -218,6 +218,9 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
           font-weight: 700;
           font-size: 0.82rem;
           line-height: 1;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
           transition: transform 160ms ease, box-shadow 200ms ease, background 180ms ease, color 160ms ease;
           -webkit-user-select: none;
         }
@@ -255,11 +258,11 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
           max-width: min(220px, calc(100vw - 2.5rem));
           border-radius: 999px;
           padding: 0 1rem;
-          white-space: normal;
+          white-space: nowrap;
           text-align: center;
           line-height: 1.05;
-          overflow-wrap: anywhere;
-          word-break: break-word;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         .theme-btn:hover { opacity: 0.98; transform: translateY(-1px); }
@@ -267,11 +270,31 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
 
         /* Very small screens: keep centered at bottom */
         @media (max-width: 420px) {
-          .theme-toggle { left: 50%; transform: translateX(-50%); bottom: calc(0.9rem + env(safe-area-inset-bottom, 0px)); }
+          .theme-toggle {
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: calc(0.9rem + env(safe-area-inset-bottom, 0px));
+            gap: 0.28rem;
+            padding: 0.3rem;
+            width: auto;
+            max-width: calc(100vw - 0.8rem);
+          }
+          .theme-btn {
+            width: auto;
+            min-width: 70px;
+            max-width: 40vw;
+            height: 50px;
+            min-height: 50px;
+            border-radius: 999px;
+            padding: 0 0.72rem;
+            font-size: 0.72rem;
+            line-height: 1;
+          }
           .theme-default-btn {
-            max-width: min(190px, calc(100vw - 2rem));
+            min-width: 96px;
+            max-width: 46vw;
             padding: 0 0.8rem;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
           }
         }
       `}</style>
