@@ -5,7 +5,7 @@ export default function Experience() {
     <section id="experience" className="experience">
       <div className="container">
         <h2>Experience</h2>
-
+        
         {/* REDMINDS */}
         <div className="job">
           <h3>
@@ -22,10 +22,25 @@ export default function Experience() {
             <em>Jan 2026 – Present</em>
           </p>
           <ul>
-            <li>Full stack IRO development.</li>
             <li>
-              Tech stack: React.js, TypeScript, Node.js, Express, GCP, Sequelize,
-              Bootstrap, and PostgreSQL.
+              Developed and shipped full-stack features for a production case management
+              platform using React, TypeScript, Node.js, Express, PostgreSQL, and Sequelize,
+              improving workflow efficiency for internal users.
+            </li>
+            <li>
+              Designed, implemented, and updated RESTful APIs and database schema migrations,
+              enabling reliable data flow between frontend and backend systems and maintaining
+              data integrity.
+            </li>
+            <li>
+              Built and enhanced reusable React components with dynamic form logic,
+              validation, and responsive UI patterns, improving usability and supporting
+              complex multi-step workflows.
+            </li>
+            <li>
+              Debugged and resolved cross-stack issues across frontend and backend systems,
+              contributing to feature reliability and collaborating in an agile team with
+              code reviews, sprint planning, and GCP deployments.
             </li>
           </ul>
         </div>
