@@ -3,8 +3,31 @@
 export default function Certifications() {
   return (
     <section id="certifications" className="certifications">
+      
       <div className="container">
         <h2>Licenses & Certifications</h2>
+
+        <div className="certification">
+          <h3>PACR Internship Certificate of Completion</h3>
+          <p>
+            <strong>Issuer:</strong> PACR, Corp. |{" "}
+            <strong>Issued:</strong> Dec 2025
+          </p>
+          <p>
+            <strong>Role:</strong> Fullstack Development Intern
+          </p>
+          <p>
+            <strong>Skills:</strong> React, Next.js, Frontend Development, Form Validation,
+            Functional Programming
+          </p>
+          <a
+            href="/files/PACR_Certificate_of_Completion_Mr.Kumaria.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Show credential
+          </a>
+        </div>
 
         <div className="certification">
           <h3>WEB 101 - Intro to Web Development</h3>
@@ -32,7 +55,7 @@ export default function Certifications() {
             Postman, Leadership
           </p>
           <a
-            href="https://drive.google.com/file/d/1eLSAd0xzImy1HpPkSSetRVlh00CbomWn/view"
+            href="/files/SkyIT_Kartikeya Kumaria_Certificate.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
