@@ -65,6 +65,47 @@ export default function Experience() {
           </ul>
         </div>
 
+        {/* PACR */}
+        <div className="job">
+          <h3>
+            Full Stack Developer Intern @{" "}
+            <a
+              href="https://pacr.co/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              PACR
+            </a>
+          </h3>
+          <p>
+            <em>Jul 2025 – Dec 2025</em>
+          </p>
+          <ul>
+            <li>
+              Integrated backend Search API into 10+ frontend components using
+              Next.js and React, enabling real-time loading and SEO-optimized
+              filtering that improved user engagement by 25% and reduced average
+              query latency by 35%.
+            </li>
+            <li>
+              Developed and documented 8+ React-based pages, including login,
+              registration, profile, and research search experiences, improving
+              frontend feature coverage and streamlining user onboarding flows.
+            </li>
+            <li>
+              Implemented authentication persistence for concurrent user sessions,
+              fetched user profile photos, and built loading states for async
+              search results, improving session reliability and overall user
+              experience.
+            </li>
+            <li>
+              Automated environment setup, linting, and CI workflows with Node.js,
+              MongoDB, Docker, and AWS, reducing onboarding time for new
+              developers by 50%.
+            </li>
+          </ul>
+        </div>
+
         {/* CRUZHACKS */}
         <div className="job">
           <h3>
