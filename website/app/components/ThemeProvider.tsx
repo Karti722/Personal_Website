@@ -119,7 +119,10 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
         if (c.startsWith("theme-")) el.classList.remove(c);
       });
 
-      if (mobile || isDefault) {
+      if (mobile) {
+        el.classList.add("theme-day-light");
+      }
+      else if (isDefault) {
         el.classList.add("theme-default");
       } else {
         const cls = `theme-${mode}-${variant}`;
