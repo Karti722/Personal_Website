@@ -183,8 +183,11 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
           bottom: 1rem;
           z-index: 1001;
           display: inline-flex;
+          width: auto;
+          max-width: calc(100vw - 1rem);
           gap: 0.45rem;
           align-items: center;
+          justify-content: center;
           background: var(--toggle-bg);
           padding: 0.35rem;
           border-radius: 999px;
@@ -192,6 +195,8 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
           border: 1px solid var(--toggle-border);
           box-shadow: var(--toggle-shadow);
           -webkit-tap-highlight-color: transparent;
+          white-space: nowrap;
+          flex-wrap: nowrap;
         }
 
         /* Circular buttons: accessible touch targets */
@@ -200,6 +205,7 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
           height: 55px;
           min-width: 55px;
           min-height: 55px;
+          flex: 0 0 auto;
           display: inline-flex;
           align-items: center;
           justify-content: center;
@@ -243,12 +249,30 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
           box-shadow: 0 6px 18px rgba(0,0,0,0.08);
         }
 
+        .theme-default-btn {
+          width: auto;
+          min-width: 55px;
+          max-width: min(220px, calc(100vw - 2.5rem));
+          border-radius: 999px;
+          padding: 0 1rem;
+          white-space: normal;
+          text-align: center;
+          line-height: 1.05;
+          overflow-wrap: anywhere;
+          word-break: break-word;
+        }
+
         .theme-btn:hover { opacity: 0.98; transform: translateY(-1px); }
 
 
         /* Very small screens: keep centered at bottom */
         @media (max-width: 420px) {
           .theme-toggle { left: 50%; transform: translateX(-50%); bottom: calc(0.9rem + env(safe-area-inset-bottom, 0px)); }
+          .theme-default-btn {
+            max-width: min(190px, calc(100vw - 2rem));
+            padding: 0 0.8rem;
+            font-size: 0.75rem;
+          }
         }
       `}</style>
     </>
