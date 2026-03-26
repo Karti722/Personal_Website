@@ -245,12 +245,6 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
 
         .theme-btn:hover { opacity: 0.98; transform: translateY(-1px); }
 
-        /* Mobile: keep aligned at bottom center */
-        @media (max-width:600px) {
-          .theme-toggle { bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%); padding: 0.32rem; gap: 0.5rem; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
-          /* increase to recommended 44-56px touch target; pick 56px for better ergonomics */
-          .theme-btn { width: 56px; height: 56px; min-width: 56px; min-height: 56px; font-size: 0.9rem }
-        }
 
         /* Very small screens: keep centered at bottom */
         @media (max-width: 420px) {
