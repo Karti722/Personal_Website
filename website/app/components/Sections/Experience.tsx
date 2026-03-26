@@ -6,6 +6,30 @@ export default function Experience() {
       <div className="container">
         <h2>Experience</h2>
 
+        {/* REDMINDS */}
+        <div className="job">
+          <h3>
+            AI Enabler Apprentice @{" "}
+            <a
+              href="https://rediminds.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Redminds
+            </a>
+          </h3>
+          <p>
+            <em>Jan 2026 – Present</em>
+          </p>
+          <ul>
+            <li>Full stack IRO development.</li>
+            <li>
+              Tech stack: React.js, TypeScript, Node.js, Express, GCP, Sequelize,
+              Bootstrap, and PostgreSQL.
+            </li>
+          </ul>
+        </div>
+
         {/* UCSC BLUEPRINT */}
         <div className="job">
           <h3>
