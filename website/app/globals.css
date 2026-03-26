@@ -45,6 +45,9 @@ body {
   --link-color: #667eea;
   --card-bg: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   --skill-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --skill-text: #ffffff;
+  --skill-border: rgba(255, 255, 255, 0.18);
+  --skill-hover-shadow: rgba(102, 126, 234, 0.35);
 }
 
 /* Day - Light */
@@ -59,6 +62,9 @@ body {
   --link-color: #2563eb;
   --card-bg: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   --skill-bg: linear-gradient(135deg, #60a5fa 0%, #7c3aed 100%);
+  --skill-text: #ffffff;
+  --skill-border: rgba(255, 255, 255, 0.2);
+  --skill-hover-shadow: rgba(96, 165, 250, 0.35);
 }
 
 /* Day - Dark (higher contrast accent, but still 'day' background) */
@@ -86,6 +92,9 @@ body {
   --section-border-color: rgba(255,255,255,0.06);
   --card-accent-gradient: linear-gradient(180deg, #60a5fa, #7c3aed);
   --card-accent-glow: rgba(96,165,250,0.12);
+  --skill-text: #f8fbff;
+  --skill-border: rgba(147, 197, 253, 0.24);
+  --skill-hover-shadow: rgba(96, 165, 250, 0.28);
 }
 
 /* Night - Light (darker, muted night background but lighter content) */
@@ -114,6 +123,9 @@ body {
   --section-border-color: rgba(255,255,255,0.02);
   --card-accent-gradient: linear-gradient(180deg, #4f46e5, #06b6d4);
   --card-accent-glow: rgba(79,70,229,0.14);
+  --skill-text: #eaf5ff;
+  --skill-border: rgba(125, 211, 252, 0.2);
+  --skill-hover-shadow: rgba(79, 70, 229, 0.24);
 }
 
 /* Night - Dark (true dark mode) */
@@ -141,6 +153,9 @@ body {
   --section-border-color: rgba(255,255,255,0.02);
   --card-accent-gradient: linear-gradient(180deg, #4f46e5, #06b6d4);
   --card-accent-glow: rgba(79,70,229,0.18);
+  --skill-text: #e9f2ff;
+  --skill-border: rgba(96, 165, 250, 0.22);
+  --skill-hover-shadow: rgba(79, 70, 229, 0.3);
 }
 
 /* Project original / Default theme - distinct from the day/night variants */
@@ -169,7 +184,10 @@ body {
   --text-color: #3b3b33;
   --link-color: #b45309;
   --card-bg: linear-gradient(135deg, #fffdf8 0%, #fff6ef 100%);
-  --skill-bg: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+  --skill-bg: linear-gradient(135deg, #f2d38b 0%, #e8b777 100%);
+  --skill-text: #ffffffdc;
+  --skill-border: rgba(120, 53, 15, 0.16);
+  --skill-hover-shadow: rgba(180, 83, 9, 0.3);
 }
 
 .container {
@@ -280,22 +298,30 @@ h2::after {
 .skills ul {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.1rem;
   padding: 0;
+  align-items: stretch;
 }
 
 .skills li {
   background: var(--skill-bg);
-  color: var(--card-text, white);
-  padding: 1rem 1.5rem;
+  color: var(--skill-text, #1f2937);
+  border: 1px solid var(--skill-border, rgba(0, 0, 0, 0.08));
+  min-height: 82px;
+  padding: 1.1rem 1.25rem;
   border-radius: 12px;
-  font-weight: 600;
+  font-size: 1.18rem;
+  font-weight: 700;
+  line-height: 1.35;
   text-align: center;
   box-shadow: var(--skill-shadow, 0 4px 15px rgba(102, 126, 234, 0.3));
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .skills li::before {
@@ -311,7 +337,7 @@ h2::after {
 
 .skills li:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 12px 28px var(--skill-hover-shadow, rgba(102, 126, 234, 0.35));
 }
 
 .skills li:hover::before {
