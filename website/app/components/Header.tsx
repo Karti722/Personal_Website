@@ -14,10 +14,8 @@ export default function Header() {
             width={150}
             height={150}
           />
-
           <div className="profile-info">
             <h1 style={{ color: "white" }}>Kartikeya Kumaria</h1>
-
             <p style={{ color: "white" }}>
               Reach out to me at{" "}
               <a
@@ -27,7 +25,6 @@ export default function Header() {
                 kartikeyaku@gmail.com
               </a>
             </p>
-
             <p style={{ color: "white" }}>
               <a
                 href="https://linkedin.com/in/kartikeya-kumaria"

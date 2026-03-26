@@ -19,7 +19,7 @@ export default function Resume() {
               target="_blank"
               className="resume-btn view-btn"
             >
-              <span>👁️</span> View Full Screen
+              <span>👁️👁️</span> View Full Screen
             </a>
           </div>
           <div className="resume-embed">

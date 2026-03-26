@@ -13,8 +13,8 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  // Use a client-side pre-hydration script to set theme quickly. It will look for a cookie first, then localStorage,
-  // then prefers-color-scheme, then local time. This avoids flash of wrong theme while keeping server code simple.
+  /* Use a client-side pre-hydration script to set theme quickly. It will look for a cookie first, then localStorage,
+  then prefers-color-scheme, then local time. This avoids flash of wrong theme while keeping server code simple. */
   return (
     <html lang="en">
       <body>
@@ -50,7 +50,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             })();`,
           }}
         />
-
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
