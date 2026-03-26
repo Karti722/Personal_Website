@@ -760,8 +760,6 @@ export default function HomePage() {
       {/* ===== FOOTER ===== */}
       <footer>
         <div className="container">
-          <p>
-            © 2026 Kartikeya Kumaria | {" "}
             <a
               href="https://github.com/Karti722/Personal_Website"
               target="_blank"
@@ -769,7 +767,6 @@ export default function HomePage() {
             >
             Website Source Code
             </a>
-          </p>
         </div>
       </footer>
     </>
