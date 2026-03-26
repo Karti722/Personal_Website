@@ -170,7 +170,7 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
           onClick={toggleDefault}
           title={isDefault ? 'Undo default theme' : 'Use default theme'}
         >
-          {isDefault ? 'Untoggle Default' : 'Toggle Default'}
+          {isDefault ? 'Untoggle Default' : 'Default'}
         </button>
       </div>
 
