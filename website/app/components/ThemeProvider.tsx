@@ -271,20 +271,14 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
         /* Very small screens: keep centered at bottom */
         @media (max-width: 420px) {
           .theme-toggle {
-            left: 50%;
-            transform: translateX(-50%);
             bottom: calc(0.9rem + env(safe-area-inset-bottom, 0px));
             gap: 0.34rem;
-            padding: 0.34rem;
-            width: auto;
           }
           .theme-btn {
-            width: auto;
             min-width: 76px;
             height: 50px;
             min-height: 50px;
             border-radius: 999px;
-            padding: 0 0.86rem;
             font-size: 0.72rem;
             line-height: 1;
           }
