@@ -1,97 +1,14 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 export default function HomePage() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const navItems = [
-    { label: "About", id: "about" },
-    { label: "Skills", id: "skills" },
-    { label: "Experience", id: "experience" },
-    { label: "Projects", id: "projects" },
-    { label: "Certifications", id: "certifications" },
-    { label: "Resume", id: "resume" },
-  ];
-
-  const handleNavClick = () => {
-    setMenuOpen(false);
-  };
-
   return (
     <>
-      {/* ===== NAVIGATION BAR ===== */}
-      <nav className="navbar">
-        <div className="nav-container">
-          <a href="#" className="nav-logo">
-            <span>KK</span>
-          </a>
-          
-          <div className={`nav-menu ${menuOpen ? "active" : ""}`}>
-            {navItems.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className="nav-link"
-                onClick={handleNavClick}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-
-          <div
-            className={`hamburger ${menuOpen ? "active" : ""}`}
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-      </nav>
-
-      {/* ===== HEADER ===== */}
-      <header id="header">
-        <div className="container">
-          <div className="profile-section">
-            <Image
-              src="/photos/karti.png"
-              alt="Kartikeya Kumaria Profile Photo"
-              className="profile-photo"
-              width={150}
-              height={150}
-            />
-            <div className="profile-info">
-              <h1 style={{ color: "white" }}>Kartikeya Kumaria</h1>
-              <p style={{ color: "white" }}>
-                Reach out to me at
-                <a href="mailto:kartikeyaku@gmail.com" style={{ color: "white" }}>
-                  kartikeyaku@gmail.com
-                </a>
-              </p>
-              <p style={{ color: "white" }}>
-                <a
-                  href="https://linkedin.com/in/kartikeya-kumaria"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn 
-                </a>{" "}
-                |{" "}
-                <a
-                  href="https://github.com/karti722"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </header>
-
+      <Navbar />
+      <Header />
       {/* ===== ABOUT ===== */}
       <section id="about" className="summary">
         <div className="container">
@@ -758,17 +675,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== FOOTER ===== */}
-      <footer>
-        <div className="container">
-            <a
-              href="https://github.com/Karti722/Personal_Website"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-            Website Source Code
-            </a>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
