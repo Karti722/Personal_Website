@@ -274,25 +274,25 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
             left: 50%;
             transform: translateX(-50%);
             bottom: calc(0.9rem + env(safe-area-inset-bottom, 0px));
-            gap: 0.28rem;
-            padding: 0.3rem;
+            gap: 0.34rem;
+            padding: 0.34rem;
             width: auto;
-            max-width: calc(100vw - 0.8rem);
+            max-width: calc(100vw - 0.2rem);
           }
           .theme-btn {
             width: auto;
-            min-width: 70px;
-            max-width: 40vw;
+            min-width: 76px;
+            max-width: 42vw;
             height: 50px;
             min-height: 50px;
             border-radius: 999px;
-            padding: 0 0.72rem;
+            padding: 0 0.86rem;
             font-size: 0.72rem;
             line-height: 1;
           }
           .theme-default-btn {
             min-width: 96px;
-            max-width: 46vw;
+            max-width: 52vw;
             padding: 0 0.8rem;
             font-size: 0.72rem;
           }
