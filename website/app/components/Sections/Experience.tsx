@@ -245,7 +245,15 @@ export default function Experience() {
               >
                 Pull Request #1087
               </a>{" "}
-              implementing BTU conversion functionality.
+              implementing BTU conversion functionality; documented the implementation
+              and testing process in a 12 page{" "}
+              <a
+                href="https://www.linkedin.com/posts/kartikeya-kumaria_the-significance-of-test-driven-development-activity-7137670733308067841-XKA_"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Linkedin blog post
+              </a>.
             </li>
             <li>
               Built JavaScript-based conversion engine for CSV energy data.
