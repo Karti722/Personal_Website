@@ -252,7 +252,7 @@ export default function Experience() {
               >
                 LinkedIn blog post
               </a>
-              {" "} (also available as a downloadable {" "} 
+              {" "} (also available as a {" "} 
               <a
                 href="files/The Significance of Test Driven Development (TDD).pdf"
                 target="_blank"
