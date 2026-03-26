@@ -17,7 +17,7 @@ export default function Header() {
           <div className="profile-info">
             <h1 style={{ color: "white" }}>Kartikeya Kumaria</h1>
             <p style={{ color: "white" }}>
-              Reach out to me at{" "}
+              Reach out to me at
               <a
                 href="mailto:kartikeyaku@gmail.com"
                 style={{ color: "white" }}
