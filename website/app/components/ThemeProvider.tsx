@@ -277,7 +277,7 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
             gap: 0.34rem;
             padding: 0.34rem;
             width: auto;
-            max-width: calc(100vw - 0.2rem);
+            max-width: calc(100vw);
           }
           .theme-btn {
             width: auto;
