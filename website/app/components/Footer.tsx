@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-    <footer id="notes">
+    <footer id="more-info">
       <div className="container">
         <p className="footer-note">
           Note: Theme toggling is available on desktop and laptop.
@@ -13,7 +13,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Portfolio Codebase 
+          Here is the Portfolio Codebase 
         </a>
       </div>
     </footer>

@@ -12,7 +12,7 @@ export default function Navbar() {
     { label: "Projects", id: "projects" },
     { label: "Certifications", id: "certifications" },
     { label: "Resume", id: "resume" },
-    { label: "Notes", id: "notes" },
+    { label: "More Info", id: "more-info" },
   ];
 
   const handleNavClick = () => {
