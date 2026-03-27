@@ -14,3 +14,7 @@ Using Typescript + Next.js + Vercel.
 2) Full-Stack Developer
 3) Front-End Developer
 4) Back-End Developer.
+
+## Notes
+- Theme toggling is available on desktop and laptop.
+- It is intentionally disabled on mobile to keep the interface uncluttered.
