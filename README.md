@@ -7,7 +7,7 @@ Using Typescript + Next.js + Vercel.
 ## Personal info
 1) LinkedIn: [Kartikeya Kumaria](https://www.linkedin.com/in/kartikeya-kumaria/)
 2) Email: [kartikeyaku@gmail.com](mailto:kartikeyaku@gmail.com)
-3) Live site: https://kartikeyakumaria.vercel.app/
+3) Live site: [Live Demo](https://kartikeyakumaria.vercel.app/)
 
 ## Roles I fulfilled:
 1) Software Developer
