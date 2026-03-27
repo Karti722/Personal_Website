@@ -499,6 +499,18 @@ footer {
   background: var(--header-gradient);
 }
 
+.footer-note {
+  margin: 0 auto 1rem;
+  max-width: 760px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.9rem, 0.8rem + 0.25vw, 1rem);
+  line-height: 1.5;
+  padding: 0.45rem 0.75rem;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
 /* Profile section styles */
 .profile-section {
   display: flex;
