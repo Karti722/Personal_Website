@@ -1,5 +1,5 @@
 # My Personal Website
-This is a deployed web application showcasing my software development milestones - Kartikeya Kumaria  
+This is a portfolio showcasing my software development milestones - Kartikeya Kumaria  
 
 # Tech Stack
 Using Typescript + Next.js + Vercel.
