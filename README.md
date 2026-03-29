@@ -1,5 +1,5 @@
-# My Name
-**Kartikeya Kumaria**
+# Author
+Kartikeya Kumaria
 
 # Website Info
 This repository contains the complete codebase for my personal portfolio website.
