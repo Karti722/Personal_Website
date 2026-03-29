@@ -21,7 +21,7 @@ export default function Resume() {
               target="_blank"
               className={`${styles.resumeBtn} ${styles.viewBtn}`}
             >
-              <span>👁️👁️</span> View Full Screen
+              <span>👀</span> View Full Screen
             </a>
           </div>
           <div className={styles.resumeEmbed}>
