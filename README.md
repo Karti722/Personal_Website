@@ -1,8 +1,9 @@
-# Name
+# My Name
 Kartikeya Kumaria
 
-# What Is This Website?
-This is a portfolio / personal-website that showcases all my milestones.
+# Website Info
+This is the entire codebase for my portfolio / personal-website.
+This website is meant as a showcase for all my software dev milestones.
 
 # Tech Stack
 Using Typescript + Next.js + Vercel.
