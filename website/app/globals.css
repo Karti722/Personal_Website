@@ -63,6 +63,26 @@ body {
   --font-family-base: 'JetBrains Mono', 'Consolas', 'Menlo', monospace;
 }
 
+.font-modern {
+  --font-family-base: 'Trebuchet MS', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.font-reading {
+  --font-family-base: 'Palatino Linotype', 'Book Antiqua', Palatino, 'Times New Roman', serif;
+}
+
+.font-rounded {
+  --font-family-base: 'Arial Rounded MT Bold', 'Trebuchet MS', 'Segoe UI', sans-serif;
+}
+
+.font-typewriter {
+  --font-family-base: 'Courier New', 'Lucida Console', Consolas, monospace;
+}
+
+.font-classic {
+  --font-family-base: Garamond, Baskerville, 'Times New Roman', serif;
+}
+
 /* Day - Light */
 .theme-day-light {
   --bg-gradient: linear-gradient(135deg, #e6f0ff 0%, #f0e7ff 100%);

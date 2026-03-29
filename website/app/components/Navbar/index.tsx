@@ -22,6 +22,11 @@ export default function Navbar() {
   const fontLabel = useMemo(() => {
     if (fontChoice === "serif") return "Serif";
     if (fontChoice === "mono") return "Mono";
+    if (fontChoice === "modern") return "Modern";
+    if (fontChoice === "reading") return "Reading";
+    if (fontChoice === "rounded") return "Rounded";
+    if (fontChoice === "typewriter") return "Typewriter";
+    if (fontChoice === "classic") return "Classic";
     return "System";
   }, [fontChoice]);
 

@@ -4,14 +4,25 @@ import React, {
   createContext,
   useContext,
   useEffect,
-  useMemo,
   useRef,
   useState,
 } from "react";
 
 type Mode = "day" | "night";
 type Variant = "light" | "dark";
-type FontChoice = "system" | "serif" | "mono";
+
+const FONT_CHOICES = [
+  "system",
+  "serif",
+  "mono",
+  "modern",
+  "reading",
+  "rounded",
+  "typewriter",
+  "classic",
+] as const;
+
+type FontChoice = (typeof FONT_CHOICES)[number];
 
 const LS_KEY = "site-theme";
 const FONT_KEY = "site-font";
@@ -40,7 +51,7 @@ export const useSiteSettings = () => {
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
   const DAY_START = 6;
   const DAY_END = 19;
-  const fontOrder: FontChoice[] = ["system", "serif", "mono"];
+  const fontOrder: FontChoice[] = [...FONT_CHOICES];
 
   const readStored = () => {
     if (typeof window === "undefined") return null;
@@ -124,8 +135,8 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
   const [fontChoice, setFontChoice] = useState<FontChoice>(() => {
     if (typeof window === "undefined") return "system";
     const stored = localStorage.getItem(FONT_KEY);
-    if (stored === "system" || stored === "serif" || stored === "mono") {
-      return stored;
+    if (stored && fontOrder.includes(stored as FontChoice)) {
+      return stored as FontChoice;
     }
     return "system";
   });
@@ -216,19 +227,16 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     });
   };
 
-  const contextValue = useMemo<SiteSettingsContextValue>(
-    () => ({
-      isDefault,
-      mode,
-      variant,
-      toggleTheme,
-      toggleMode,
-      toggleDefault,
-      fontChoice,
-      cycleFont,
-    }),
-    [isDefault, mode, variant, fontChoice]
-  );
+  const contextValue: SiteSettingsContextValue = {
+    isDefault,
+    mode,
+    variant,
+    toggleTheme,
+    toggleMode,
+    toggleDefault,
+    fontChoice,
+    cycleFont,
+  };
 
   return (
     <SiteSettingsContext.Provider value={contextValue}>
