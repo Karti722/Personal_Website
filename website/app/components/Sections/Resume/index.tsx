@@ -19,7 +19,7 @@ export default function Resume() {
           </div>
           <div className={styles.resumeEmbed}>
             <iframe
-              src="/files/Kartikeya_Resume.pdf#toolbar=1&navpanes=0&zoom=0"
+              src="/PDFs/Kartikeya_Resume.pdf#toolbar=1&navpanes=0&zoom=0"
               title="Kartikeya Kumaria Resume"
               width="100%"
               height="600"

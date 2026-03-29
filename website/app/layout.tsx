@@ -7,8 +7,8 @@ export const metadata = {
   title: "Kartikeya Kumaria Portfolio",
   description: "Personal portfolio website built with Next.js and TypeScript",
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
+    icon: 'SVGs/favicon.svg',
+    shortcut: 'SVGs/favicon.svg',
   },
 };
 

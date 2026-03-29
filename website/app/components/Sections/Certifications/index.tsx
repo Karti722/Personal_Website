@@ -23,7 +23,7 @@ export default function Certifications() {
             Functional Programming
           </p>
           <a
-            href="/files/PACR_Certificate_of_Completion_Mr.Kumaria.pdf"
+            href="/PDFs/PACR_Certificate_of_Completion_Mr.Kumaria.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -57,7 +57,7 @@ export default function Certifications() {
             Postman, Leadership
           </p>
           <a
-            href="/files/SkyIT_Kartikeya Kumaria_Certificate.pdf"
+            href="/PDFs/SkyIT_Kartikeya Kumaria_Certificate.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
