@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-family: var(--font-family-base);
   /* theme-aware variables control background & color */
   background: var(--bg-gradient);
   background-attachment: fixed;
@@ -19,6 +19,7 @@ body {
 
 /* Theme variables: default to day-light */
 :root {
+  --font-family-base: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   --bg-gradient: linear-gradient(135deg, #192332 0%, #f0e7ff 100%);
   --header-gradient: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
   --section-bg: rgba(255, 255, 255, 0.95);
@@ -48,6 +49,18 @@ body {
   --skill-text: #ffffff;
   --skill-border: rgba(255, 255, 255, 0.18);
   --skill-hover-shadow: rgba(102, 126, 234, 0.35);
+}
+
+.font-system {
+  --font-family-base: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+.font-serif {
+  --font-family-base: 'Merriweather', 'Georgia', 'Times New Roman', serif;
+}
+
+.font-mono {
+  --font-family-base: 'JetBrains Mono', 'Consolas', 'Menlo', monospace;
 }
 
 /* Day - Light */
@@ -1017,6 +1030,83 @@ footer {
   gap: 0.4rem;
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+}
+
+.settings-btn {
+  border: 1px solid var(--section-border-color);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-color);
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.settings-btn:hover,
+.settings-btn.active {
+  background: rgba(102, 126, 234, 0.16);
+  transform: translateY(-1px);
+}
+
+.settings-menu {
+  position: absolute;
+  top: calc(100% + 0.8rem);
+  right: 0;
+  min-width: 220px;
+  padding: 0.8rem;
+  border-radius: 14px;
+  background: var(--section-bg);
+  box-shadow: var(--box-shadow-strong);
+  border: 1px solid var(--section-border-color);
+  display: none;
+  z-index: 1200;
+}
+
+.settings-menu.open {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.settings-label {
+  color: var(--muted-color);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.settings-toggle {
+  min-width: 92px;
+  border: 1px solid var(--section-border-color);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-color);
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.settings-toggle:hover,
+.settings-toggle.on {
+  background: var(--accent-gradient);
+  color: #fff;
+  border-color: transparent;
+}
+
 .hamburger span {
   width: 28px;
   height: 3px;
@@ -1073,6 +1163,7 @@ section {
     padding: 2rem 0;
     gap: 0;
     border-bottom: 1px solid var(--section-border-color);
+    z-index: 1050;
   }
 
   .nav-menu.active {
@@ -1099,6 +1190,12 @@ section {
     display: flex;
   }
 
+  .settings-menu {
+    right: 0;
+    width: min(86vw, 280px);
+    top: calc(100% + 0.6rem);
+  }
+
   .nav-logo {
     width: 45px;
     height: 45px;
@@ -1114,6 +1211,19 @@ section {
   .nav-container {
     height: 60px;
     padding: 0 1rem;
+  }
+
+  .nav-actions {
+    gap: 0.55rem;
+  }
+
+  .settings-btn {
+    padding: 0.38rem 0.7rem;
+    font-size: 0.78rem;
+  }
+
+  .settings-menu {
+    width: min(90vw, 250px);
   }
 
   .navbar {
