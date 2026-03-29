@@ -1,9 +1,9 @@
 # My Name
-Kartikeya Kumaria
+**Kartikeya Kumaria**
 
 # Website Info
-This is the entire codebase for my portfolio / personal-website.
-This website is meant as a showcase for all my software dev milestones.
+This repository contains the complete codebase for my personal portfolio website.
+It is designed to showcase my software development milestones.
 
 # Tech Stack
 Using Typescript + Next.js + Vercel.
