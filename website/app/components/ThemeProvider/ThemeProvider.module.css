@@ -29,6 +29,9 @@
   --card-accent-gradient: linear-gradient(180deg, #667eea, #764ba2);
   --card-accent-glow: rgba(102, 126, 234, 0.12);
   --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --success-border: rgba(255, 255, 255, 0.35);
+  --success-glow: rgba(16, 185, 129, 0.38);
+  --success-glow-strong: rgba(16, 185, 129, 0.5);
 }
 
 :global(.font-system) { --font-family-base: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif; }
@@ -111,11 +114,16 @@
   --section-bg: rgba(15, 10, 40, 0.95);
   --accent-gradient: linear-gradient(90deg, #ec4899, #7c3aed);
   --accent-strong: #ec4899;
-  --text-color: #e9d5ff;
+  --text-color: #d7cdf5;
+  --muted-color: #9d8fc6;
   --link-color: #ec4899;
   --card-bg: linear-gradient(135deg, #4c1d95 0%, #581c87 100%);
   --skill-bg: linear-gradient(135deg, #ec4899 0%, #7c3aed 100%);
   --skill-hover-shadow: rgba(236, 72, 153, 0.4);
+  --success-gradient: linear-gradient(135deg, #22d3ee 0%, #7c3aed 56%, #ec4899 100%);
+  --success-border: rgba(236, 72, 153, 0.46);
+  --success-glow: rgba(168, 85, 247, 0.42);
+  --success-glow-strong: rgba(236, 72, 153, 0.52);
 }
 
 :global(.theme-vintage) {
