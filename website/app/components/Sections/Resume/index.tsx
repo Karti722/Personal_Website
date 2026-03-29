@@ -10,13 +10,6 @@ export default function Resume() {
         <div className={styles.resumeContainer}>
           <div className={styles.resumeActions}>
             <a
-              href="/files/Kartikeya_Resume.pdf"
-              target="_blank"
-              className={`${styles.resumeBtn} ${styles.downloadBtn}`}
-            >
-              <span>📄</span> Download Resume
-            </a>
-            <a
               href="https://drive.google.com/file/d/1hA4tV1gZL9JFTqkCwex9sDhYuLdzoLdb/view?usp=sharing"
               target="_blank"
               className={`${styles.resumeBtn} ${styles.viewBtn}`}

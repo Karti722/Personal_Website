@@ -66,22 +66,74 @@
 .certification a {
   display: inline-block;
   margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background: var(--success-gradient);
+  padding: 0.56rem 1.08rem;
+  background: linear-gradient(135deg, #22c55e 0%, #10b981 45%, #059669 100%);
   color: white;
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.3s ease;
-  font-weight: 600;
+  font-weight: 800;
+  letter-spacing: 0.015em;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 10px 24px rgba(16, 185, 129, 0.38),
+    0 2px 8px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+  position: relative;
+  overflow: hidden;
+  animation: certBtnPulse 2.2s ease-in-out infinite;
 }
 
 .certification a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.16);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow:
+    0 14px 28px rgba(16, 185, 129, 0.48),
+    0 4px 12px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42);
 }
 
 .certification a::after {
   display: none;
+}
+
+.certification a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.3) 45%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.65s ease;
+}
+
+.certification a:hover::before {
+  transform: translateX(120%);
+}
+
+@keyframes certBtnPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 10px 24px rgba(16, 185, 129, 0.38),
+      0 2px 8px rgba(0, 0, 0, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  }
+  50% {
+    box-shadow:
+      0 14px 30px rgba(16, 185, 129, 0.5),
+      0 4px 12px rgba(0, 0, 0, 0.24),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .certification a {
+    animation: none;
+  }
+
+  .certification a::before {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
