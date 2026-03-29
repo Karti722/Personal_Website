@@ -7,7 +7,7 @@ export default function Footer() {
     <footer id="more-info" className={styles.footer}>
       <div className="container">
         <p className={styles.footerNote}>
-          Note: This portfolio is built using Next.js, React, and TypeScript
+          Note: This portfolio is built using Next.js, TypeScript
           and deployed on Vercel.
         </p>
         <a
