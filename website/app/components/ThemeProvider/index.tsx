@@ -7,6 +7,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+import "./ThemeProvider.module.css";
 
 const THEME_CHOICES = [
   "daylight",
