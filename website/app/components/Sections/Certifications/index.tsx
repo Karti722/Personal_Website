@@ -47,7 +47,7 @@ export default function Certifications() {
         </div>
 
         <div className={styles.certification}>
-          <h3>SkyIT Intership Certificate of Completion</h3>
+          <h3>SkyIT Internship Certificate of Completion</h3>
           <p>
             <strong>Issuer:</strong> SkyIT Services (GBCS Group) |{" "}
             <strong>Issued:</strong> Aug 2024
