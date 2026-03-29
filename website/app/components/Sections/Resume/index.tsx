@@ -17,7 +17,7 @@ export default function Resume() {
               <span>📄</span> Download Resume
             </a>
             <a
-              href="/files/Kartikeya_Resume.pdf"
+              href="https://drive.google.com/file/d/1hA4tV1gZL9JFTqkCwex9sDhYuLdzoLdb/view?usp=sharing"
               target="_blank"
               className={`${styles.resumeBtn} ${styles.viewBtn}`}
             >
@@ -26,8 +26,8 @@ export default function Resume() {
           </div>
           <div className={styles.resumeEmbed}>
             <iframe
-              src="/files/Kartikeya_Resume.pdf#toolbar=1&navpanes=0&zoom=125"
-              title="Kartikeya Kumar Resume"
+              src="/files/Kartikeya_Resume.pdf#toolbar=1&navpanes=0&zoom=0"
+              title="Kartikeya Kumaria Resume"
               width="100%"
               height="600"
               className={styles.resumeFrame}
