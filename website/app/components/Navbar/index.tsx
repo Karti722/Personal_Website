@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useSiteSettings } from "./ThemeProvider";
+import { useSiteSettings } from "../ThemeProvider";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
