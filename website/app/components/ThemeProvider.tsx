@@ -8,8 +8,20 @@ import React, {
   useState,
 } from "react";
 
-type Mode = "day" | "night";
-type Variant = "light" | "dark";
+const THEME_CHOICES = [
+  "daylight",
+  "sunset",
+  "ocean",
+  "forest",
+  "monochrome",
+  "cyberpunk",
+  "vintage",
+  "pastel",
+  "warm",
+  "cool",
+] as const;
+
+type Theme = (typeof THEME_CHOICES)[number];
 
 const FONT_CHOICES = [
   "system",
@@ -24,16 +36,19 @@ const FONT_CHOICES = [
 
 type FontChoice = (typeof FONT_CHOICES)[number];
 
+type Mode = "day" | "night";
+
 const LS_KEY = "site-theme";
 const FONT_KEY = "site-font";
+const MODE_KEY = "site-mode";
 
 type SiteSettingsContextValue = {
   isDefault: boolean;
-  mode: Mode;
-  variant: Variant;
-  toggleTheme: () => void;
-  toggleMode: () => void;
+  theme: Theme;
+  cycleTheme: () => void;
   toggleDefault: () => void;
+  mode: Mode;
+  toggleMode: () => void;
   fontChoice: FontChoice;
   cycleFont: () => void;
 };
@@ -49,8 +64,7 @@ export const useSiteSettings = () => {
 };
 
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const DAY_START = 6;
-  const DAY_END = 19;
+  const themeOrder: Theme[] = [...THEME_CHOICES];
   const fontOrder: FontChoice[] = [...FONT_CHOICES];
 
   const readStored = () => {
@@ -77,57 +91,30 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     return null;
   };
 
-  const [mode, setMode] = useState<Mode>(() => {
-    if (typeof window === "undefined") return "day";
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window === "undefined") return "daylight";
 
     const stored = readStored();
-    if (stored && stored.mode && stored.mode !== "default") return stored.mode;
+    if (stored && stored.theme && themeOrder.includes(stored.theme as Theme)) {
+      return stored.theme as Theme;
+    }
 
     const c = readCookie();
-    if (c && c.mode && c.mode !== "default") return c.mode;
+    if (c && c.theme && themeOrder.includes(c.theme as Theme)) {
+      return c.theme as Theme;
+    }
 
-    const hour = new Date().getHours();
-    return hour >= DAY_START && hour < DAY_END ? "day" : "night";
-  });
-
-  const [variant, setVariant] = useState<Variant>(() => {
-    if (typeof window === "undefined") return "light";
-
-    const stored = readStored();
-    if (stored && stored.variant && stored.mode !== "default") return stored.variant;
-
-    const c = readCookie();
-    if (c && c.variant && c.mode !== "default") return c.variant;
-
-    try {
-      if (
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-      ) {
-        return "dark";
-      }
-    } catch {}
-
-    return "light";
+    return "daylight";
   });
 
   const [isDefault, setIsDefault] = useState<boolean>(() => {
     if (typeof window === "undefined") return false;
 
     const stored = readStored();
-    if (stored && stored.mode === "default") return true;
+    if (stored && stored.isDefault === true) return true;
 
     const c = readCookie();
-    if (c && c.mode === "default") return true;
-
-    try {
-      if (
-        document.documentElement &&
-        document.documentElement.classList.contains("theme-default")
-      ) {
-        return true;
-      }
-    } catch {}
+    if (c && c.isDefault === true) return true;
 
     return false;
   });
@@ -141,7 +128,25 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     return "system";
   });
 
-  const prevRef = useRef<{ mode: Mode; variant: Variant } | null>(null);
+  const [mode, setMode] = useState<Mode>(() => {
+    if (typeof window === "undefined") return "day";
+
+    const stored = localStorage.getItem(MODE_KEY);
+    if (stored === "day" || stored === "night") return stored;
+
+    try {
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        return "night";
+      }
+    } catch {}
+
+    return "day";
+  });
+
+  const prevRef = useRef<Theme | null>(null);
 
   useEffect(() => {
     const applyClass = () => {
@@ -149,32 +154,38 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
 
       Array.from(el.classList).forEach((c) => {
         if (c.startsWith("theme-")) el.classList.remove(c);
+        if (c.startsWith("mode-")) el.classList.remove(c);
       });
 
-      if (isDefault) {
-        el.classList.add("theme-default");
-      } else {
-        const cls = `theme-${mode}-${variant}`;
-        el.classList.add(cls);
-      }
+      const themeClass = `theme-${theme}`;
+      const modeClass = `mode-${mode}`;
+      el.classList.add(themeClass, modeClass);
     };
 
     applyClass();
 
     try {
-      if (isDefault) {
-        localStorage.setItem(LS_KEY, JSON.stringify({ mode: "default" }));
-      } else {
-        localStorage.setItem(LS_KEY, JSON.stringify({ mode, variant }));
-      }
+      localStorage.setItem(LS_KEY, JSON.stringify({ theme, isDefault }));
     } catch {}
 
     try {
-      const payload = isDefault ? { mode: "default" } : { mode, variant };
+      const payload = { theme, isDefault };
       const cookieVal = encodeURIComponent(JSON.stringify(payload));
       document.cookie = `${LS_KEY}=${cookieVal}; path=/; max-age=${60 * 60 * 24 * 365}; samesite=lax`;
     } catch {}
-  }, [mode, variant, isDefault]);
+  }, [theme, isDefault, mode]);
+
+  useEffect(() => {
+    const el = document.documentElement;
+    Array.from(el.classList).forEach((c) => {
+      if (c.startsWith("mode-")) el.classList.remove(c);
+    });
+    el.classList.add(`mode-${mode}`);
+
+    try {
+      localStorage.setItem(MODE_KEY, mode);
+    } catch {}
+  }, [mode]);
 
   useEffect(() => {
     const el = document.documentElement;
@@ -188,31 +199,21 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     } catch {}
   }, [fontChoice]);
 
-  const toggleTheme = () => {
-    if (isDefault) {
-      setIsDefault(false);
-      setVariant("dark");
-      return;
-    }
-
-    setVariant((v) => (v === "light" ? "dark" : "light"));
-  };
-
-  const toggleMode = () => {
-    if (isDefault) {
-      setIsDefault(false);
-    }
-    setMode((m) => (m === "day" ? "night" : "day"));
+  const cycleTheme = () => {
+    setTheme((current) => {
+      const index = themeOrder.indexOf(current);
+      const nextIndex = index === themeOrder.length - 1 ? 0 : index + 1;
+      return themeOrder[nextIndex];
+    });
   };
 
   const toggleDefault = () => {
     if (!isDefault) {
-      prevRef.current = { mode, variant };
+      prevRef.current = theme;
       setIsDefault(true);
     } else {
       if (prevRef.current) {
-        setMode(prevRef.current.mode);
-        setVariant(prevRef.current.variant);
+        setTheme(prevRef.current);
         prevRef.current = null;
       }
       setIsDefault(false);
@@ -227,13 +228,17 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     });
   };
 
+  const toggleMode = () => {
+    setMode((m) => (m === "day" ? "night" : "day"));
+  };
+
   const contextValue: SiteSettingsContextValue = {
     isDefault,
-    mode,
-    variant,
-    toggleTheme,
-    toggleMode,
+    theme,
+    cycleTheme,
     toggleDefault,
+    mode,
+    toggleMode,
     fontChoice,
     cycleFont,
   };

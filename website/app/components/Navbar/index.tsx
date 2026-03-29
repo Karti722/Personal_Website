@@ -10,11 +10,11 @@ export default function Navbar() {
   const settingsRef = useRef<HTMLDivElement | null>(null);
   const {
     isDefault,
-    mode,
-    variant,
-    toggleTheme,
-    toggleMode,
+    theme,
+    cycleTheme,
     toggleDefault,
+    mode,
+    toggleMode,
     fontChoice,
     cycleFont,
   } = useSiteSettings();
@@ -29,6 +29,22 @@ export default function Navbar() {
     if (fontChoice === "classic") return "Classic";
     return "System";
   }, [fontChoice]);
+
+  const themeLabel = useMemo(() => {
+    const labels: Record<string, string> = {
+      daylight: "Daylight",
+      sunset: "Sunset",
+      ocean: "Ocean",
+      forest: "Forest",
+      monochrome: "Monochrome",
+      cyberpunk: "Cyberpunk",
+      vintage: "Vintage",
+      pastel: "Pastel",
+      warm: "Warm",
+      cool: "Cool",
+    };
+    return labels[theme] || "Daylight";
+  }, [theme]);
 
   const navItems = [
     { label: "About", id: "about" },
@@ -111,11 +127,10 @@ export default function Navbar() {
               <button
                 type="button"
                 className={styles.settingsToggle}
-                onClick={toggleTheme}
-                role="switch"
-                aria-checked={variant === "dark" && !isDefault}
+                onClick={cycleTheme}
+                aria-label="Cycle through themes"
               >
-                {isDefault ? "Default" : variant === "light" ? "Light" : "Dark"}
+                {themeLabel}
               </button>
             </div>
 
@@ -147,12 +162,12 @@ export default function Navbar() {
               <span className={styles.settingsLabel}>Day / Night</span>
               <button
                 type="button"
-                className={`${styles.settingsToggle} ${mode === "night" && !isDefault ? styles.on : ""}`}
+                className={`${styles.settingsToggle} ${mode === "night" ? styles.on : ""}`}
                 onClick={toggleMode}
                 role="switch"
-                aria-checked={mode === "night" && !isDefault}
+                aria-checked={mode === "night"}
               >
-                {isDefault ? "Default" : mode === "day" ? "Day" : "Night"}
+                {mode === "day" ? "Day" : "Night"}
               </button>
             </div>
           </div>
