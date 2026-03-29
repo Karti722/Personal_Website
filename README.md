@@ -22,4 +22,4 @@ Using Typescript + Next.js + Vercel.
 ## Notes
 - Theme toggling is available on desktop and laptop.
 - It is intentionally disabled on mobile to keep the interface uncluttered.
-- Full codebase architecture and refactor explanation is available at `website/public/Info/CODEBASE-EXPLANATION.md`.
+- Full codebase architecture and refactor explanation is available at `website/public/info/CODEBASE-EXPLANATION.md`.
