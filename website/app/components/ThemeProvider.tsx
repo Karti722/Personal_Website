@@ -4,7 +4,6 @@ import React, {
   createContext,
   useContext,
   useEffect,
-  useMemo,
   useRef,
   useState,
 } from "react";
@@ -216,19 +215,16 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     });
   };
 
-  const contextValue = useMemo<SiteSettingsContextValue>(
-    () => ({
-      isDefault,
-      mode,
-      variant,
-      toggleTheme,
-      toggleMode,
-      toggleDefault,
-      fontChoice,
-      cycleFont,
-    }),
-    [isDefault, mode, variant, fontChoice]
-  );
+  const contextValue: SiteSettingsContextValue = {
+    isDefault,
+    mode,
+    variant,
+    toggleTheme,
+    toggleMode,
+    toggleDefault,
+    fontChoice,
+    cycleFont,
+  };
 
   return (
     <SiteSettingsContext.Provider value={contextValue}>

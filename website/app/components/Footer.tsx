@@ -1,10 +1,12 @@
 "use client";
 
+import styles from "./Footer.module.css";
+
 export default function Footer() {
   return (
-    <footer id="more-info">
+    <footer id="more-info" className={styles.footer}>
       <div className="container">
-        <p className="footer-note">
+        <p className={styles.footerNote}>
           Note: This portfolio is built using Next.js, React, and TypeScript
           and deployed on Vercel.
         </p>
@@ -12,6 +14,7 @@ export default function Footer() {
           href="https://github.com/Karti722/Personal_Website"
           target="_blank"
           rel="noopener noreferrer"
+          className={styles.footerLink}
         >
           Portfolio Codebase 📟
         </a>

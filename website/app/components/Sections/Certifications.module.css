@@ -1,0 +1,107 @@
+.certification {
+  margin-bottom: 2.5rem;
+  padding: 2rem 2.25rem 2rem 3rem;
+  background: var(--card-bg);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: var(--box-shadow, 0 8px 30px rgba(0, 0, 0, 0.12));
+}
+
+.certification::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  bottom: 16px;
+  width: 8px;
+  border-radius: 8px;
+  background: var(--card-accent-gradient);
+  box-shadow: 0 6px 26px var(--card-accent-glow);
+  transition: all 180ms ease;
+}
+
+.certification:hover {
+  transform: translateX(6px);
+  box-shadow: var(--box-shadow-strong, 0 12px 40px rgba(0, 0, 0, 0.16));
+}
+
+.certification:hover::before {
+  transform: scaleY(1.02);
+  filter: blur(0.2px);
+}
+
+.certification h3 {
+  color: var(--accent-strong);
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+.certification p {
+  color: var(--muted-color);
+  font-style: italic;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.certification img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.certification img:hover {
+  transform: scale(1.05);
+}
+
+.certification strong {
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+
+.certification a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--success-gradient);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.certification a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.16);
+}
+
+.certification a::after {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .certification {
+    padding: 1.5rem;
+    padding-left: 2.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .certification {
+    padding: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  .certification::before {
+    left: 12px;
+    top: 12px;
+    bottom: 12px;
+    width: 6px;
+    border-radius: 6px;
+  }
+}

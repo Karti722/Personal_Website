@@ -1,33 +1,35 @@
 "use client";
 
+import styles from "./Resume.module.css";
+
 export default function Resume() {
   return (
-    <section id="resume" className="resume">
+    <section id="resume">
       <div className="container">
         <h2>Resume</h2>
-        <div className="resume-container">
-          <div className="resume-actions">
+        <div className={styles.resumeContainer}>
+          <div className={styles.resumeActions}>
             <a
               href="/files/Kartikeya_Resume.pdf"
               target="_blank"
-              className="resume-btn download-btn"
+              className={`${styles.resumeBtn} ${styles.downloadBtn}`}
             >
               <span>📄</span> Download Resume
             </a>
             <a
               href="/files/Kartikeya_Resume.pdf"
               target="_blank"
-              className="resume-btn view-btn"
+              className={`${styles.resumeBtn} ${styles.viewBtn}`}
             >
               <span>👁️👁️</span> View Full Screen
             </a>
           </div>
-          <div className="resume-embed">
+          <div className={styles.resumeEmbed}>
             <iframe
               src="/files/Kartikeya_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0"
               width="100%"
               height="600"
-              style={{ border: "none" }}
+              className={styles.resumeFrame}
             ></iframe>
           </div>
         </div>

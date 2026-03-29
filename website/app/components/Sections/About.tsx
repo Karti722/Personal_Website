@@ -1,18 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import styles from "./About.module.css";
 
 export default function About() {
   const [isTLDR, setIsTLDR] = useState(false);
 
   return (
-    <section id="about" className="summary">
+    <section id="about">
       <div className="container">
         <h2>About Me</h2>
 
         <button
           onClick={() => setIsTLDR(!isTLDR)}
-          className="toggle-btn"
+          className={styles.toggleBtn}
         >
           {isTLDR ? "Full Version" : "TLDR Summary"}
         </button>

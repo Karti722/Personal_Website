@@ -1,0 +1,120 @@
+.resumeContainer {
+  background: var(--card-bg);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: var(--box-shadow, 0 8px 30px rgba(0, 0, 0, 0.08));
+}
+
+.resumeActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.resumeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.resumeBtn::after {
+  display: none;
+}
+
+.downloadBtn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.downloadBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.viewBtn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+.viewBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.resumeEmbed {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow, 0 4px 20px rgba(0, 0, 0, 0.08));
+  background: var(--card-bg);
+}
+
+.resumeFrame {
+  border: none;
+  width: 100%;
+  min-height: 600px;
+  display: block;
+}
+
+.resumeEmbed p {
+  padding: 2rem;
+  text-align: center;
+  color: var(--muted-color);
+  font-style: italic;
+}
+
+.resumeEmbed p a {
+  color: var(--link-color);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .resumeFrame {
+    min-height: 500px;
+  }
+
+  .resumeActions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .resumeBtn {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+  }
+
+  .resumeContainer {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .resumeFrame {
+    min-height: 400px;
+  }
+
+  .resumeActions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .resumeBtn {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+  }
+
+  .resumeContainer {
+    padding: 1rem;
+  }
+}

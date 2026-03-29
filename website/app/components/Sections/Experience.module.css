@@ -1,0 +1,90 @@
+.job {
+  margin-bottom: 2.5rem;
+  padding: 2rem 2.25rem 2rem 3rem;
+  background: var(--card-bg);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: var(--box-shadow, 0 8px 30px rgba(0, 0, 0, 0.12));
+}
+
+.job::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  bottom: 16px;
+  width: 8px;
+  border-radius: 8px;
+  background: var(--card-accent-gradient);
+  box-shadow: 0 6px 26px var(--card-accent-glow);
+  transition: all 180ms ease;
+}
+
+.job:hover {
+  transform: translateX(6px);
+  box-shadow: var(--box-shadow-strong, 0 12px 40px rgba(0, 0, 0, 0.16));
+}
+
+.job:hover::before {
+  transform: scaleY(1.02);
+  filter: blur(0.2px);
+}
+
+.job h3 {
+  color: var(--accent-strong);
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+.job p em {
+  color: var(--muted-color);
+  font-style: italic;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.job ul {
+  list-style: none;
+  padding: 0;
+}
+
+.job li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.8rem;
+  color: var(--muted-color);
+  line-height: 1.6;
+}
+
+.job li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  color: var(--accent-strong);
+  font-size: 0.8rem;
+  top: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .job {
+    padding: 1.5rem;
+    padding-left: 2.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .job {
+    padding: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  .job::before {
+    left: 12px;
+    top: 12px;
+    bottom: 12px;
+    width: 6px;
+    border-radius: 6px;
+  }
+}

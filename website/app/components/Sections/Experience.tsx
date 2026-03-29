@@ -1,13 +1,15 @@
 "use client";
 
+import styles from "./Experience.module.css";
+
 export default function Experience() {
   return (
-    <section id="experience" className="experience">
+    <section id="experience">
       <div className="container">
         <h2>Experience</h2>
         
         {/* REDMINDS */}
-        <div className="job">
+        <div className={styles.job}>
           <h3>
             AI Enabler Apprentice @{" "}
             <a
@@ -46,7 +48,7 @@ export default function Experience() {
         </div>
 
         {/* UCSC BLUEPRINT */}
-        <div className="job">
+        <div className={styles.job}>
           <h3>
             Software Developer @{" "}
             <a
@@ -105,7 +107,7 @@ export default function Experience() {
         </div>
 
         {/* PACR */}
-        <div className="job">
+        <div className={styles.job}>
           <h3>
             Full Stack Developer Intern @{" "}
             <a
@@ -146,7 +148,7 @@ export default function Experience() {
         </div>
 
         {/* CRUZHACKS */}
-        <div className="job">
+        <div className={styles.job}>
           <h3>
             Webmaster @{" "}
             <a
@@ -179,7 +181,7 @@ export default function Experience() {
         </div>
 
         {/* SKYIT */}
-        <div className="job">
+        <div className={styles.job}>
           <h3>
             Backend Developer Intern @{" "}
             <a
@@ -217,7 +219,7 @@ export default function Experience() {
         </div>
 
         {/* CODEDAY */}
-        <div className="job">
+        <div className={styles.job}>
           <h3>
             Software Engineer Intern @{" "}
             <a

@@ -1,13 +1,15 @@
 "use client";
 
+import styles from "./Certifications.module.css";
+
 export default function Certifications() {
   return (
-    <section id="certifications" className="certifications">
+    <section id="certifications">
       
       <div className="container">
         <h2>Licenses & Certifications</h2>
 
-        <div className="certification">
+        <div className={styles.certification}>
           <h3>PACR Internship Certificate of Completion</h3>
           <p>
             <strong>Issuer:</strong> PACR, Corp. |{" "}
@@ -29,7 +31,7 @@ export default function Certifications() {
           </a>
         </div>
 
-        <div className="certification">
+        <div className={styles.certification}>
           <h3>WEB 101 - Intro to Web Development</h3>
           <p>
             <strong>Issuer:</strong> CodePath | <strong>Issued:</strong> Dec 2024
@@ -44,7 +46,7 @@ export default function Certifications() {
           />
         </div>
 
-        <div className="certification">
+        <div className={styles.certification}>
           <h3>SkyIT Certificate of Completion</h3>
           <p>
             <strong>Issuer:</strong> SkyIT Services (GBCS Group) |{" "}
@@ -63,7 +65,7 @@ export default function Certifications() {
           </a>
         </div>
 
-        <div className="certification">
+        <div className={styles.certification}>
           <h3>CodeDay Labs Micro-Intern</h3>
           <p>
             <strong>Issuer:</strong> Canvas Credentials |{" "}

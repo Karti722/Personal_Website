@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useSiteSettings } from "./ThemeProvider";
+import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -64,18 +65,18 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="navbar">
-      <div className="nav-container">
-        <a href="#" className="nav-logo">
+    <nav className={styles.navbar}>
+      <div className={styles.navContainer}>
+        <a href="#" className={styles.navLogo}>
           <span>KK</span>
         </a>
 
-        <div className={`nav-menu ${menuOpen ? "active" : ""}`}>
+        <div className={`${styles.navMenu} ${menuOpen ? styles.active : ""}`}>
           {navItems.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
-              className="nav-link"
+              className={styles.navLink}
               onClick={handleNavClick}
             >
               {item.label}
@@ -83,10 +84,10 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="nav-actions" ref={settingsRef}>
+        <div className={styles.navActions} ref={settingsRef}>
           <button
             type="button"
-            className={`settings-btn ${settingsOpen ? "active" : ""}`}
+            className={`${styles.settingsBtn} ${settingsOpen ? styles.active : ""}`}
             aria-expanded={settingsOpen}
             aria-controls="settings-menu"
             onClick={() => setSettingsOpen((open) => !open)}
@@ -96,15 +97,15 @@ export default function Navbar() {
 
           <div
             id="settings-menu"
-            className={`settings-menu ${settingsOpen ? "open" : ""}`}
+            className={`${styles.settingsMenu} ${settingsOpen ? styles.open : ""}`}
             role="menu"
             aria-label="Site settings"
           >
-            <div className="settings-row">
-              <span className="settings-label">Theme</span>
+            <div className={styles.settingsRow}>
+              <span className={styles.settingsLabel}>Theme</span>
               <button
                 type="button"
-                className="settings-toggle"
+                className={styles.settingsToggle}
                 onClick={toggleTheme}
                 role="switch"
                 aria-checked={variant === "dark" && !isDefault}
@@ -113,11 +114,11 @@ export default function Navbar() {
               </button>
             </div>
 
-            <div className="settings-row">
-              <span className="settings-label">Font</span>
+            <div className={styles.settingsRow}>
+              <span className={styles.settingsLabel}>Font</span>
               <button
                 type="button"
-                className="settings-toggle"
+                className={styles.settingsToggle}
                 onClick={cycleFont}
                 aria-label="Cycle font style"
               >
@@ -125,11 +126,11 @@ export default function Navbar() {
               </button>
             </div>
 
-            <div className="settings-row">
-              <span className="settings-label">Theme Set</span>
+            <div className={styles.settingsRow}>
+              <span className={styles.settingsLabel}>Theme Set</span>
               <button
                 type="button"
-                className={`settings-toggle ${isDefault ? "on" : ""}`}
+                className={`${styles.settingsToggle} ${isDefault ? styles.on : ""}`}
                 onClick={toggleDefault}
                 aria-pressed={isDefault}
               >
@@ -137,11 +138,11 @@ export default function Navbar() {
               </button>
             </div>
 
-            <div className="settings-row">
-              <span className="settings-label">Day / Night</span>
+            <div className={styles.settingsRow}>
+              <span className={styles.settingsLabel}>Day / Night</span>
               <button
                 type="button"
-                className={`settings-toggle ${mode === "night" && !isDefault ? "on" : ""}`}
+                className={`${styles.settingsToggle} ${mode === "night" && !isDefault ? styles.on : ""}`}
                 onClick={toggleMode}
                 role="switch"
                 aria-checked={mode === "night" && !isDefault}
@@ -152,7 +153,7 @@ export default function Navbar() {
           </div>
 
           <div
-            className={`hamburger ${menuOpen ? "active" : ""}`}
+            className={`${styles.hamburger} ${menuOpen ? styles.active : ""}`}
             onClick={() => setMenuOpen(!menuOpen)}
           >
             <span></span>

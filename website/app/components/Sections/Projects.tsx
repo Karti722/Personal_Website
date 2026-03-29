@@ -1,13 +1,15 @@
 "use client";
 
+import styles from "./Projects.module.css";
+
 export default function Projects() {
   return (
-    <section id="projects" className="projects">
+    <section id="projects">
       <div className="container">
         <h2>Projects</h2>
 
         {/* LogBlog */}
-        <div className="project">
+        <div className={styles.project}>
           <h3>
             <a
               href="https://logblog-karti.vercel.app/"
@@ -57,7 +59,7 @@ export default function Projects() {
         </div>
 
         {/* SurveyKarrot */}
-        <div className="project">
+        <div className={styles.project}>
           <h3>
             <a
               href="https://survey-karrot.vercel.app/"
@@ -106,7 +108,7 @@ export default function Projects() {
         </div>
 
         {/* Evil Number Guessing Game */}
-        <div className="project">
+        <div className={styles.project}>
           <h3>
             <a
               href="https://evil-number-guessing-game-kartikeya.vercel.app/"
@@ -149,7 +151,7 @@ export default function Projects() {
         </div>
 
         {/* Outer Space 3D World */}
-        <div className="project">
+        <div className={styles.project}>
           <h3>
             <a
               href="https://kkumariacse160asgn5threejs.netlify.app/"
@@ -177,7 +179,7 @@ export default function Projects() {
         </div>
 
         {/* Task Manager */}
-        <div className="project">
+        <div className={styles.project}>
           <h3>
             <a
               href="https://lumaa-spring-2025-swe-submission-from-tok6.onrender.com"
@@ -220,7 +222,7 @@ export default function Projects() {
         </div>
 
         {/* TicTacToe AI */}
-        <div className="project">
+        <div className={styles.project}>
           <h3>TicTacToeWithEmotionAI</h3>
           <p>
             <em>Collaborated with Peters</em>

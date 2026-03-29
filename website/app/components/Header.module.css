@@ -1,0 +1,131 @@
+.header {
+  background: var(--header-gradient);
+  color: var(--text-color);
+  text-align: center;
+  padding: 3rem 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  margin-top: 0 !important;
+  scroll-margin-top: 70px;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  animation: shimmer 3s infinite;
+}
+
+.profileSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.profilePhoto {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 6px solid rgba(255, 255, 255, 0.3);
+  object-fit: cover;
+  animation: fadeInLeft 1.8s ease-out;
+  box-shadow: var(--profile-shadow, 0 10px 30px rgba(0, 0, 0, 0.3));
+  transition: all 0.3s ease;
+}
+
+.profilePhoto:hover {
+  transform: scale(1.15);
+  box-shadow: var(--box-shadow-strong, 0 15px 40px rgba(0, 0, 0, 0.4));
+}
+
+.profileInfo {
+  text-align: left;
+  flex: 1;
+  min-width: 300px;
+  text-shadow: #020617 0 4px 18px, 0 0 10px rgba(79, 70, 229, 0.06);
+}
+
+.title {
+  color: white;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: var(--heading-shadow, 2px 2px 4px rgba(0, 0, 0, 0.3));
+  animation: fadeInDown 1.5s ease-out;
+}
+
+.textLine {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: white;
+}
+
+.inlineLink {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.inlineLink:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 2rem 0.8rem;
+  }
+
+  .profileSection {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .profileInfo {
+    text-align: center;
+  }
+
+  .profilePhoto {
+    width: 140px;
+    height: 140px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 1.5rem 0.6rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .profilePhoto {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media print {
+  .profilePhoto {
+    border: 2px solid #ccc;
+  }
+}
