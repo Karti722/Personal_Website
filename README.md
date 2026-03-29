@@ -1,5 +1,8 @@
-# My Personal Website
-This is a portfolio showcasing my software development milestones - Kartikeya Kumaria  
+# Name
+Kartikeya Kumaria
+
+# What Is This Website?
+This is a portfolio / personal-website that showcases all my milestones.
 
 # Tech Stack
 Using Typescript + Next.js + Vercel.
