@@ -9,6 +9,7 @@
   --accent-strong: #1e3a8a;
   --text-color: #1f2937;
   --link-color: #2563eb;
+  --header-link-color: #e8f1ff;
   --card-bg: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   --skill-bg: linear-gradient(135deg, #60a5fa 0%, #7c3aed 100%);
   --skill-text: #ffffff;
@@ -50,6 +51,7 @@
   --accent-strong: #1e3a8a;
   --text-color: #1f2937;
   --link-color: #2563eb;
+  --header-link-color: #e8f1ff;
   --card-bg: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   --skill-bg: linear-gradient(135deg, #60a5fa 0%, #7c3aed 100%);
   --skill-hover-shadow: rgba(96, 165, 250, 0.35);
@@ -67,6 +69,7 @@
   --accent-strong: #c2410c;
   --text-color: #3b2414;
   --link-color: #b45309;
+  --header-link-color: #fff3cf;
   --card-bg: linear-gradient(135deg, #fff8e1 0%, #ffe8b6 100%);
   --skill-bg: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
   --skill-hover-shadow: rgba(249, 115, 22, 0.35);
@@ -84,6 +87,7 @@
   --accent-strong: #0e7490;
   --text-color: #164e63;
   --link-color: #0891b2;
+  --header-link-color: #d8f9ff;
   --card-bg: linear-gradient(135deg, #e0f7fa 0%, #b3e5fc 100%);
   --skill-bg: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
   --skill-hover-shadow: rgba(6, 182, 212, 0.35);
@@ -101,6 +105,7 @@
   --accent-strong: #166534;
   --text-color: #1b3b1b;
   --link-color: #166534;
+  --header-link-color: #e6ffe9;
   --card-bg: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
   --skill-bg: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
   --skill-hover-shadow: rgba(22, 163, 74, 0.35);
@@ -118,6 +123,7 @@
   --accent-strong: #111827;
   --text-color: #111827;
   --link-color: #374151;
+  --header-link-color: #f3f4f6;
   --card-bg: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
   --skill-bg: linear-gradient(135deg, #4b5563 0%, #1f2937 100%);
   --skill-text: #f9fafb;
@@ -137,6 +143,7 @@
   --text-color: #d7cdf5;
   --muted-color: #9d8fc6;
   --link-color: #ec4899;
+  --header-link-color: #ffc3ea;
   --card-bg: linear-gradient(135deg, #4c1d95 0%, #581c87 100%);
   --skill-bg: linear-gradient(135deg, #ec4899 0%, #7c3aed 100%);
   --skill-hover-shadow: rgba(236, 72, 153, 0.4);
@@ -154,6 +161,7 @@
   --accent-strong: #78553b;
   --text-color: #3d2817;
   --link-color: #8b6f47;
+  --header-link-color: #fff0d8;
   --card-bg: linear-gradient(135deg, #fffef9 0%, #faf6ef 100%);
   --skill-bg: linear-gradient(135deg, #a0826d 0%, #78553b 100%);
   --skill-hover-shadow: rgba(120, 85, 59, 0.3);
@@ -171,6 +179,7 @@
   --accent-strong: #d946a0;
   --text-color: #500724;
   --link-color: #be185d;
+  --header-link-color: #ffe2f4;
   --card-bg: linear-gradient(135deg, #f8edf5 0%, #f1d8ea 56%, #eacbe2 100%);
   --skill-bg: linear-gradient(135deg, #df5ca8 0%, #c563da 58%, #a855f7 100%);
   --skill-hover-shadow: rgba(197, 99, 218, 0.28);
@@ -188,6 +197,7 @@
   --accent-strong: #b45309;
   --text-color: #42200f;
   --link-color: #d97706;
+  --header-link-color: #ffefd2;
   --card-bg: linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%);
   --skill-bg: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
   --skill-hover-shadow: rgba(217, 119, 6, 0.3);
@@ -205,6 +215,7 @@
   --accent-strong: #0f766e;
   --text-color: #082f49;
   --link-color: #0369a1;
+  --header-link-color: #dbf7ff;
   --card-bg: linear-gradient(135deg, #e0f2fe 0%, #cffafe 100%);
   --skill-bg: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
   --skill-hover-shadow: rgba(8, 145, 178, 0.3);

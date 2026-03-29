@@ -20,7 +20,7 @@ export default function About() {
 
         {!isTLDR ? (
           <p>
-            Welcome to my portfolio. My name is Kartikeya Kumaria and I’m a driven full stack developer who has completed a Bachelor of Science in Computer Science from the{" "}
+            My name is Kartikeya Kumaria and I’m a driven full stack developer who has completed a Bachelor of Science in Computer Science from the{" "}
             <a href="https://www.ucsc.edu/" target="_blank" rel="noopener noreferrer">
               University of California, Santa Cruz
             </a>.

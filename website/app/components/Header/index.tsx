@@ -18,15 +18,15 @@ export default function Header() {
           <div className={styles.profileInfo}>
             <h1 className={styles.title}>Kartikeya Kumaria</h1>
             <p className={styles.textLine}>
-              Reach out to me at
+              Welcome to my Portfolio!
+            </p>
+            <p className={styles.textLine}>
               <a
                 href="mailto:kartikeyaku@gmail.com"
                 className={styles.inlineLink}
               >
-                kartikeyaku@gmail.com
-              </a>
-            </p>
-            <p className={styles.textLine}>
+                Email
+              </a>|{" "}
               <a
                 href="https://linkedin.com/in/kartikeya-kumaria"
                 target="_blank"

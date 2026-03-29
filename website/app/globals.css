@@ -8,14 +8,14 @@
 
 body {
   font-family: var(--font-family-base);
-
-/* Theme, font, and mode variables/classes were moved to ThemeProvider.module.css */
-  --skill-hover-shadow: rgba(8, 145, 178, 0.3);
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-color);
+  line-height: 1.65;
+  font-size: clamp(15px, 1.25vw + 0.2rem, 18px);
 }
 
-/* ===== DAY/NIGHT MODE ===== */
-.mode-day { filter: brightness(1.05) saturate(1.1); }
-.mode-night { filter: brightness(0.9) saturate(0.95); }
+/* Theme, font, and mode variables/classes are defined in ThemeProvider.module.css */
 
 /* ===== LAYOUT ===== */
 .container {
