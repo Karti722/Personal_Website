@@ -9,10 +9,8 @@ export default function Navbar() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const settingsRef = useRef<HTMLDivElement | null>(null);
   const {
-    isDefault,
     theme,
     cycleTheme,
-    toggleDefault,
     mode,
     toggleMode,
     fontChoice,
@@ -143,18 +141,6 @@ export default function Navbar() {
                 aria-label="Cycle font style"
               >
                 {fontLabel}
-              </button>
-            </div>
-
-            <div className={styles.settingsRow}>
-              <span className={styles.settingsLabel}>Theme Set</span>
-              <button
-                type="button"
-                className={`${styles.settingsToggle} ${isDefault ? styles.on : ""}`}
-                onClick={toggleDefault}
-                aria-pressed={isDefault}
-              >
-                {isDefault ? "Default" : "Custom"}
               </button>
             </div>
 
