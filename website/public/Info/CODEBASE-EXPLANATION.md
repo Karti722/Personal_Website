@@ -1,4 +1,4 @@
-# Personal Portfolio Codebase: Complete Technical Explanation
+# Personal Portfolio Codebase: Complete Technical Explanation by GitHub Copilot
 
 ## 1) High-Level Overview
 
@@ -139,11 +139,11 @@ No fetch logic, no server data dependencies.
 
 `ThemeProvider` owns customization state:
 
-1. `theme` — 10 choices:
+1. `theme` --> 10 choices:
 	 - `daylight`, `sunset`, `ocean`, `forest`, `monochrome`, `cyberpunk`, `vintage`, `pastel`, `warm`, `cool`
-2. `fontChoice` — 8 choices:
+2. `fontChoice` --> 8 choices:
 	 - `system`, `serif`, `mono`, `modern`, `reading`, `rounded`, `typewriter`, `classic`
-3. `mode` — `day` or `night`
+3. `mode` --> `day` or `night`
 4. Legacy toggle fields still present in context:
 	 - `isDefault`, `toggleDefault` (UI control removed from Navbar, but logic remains)
 
