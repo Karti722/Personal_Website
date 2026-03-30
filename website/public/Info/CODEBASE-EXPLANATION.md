@@ -68,9 +68,10 @@ Personal_Website/
 						index.tsx
 						Resume.module.css
 		public/
-			files/
+			PDFs/
 			photos/
-			Info/
+			SVGs/
+			info/
 				CODEBASE-EXPLANATION.md
 ```
 
@@ -79,7 +80,7 @@ Why this structure matters:
 1. Every feature section is self-contained.
 2. CSS for each component lives beside it.
 3. Theming logic is centralized in one provider folder.
-4. Assets are clearly separated (`photos` vs `files` vs `Info`).
+4. Assets are clearly separated (`photos`, `PDFs`, `SVGs`, and `info`).
 
 ---
 
@@ -183,10 +184,11 @@ It defines:
 Important token categories:
 
 1. Surface and text: `--section-bg`, `--text-color`, `--muted-color`, `--link-color`.
-2. Accent and gradients: `--accent-gradient`, `--accent-strong`.
-3. Cards and skills: `--card-bg`, `--skill-bg`, etc.
-4. Toggle and shadows: `--toggle-shadow`, `--toggle-active-shadow`, `--box-shadow`.
-5. Theme-aware CTA tokens (used by "green" buttons):
+2. Header contact links: `--header-link-color`.
+3. Accent and gradients: `--accent-gradient`, `--accent-strong`.
+4. Cards and skills: `--card-bg`, `--skill-bg`, etc.
+5. Toggle and shadows: `--toggle-shadow`, `--toggle-active-shadow`, `--box-shadow`.
+6. Theme-aware CTA tokens (used by "green" buttons):
 	 - `--success-gradient`
 	 - `--success-border`
 	 - `--success-glow`
@@ -240,6 +242,7 @@ Recent refinements implemented in this codebase:
 
 1. Settings icon enlarged for touch targets (desktop + mobile).
 2. Theme set toggle removed from dropdown for cleaner controls.
+3. Settings icon now uses `next/image` with source `/SVGs/settings.svg`.
 
 ## 6.2 Header
 
@@ -253,6 +256,7 @@ Responsibilities:
 1. Hero/profile area with profile image (`next/image`).
 2. Name, email link, LinkedIn and GitHub links.
 3. Uses theme gradients and shimmer effect.
+4. Contact links are plain text links styled by theme token `--header-link-color` (not button badges).
 
 ## 6.3 About
 
@@ -337,7 +341,7 @@ Files:
 Responsibilities:
 
 1. Provides external full-screen resume link.
-2. Embeds PDF in iframe (`public/files/Kartikeya_Resume.pdf`).
+2. Embeds PDF in iframe via `/files/Kartikeya_Resume.pdf` route in current implementation.
 3. Responsive height/width behavior tuned for laptop/mobile.
 
 CTA button:
@@ -462,8 +466,9 @@ The responsive model is mostly breakpoint-based CSS:
 Under `public/`:
 
 1. `photos/` for profile/certificate images.
-2. `files/` for resume and certificate PDFs.
-3. `Info/` for project documentation (including this file).
+2. `PDFs/` for resume and certificate PDFs.
+3. `SVGs/` for icons (e.g., `settings.svg`, `favicon.svg`).
+4. `info/` for project documentation (including this file).
 
 Content model:
 
@@ -495,6 +500,7 @@ Deployment:
 1. The pre-hydration script in `layout.tsx` still references older theme class patterns; `ThemeProvider` corrects classes on mount, so runtime behavior remains functional.
 2. `isDefault` and `toggleDefault` remain in context but are no longer exposed in Navbar UI.
 3. Tailwind packages are installed but not used for component styling in current implementation.
+4. Some section links still reference `/files/*` while PDF assets currently live under `public/PDFs/`.
 
 ---
 
