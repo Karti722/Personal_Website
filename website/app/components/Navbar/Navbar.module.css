@@ -112,6 +112,7 @@
   transform: translateY(-1px);
 }
 
+
 .settingsMenu {
   position: absolute;
   top: calc(100% + 0.8rem);

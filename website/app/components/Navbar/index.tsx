@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import { useSiteSettings } from "../ThemeProvider";
 import styles from "./Navbar.module.css";
 
@@ -111,7 +112,14 @@ export default function Navbar() {
             aria-controls="settings-menu"
             onClick={() => setSettingsOpen((open) => !open)}
           >
-            ⛭
+            <Image
+              src="/SVGs/settings.svg"
+              alt=""
+              width={27}
+              height={27}
+              aria-hidden="true"
+              className={styles.settingsIcon}
+            />
           </button>
 
           <div
