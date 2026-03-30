@@ -100,10 +100,10 @@ From `package.json`:
 
 Scripts:
 
-1. `npm run dev` — local development.
-2. `npm run build` — production build.
-3. `npm run start` — run built app.
-4. `npm run lint` — linting.
+1. `npm run dev` --> local development.
+2. `npm run build` --> production build.
+3. `npm run start` --> run built app.
+4. `npm run lint` --> linting.
 
 ---
 
@@ -495,26 +495,7 @@ Deployment:
 
 ---
 
-## 12) Known Implementation Details / Caveats
-
-1. The pre-hydration script in `layout.tsx` still references older theme class patterns; `ThemeProvider` corrects classes on mount, so runtime behavior remains functional.
-2. `isDefault` and `toggleDefault` remain in context but are no longer exposed in Navbar UI.
-3. Tailwind packages are installed but not used for component styling in current implementation.
-4. Some section links still reference `/files/*` while PDF assets currently live under `public/PDFs/`.
-
----
-
-## 13) Suggested Future Enhancements
-
-1. Move static section content into typed data files (JSON/TS constants) for cleaner content management.
-2. Align pre-hydration script class names with current theme model to avoid any initial class mismatch.
-3. Add end-to-end visual regression tests for all 10 themes x day/night modes.
-4. Add a reusable shared CTA class or tokenized mixin file to reduce duplicated animation rules.
-5. Improve SEO metadata per section and add OpenGraph/Twitter image metadata.
-
----
-
-## 14) Summary
+## 12) Summary
 
 This codebase is now a modular, theme-rich, section-driven portfolio architecture built on Next.js App Router. It has been refactored from a heavier global-style approach into colocated component modules, while introducing a robust customization engine (themes, fonts, mode), adaptive CTA styling, and responsive UX patterns.
 
