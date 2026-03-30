@@ -1,4 +1,4 @@
-# Personal Portfolio Codebase: Complete Technical Explanation by GitHub Copilot
+# Personal Portfolio Codebase: Complete Technical Explanation formatted by GitHub Copilot
 
 ## 1) High-Level Overview
 
