@@ -20,31 +20,54 @@ export default function Header() {
             <p className={styles.textLine}>
               Welcome to my Portfolio!
             </p>
-            <p className={styles.textLine}>
+            <div className={styles.socialLinks} aria-label="Contact links">
               <a
                 href="mailto:kartikeyaku@gmail.com"
-                className={styles.inlineLink}
+                className={styles.iconLink}
+                aria-label="Send email to Kartikeya"
               >
-                Email
-              </a>|{" "}
+                <Image
+                  src="/SVGs/email.svg"
+                  alt=""
+                  width={30}
+                  height={30}
+                  aria-hidden="true"
+                  className={`${styles.socialIcon} ${styles.iconEmail}`}
+                />
+              </a>
               <a
                 href="https://linkedin.com/in/kartikeya-kumaria"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.inlineLink}
+                className={styles.iconLink}
+                aria-label="Open LinkedIn profile"
               >
-                LinkedIn
-              </a>{" "}
-              |{" "}
+                <Image
+                  src="/SVGs/linkedin.svg"
+                  alt=""
+                  width={30}
+                  height={30}
+                  aria-hidden="true"
+                  className={`${styles.socialIcon} ${styles.iconLinkedin}`}
+                />
+              </a>
               <a
                 href="https://github.com/karti722"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.inlineLink}
+                className={styles.iconLink}
+                aria-label="Open GitHub profile"
               >
-                GitHub
+                <Image
+                  src="/SVGs/github.svg"
+                  alt=""
+                  width={30}
+                  height={30}
+                  aria-hidden="true"
+                  className={`${styles.socialIcon} ${styles.iconGithub}`}
+                />
               </a>
-            </p>
+            </div>
           </div>
         </div>
       </div>

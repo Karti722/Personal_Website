@@ -17,7 +17,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
   animation: shimmer 3s infinite;
 }
 
@@ -29,6 +29,8 @@
   flex-wrap: wrap;
   position: relative;
   z-index: 1;
+  width: min(100%, 980px);
+  margin: 0 auto;
 }
 
 .profilePhoto {
@@ -49,16 +51,17 @@
 
 .profileInfo {
   text-align: left;
-  flex: 1;
-  min-width: 300px;
+  flex: 0 1 620px;
+  min-width: 0;
   text-shadow: #020617 0 4px 18px, 0 0 10px rgba(79, 70, 229, 0.06);
 }
 
 .title {
   color: white;
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 4.8vw, 3.5rem);
   margin-bottom: 1rem;
   font-weight: 700;
+  line-height: 1.1;
   text-shadow: var(--heading-shadow, 2px 2px 4px rgba(0, 0, 0, 0.3));
   animation: fadeInDown 1.5s ease-out;
 }
@@ -73,24 +76,63 @@
   gap: 0.55rem;
 }
 
-.inlineLink {
-  color: var(--header-link-color);
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.18em;
-  transition: color 0.25s ease, text-shadow 0.25s ease;
-  font-weight: 700;
-  letter-spacing: 0.005em;
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.22);
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 0.2rem;
 }
 
-.inlineLink:hover {
-  color: #ffffff;
-  text-shadow: 0 1px 14px rgba(255, 255, 255, 0.22), 0 1px 12px rgba(0, 0, 0, 0.25);
+.iconLink {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  box-shadow: none;
+  opacity: 0.9;
+  transition: transform 0.16s ease-out, opacity 0.22s ease, filter 0.22s ease;
 }
 
-.inlineLink::after {
-  display: none;
+.iconLink:hover {
+  transform: translateY(-1px) scale(1.04);
+  opacity: 1;
+  filter: brightness(1.04);
+}
+
+.iconLink:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.iconLink:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--header-link-color) 58%, white 42%);
+  outline-offset: 4px;
+}
+
+.socialIcon {
+  width: 29px;
+  height: 29px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.14));
+}
+
+.iconEmail {
+  width: 30px;
+  height: 30px;
+}
+
+.iconLinkedin {
+  width: 28px;
+  height: 28px;
+}
+
+.iconGithub {
+  width: 29px;
+  height: 29px;
 }
 
 @media (max-width: 768px) {
@@ -101,11 +143,13 @@
   .profileSection {
     flex-direction: column;
     text-align: center;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .profileInfo {
     text-align: center;
+    flex-basis: auto;
+    max-width: 100%;
   }
 
   .textLine {
@@ -113,8 +157,35 @@
     gap: 0.5rem;
   }
 
-  .inlineLink {
-    font-size: 0.96rem;
+  .socialLinks {
+    justify-content: center;
+    gap: 0.52rem;
+    margin-top: 0.25rem;
+  }
+
+  .iconLink {
+    width: 40px;
+    height: 40px;
+  }
+
+  .socialIcon {
+    width: 27px;
+    height: 27px;
+  }
+
+  .iconEmail {
+    width: 28px;
+    height: 28px;
+  }
+
+  .iconLinkedin {
+    width: 26px;
+    height: 26px;
+  }
+
+  .iconGithub {
+    width: 27px;
+    height: 27px;
   }
 
   .profilePhoto {
@@ -123,7 +194,7 @@
   }
 
   .title {
-    font-size: 2.5rem;
+    font-size: clamp(2.1rem, 8.2vw, 2.6rem);
   }
 }
 
@@ -133,7 +204,7 @@
   }
 
   .title {
-    font-size: 2rem;
+    font-size: clamp(1.95rem, 10vw, 2.2rem);
   }
 
   .profilePhoto {
@@ -145,8 +216,33 @@
     gap: 0.42rem;
   }
 
-  .inlineLink {
-    font-size: 0.9rem;
+  .socialLinks {
+    gap: 0.48rem;
+  }
+
+  .iconLink {
+    width: 38px;
+    height: 38px;
+  }
+
+  .socialIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .iconEmail {
+    width: 25px;
+    height: 25px;
+  }
+
+  .iconLinkedin {
+    width: 23px;
+    height: 23px;
+  }
+
+  .iconGithub {
+    width: 24px;
+    height: 24px;
   }
 }
 

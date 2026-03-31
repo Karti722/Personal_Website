@@ -1,6 +1,7 @@
 "use client";
 
 import styles from "./Footer.module.css";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -16,7 +17,8 @@ export default function Footer() {
           rel="noopener noreferrer"
           className={styles.footerLink}
         >
-          Portfolio Codebase 📟
+          Portfolio Codebase {" "}
+          <Image src="/SVGs/github.svg" alt="GitHub" width={20} height={20} />
         </a>
       </div>
     </footer>
