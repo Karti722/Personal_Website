@@ -153,7 +153,7 @@ export default function Navbar() {
             </div>
 
             <div className={styles.settingsRow}>
-              <span className={styles.settingsLabel}>Day / Night</span>
+              <span className={styles.settingsLabel}>Brightness</span>
               <button
                 type="button"
                 className={`${styles.settingsToggle} ${mode === "night" ? styles.on : ""}`}

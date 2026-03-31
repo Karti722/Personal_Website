@@ -2,9 +2,9 @@
 
 :global(:root) {
   --font-family-base: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
-  --bg-gradient: linear-gradient(135deg, #e6f0ff 0%, #f0e7ff 100%);
+  --bg-gradient: linear-gradient(135deg, #f5f0eb 0%, #f0e7ff 100%);
   --header-gradient: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
-  --section-bg: rgba(255, 255, 255, 0.95);
+  --section-bg: rgba(250, 246, 242, 0.96);
   --accent-gradient: linear-gradient(90deg, #667eea, #764ba2);
   --accent-strong: #1e3a8a;
   --text-color: #1f2937;
@@ -45,7 +45,7 @@
 :global(.font-classic) { --font-family-base: Garamond, Baskerville, "Times New Roman", serif; }
 
 :global(.theme-daylight) {
-  --bg-gradient: linear-gradient(135deg, #e6f0ff 0%, #f0e7ff 100%);
+  --bg-gradient: linear-gradient(135deg, #f5f0eb 0%, #f0e7ff 100%);
   --header-gradient: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
   --accent-gradient: linear-gradient(90deg, #667eea, #764ba2);
   --accent-strong: #1e3a8a;
@@ -62,9 +62,9 @@
 }
 
 :global(.theme-sunset) {
-  --bg-gradient: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+  --bg-gradient: linear-gradient(135deg, #f4ede4 0%, #fed7aa 100%);
   --header-gradient: linear-gradient(135deg, #b45309 0%, #d97706 100%);
-  --section-bg: rgba(255, 250, 243, 0.96);
+  --section-bg: rgba(252, 248, 244, 0.96);
   --accent-gradient: linear-gradient(90deg, #f97316, #ea580c);
   --accent-strong: #c2410c;
   --text-color: #3b2414;
@@ -80,9 +80,9 @@
 }
 
 :global(.theme-ocean) {
-  --bg-gradient: linear-gradient(135deg, #cffafe 0%, #a5f3fc 100%);
+  --bg-gradient: linear-gradient(135deg, #f0fafe 0%, #e8fafd 100%);
   --header-gradient: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
-  --section-bg: rgba(240, 253, 255, 0.96);
+  --section-bg: rgba(245, 251, 252, 0.96);
   --accent-gradient: linear-gradient(90deg, #06b6d4, #0891b2);
   --accent-strong: #0e7490;
   --text-color: #164e63;
@@ -98,9 +98,9 @@
 }
 
 :global(.theme-forest) {
-  --bg-gradient: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  --bg-gradient: linear-gradient(135deg, #f0fde8 0%, #e8fbdc 100%);
   --header-gradient: linear-gradient(135deg, #166534 0%, #15803d 100%);
-  --section-bg: rgba(240, 253, 245, 0.96);
+  --section-bg: rgba(248, 252, 246, 0.96);
   --accent-gradient: linear-gradient(90deg, #16a34a, #15803d);
   --accent-strong: #166534;
   --text-color: #1b3b1b;
@@ -116,9 +116,9 @@
 }
 
 :global(.theme-monochrome) {
-  --bg-gradient: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+  --bg-gradient: linear-gradient(135deg, #f0f0f0 0%, #e5e5e5 100%);
   --header-gradient: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-  --section-bg: rgba(255, 255, 255, 0.9);
+  --section-bg: rgba(249, 247, 245, 0.92);
   --accent-gradient: linear-gradient(90deg, #374151, #1f2937);
   --accent-strong: #111827;
   --text-color: #111827;
@@ -154,9 +154,9 @@
 }
 
 :global(.theme-vintage) {
-  --bg-gradient: linear-gradient(135deg, #fef5e7 0%, #f5deb3 100%);
+  --bg-gradient: linear-gradient(135deg, #f4ede4 0%, #eee5d9 100%);
   --header-gradient: linear-gradient(135deg, #78553b 0%, #8b6f47 100%);
-  --section-bg: rgba(255, 250, 243, 0.95);
+  --section-bg: rgba(252, 249, 245, 0.96);
   --accent-gradient: linear-gradient(90deg, #a0826d, #78553b);
   --accent-strong: #78553b;
   --text-color: #3d2817;
@@ -190,9 +190,9 @@
 }
 
 :global(.theme-warm) {
-  --bg-gradient: linear-gradient(135deg, #fdf2e9 0%, #f9ede4 100%);
+  --bg-gradient: linear-gradient(135deg, #f4ede4 0%, #efe8de 100%);
   --header-gradient: linear-gradient(135deg, #b45309 0%, #d97706 100%);
-  --section-bg: rgba(255, 250, 245, 0.96);
+  --section-bg: rgba(251, 248, 244, 0.96);
   --accent-gradient: linear-gradient(90deg, #d97706, #f59e0b);
   --accent-strong: #b45309;
   --text-color: #42200f;
@@ -208,9 +208,9 @@
 }
 
 :global(.theme-cool) {
-  --bg-gradient: linear-gradient(135deg, #e0e7ff 0%, #cffafe 100%);
+  --bg-gradient: linear-gradient(135deg, #f0f5fd 0%, #f0fafe 100%);
   --header-gradient: linear-gradient(135deg, #0f766e 0%, #0369a1 100%);
-  --section-bg: rgba(240, 249, 255, 0.96);
+  --section-bg: rgba(246, 250, 252, 0.96);
   --accent-gradient: linear-gradient(90deg, #0891b2, #0369a1);
   --accent-strong: #0f766e;
   --text-color: #082f49;
