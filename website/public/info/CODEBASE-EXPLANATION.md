@@ -68,9 +68,9 @@ Personal_Website/
 						index.tsx
 						Resume.module.css
 		public/
-			PDFs/
+			pdfs/
 			photos/
-			SVGs/
+			svgs/
 			info/
 				CODEBASE-EXPLANATION.md
 ```
@@ -80,7 +80,7 @@ Why this structure matters:
 1. Every feature section is self-contained.
 2. CSS for each component lives beside it.
 3. Theming logic is centralized in one provider folder.
-4. Assets are clearly separated (`photos`, `PDFs`, `SVGs`, and `info`).
+4. Assets are clearly separated (`photos`, `pdfs`, `svgs`, and `info`).
 
 ---
 
