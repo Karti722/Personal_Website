@@ -27,7 +27,7 @@ export default function Header() {
                 aria-label="Send email to Kartikeya"
               >
                 <Image
-                  src="/SVGs/email.svg"
+                  src="/svgs/email.svg"
                   alt=""
                   width={30}
                   height={30}
@@ -43,7 +43,7 @@ export default function Header() {
                 aria-label="Open LinkedIn profile"
               >
                 <Image
-                  src="/SVGs/linkedin.svg"
+                  src="/svgs/linkedin.svg"
                   alt=""
                   width={30}
                   height={30}
@@ -59,7 +59,7 @@ export default function Header() {
                 aria-label="Open GitHub profile"
               >
                 <Image
-                  src="/SVGs/github.svg"
+                  src="/svgs/github.svg"
                   alt=""
                   width={30}
                   height={30}

@@ -113,7 +113,7 @@ export default function Navbar() {
             onClick={() => setSettingsOpen((open) => !open)}
           >
             <Image
-              src="/SVGs/settings.svg"
+              src="/svgs/settings.svg"
               alt=""
               width={27}
               height={27}
