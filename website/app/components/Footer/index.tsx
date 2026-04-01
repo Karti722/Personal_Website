@@ -18,7 +18,7 @@ export default function Footer() {
           className={styles.footerLink}
         >
           Portfolio Codebase {" "}
-          <Image src="/SVGs/github.svg" alt="GitHub" width={20} height={20} />
+          <Image src="/svgs/github.svg" alt="GitHub" width={20} height={20} />
         </a>
       </div>
     </footer>
