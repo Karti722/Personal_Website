@@ -1,7 +1,5 @@
 "use client";
-
 import styles from "./Resume.module.css";
-import Image from "next/image";
 
 export default function Resume() {
   return (
