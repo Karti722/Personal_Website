@@ -1,6 +1,7 @@
 "use client";
 
 import styles from "./Certifications.module.css";
+import Image from "next/image";
 
 export default function Certifications() {
   return (
@@ -39,10 +40,11 @@ export default function Certifications() {
           <p>
             <strong>Skills:</strong> HTML, CSS, JavaScript
           </p>
-          <img
+          <Image
             src="/photos/codepath.png"
             alt="WEB 101 Certificate"
-            style={{ maxWidth: "300px" }}
+            width={300}
+            height={200}
           />
         </div>
 
@@ -61,7 +63,7 @@ export default function Certifications() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Show credential
+            Show credential {" "}
           </a>
         </div>
 

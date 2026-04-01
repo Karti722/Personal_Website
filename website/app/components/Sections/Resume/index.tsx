@@ -1,6 +1,7 @@
 "use client";
 
 import styles from "./Resume.module.css";
+import Image from "next/image";
 
 export default function Resume() {
   return (
@@ -14,7 +15,7 @@ export default function Resume() {
               target="_blank"
               className={`${styles.resumeBtn} ${styles.viewBtn}`}
             >
-              <span>👀</span> View Full Screen
+              View on Google Drive
             </a>
           </div>
           <div className={styles.resumeEmbed}>
