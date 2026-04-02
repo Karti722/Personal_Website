@@ -9,7 +9,7 @@ export default function Resume() {
         <div className={styles.resumeContainer}>
           <div className={styles.resumeActions}>
             <a
-              href="https://drive.google.com/file/d/1QBODjHS9p59_QOiNmgSQYhegF6KLsR--/view?usp=sharing"
+              href="https://drive.google.com/file/d/1ZA5hLkbpmYoTBxUg6Wv1auQnsJ_5p5uL/view?usp=sharing"
               target="_blank"
               className={`${styles.resumeBtn} ${styles.viewBtn}`}
             >
