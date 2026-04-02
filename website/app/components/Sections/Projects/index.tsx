@@ -150,34 +150,6 @@ export default function Projects() {
           </ul>
         </div>
 
-        {/* Outer Space 3D World */}
-        <div className={styles.project}>
-          <h3>
-            <a
-              href="https://kkumariacse160asgn5threejs.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Outer Space 3D World (Three.js)
-            </a>
-          </h3>
-          <p>
-            <em>March 2025</em> |{" "}
-            <a
-              href="https://github.com/Karti722/ThreeJS3DWorld_Asgn5_CSE160"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub Repository
-            </a>
-          </p>
-          <ul>
-            <li>Built interactive 3D world using Three.js.</li>
-            <li>Implemented dynamic object placement and textures.</li>
-            <li>Imported models and optimized rendering.</li>
-          </ul>
-        </div>
-
         {/* Task Manager */}
         <div className={styles.project}>
           <h3>
