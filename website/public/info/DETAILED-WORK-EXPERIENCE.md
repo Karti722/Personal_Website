@@ -1,4 +1,4 @@
-# Experience
+# Kartikeya Kumaria's Fully Detailed Work Experience
 
 ## AI Enabler Apprentice @ [Redminds](https://rediminds.com/)
 *Jan 2026 – Present*
