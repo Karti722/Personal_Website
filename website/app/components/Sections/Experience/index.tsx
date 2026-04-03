@@ -20,6 +20,9 @@ export default function Experience() {
               Redminds
             </a>
           </h3>
+            <ul>
+              <li> Full Stack IRO Software Development </li>
+            </ul>
           <p>
             <em>Jan 2026 – Present</em>
           </p>
@@ -37,6 +40,9 @@ export default function Experience() {
               UCSC BLUEPRINT
             </a>
           </h3>
+            <ul>
+              <li> React Development </li>
+            </ul>
           <p>
             <em>Feb 2024 – Feb 2026</em>
           </p>
@@ -54,6 +60,9 @@ export default function Experience() {
               PACR
             </a>
           </h3>
+          <ul>
+            <li> Search API Integration </li>
+          </ul>
           <p>
             <em>Jul 2025 – Dec 2025</em>
           </p>
@@ -71,12 +80,14 @@ export default function Experience() {
               CruzHacks 2025
             </a>
           </h3>
+          <ul>
+            <li> Landing Page Component Development</li>
+          </ul>
           <p>
             <em>Oct 2024 – Apr 2025</em>
           </p>
         </div>
         
-
         {/* SKYIT */}
         <div className={styles.job}>
           <h3>
@@ -89,6 +100,9 @@ export default function Experience() {
               SKYIT (Subsidiary of GBCS Group)
             </a>
           </h3>
+          <ul>
+            <li> API Testing and Debugging </li>
+          </ul>
           <p>
             <em>Apr 2024 – Aug 2024</em>
           </p>
@@ -106,6 +120,9 @@ export default function Experience() {
               CodeDay
             </a>
           </h3>
+          <ul>
+            <li> Unit Conversion Testing </li>
+          </ul>
           <p>
             <em>Oct 2023 – Dec 2023</em>
           </p>
