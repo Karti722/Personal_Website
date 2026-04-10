@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useSiteSettings } from "../ThemeProvider";
 import styles from "./Navbar.module.css";
 
@@ -46,13 +47,11 @@ export default function Navbar() {
   }, [theme]);
 
   const navItems = [
-    { label: "About", id: "about" },
-    { label: "Skills", id: "skills" },
-    { label: "Experience", id: "experience" },
-    { label: "Projects", id: "projects" },
-    { label: "Certifications", id: "certifications" },
-    { label: "Resume", id: "resume" },
-    { label: "More Info", id: "more-info" },
+    { label: "Skills", href: "/skills" },
+    { label: "Experience", href: "/experience" },
+    { label: "Projects", href: "/projects" },
+    { label: "Certifications", href: "/certifications" },
+    { label: "Resume", href: "/resume" },
   ];
 
   const handleNavClick = () => {
@@ -87,20 +86,20 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navContainer}>
-        <a href="#" className={styles.navLogo}>
+        <Link href="/" className={styles.navLogo} onClick={handleNavClick}>
           <span>KK</span>
-        </a>
+        </Link>
 
         <div className={`${styles.navMenu} ${menuOpen ? styles.active : ""}`}>
           {navItems.map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
+            <Link
+              key={item.href}
+              href={item.href}
               className={styles.navLink}
               onClick={handleNavClick}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
 

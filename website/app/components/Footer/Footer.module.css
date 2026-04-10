@@ -1,7 +1,7 @@
 .footer {
   font-size: 1rem;
   border-top: 4px solid var(--accent-strong);
-  margin-top: 4rem;
+  margin-top: 2rem;
   background: var(--header-gradient);
   color: var(--text-color);
   text-align: center;
