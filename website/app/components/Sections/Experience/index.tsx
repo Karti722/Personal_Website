@@ -24,7 +24,7 @@ export default function Experience() {
               <li> Full Stack IRO Software Development </li>
             </ul>
           <p>
-            <em>Jan 2026 – Present</em>
+            <em>Jan 2nd, 2026 – July 10th, 2026</em>
           </p>
         </div>
 
@@ -44,7 +44,7 @@ export default function Experience() {
               <li> React Development </li>
             </ul>
           <p>
-            <em>Feb 2024 – Feb 2026</em>
+            <em>Feb 1st, 2024 – Feb 12th, 2026</em>
           </p>
         </div>
 
@@ -64,7 +64,7 @@ export default function Experience() {
             <li> Search API Integration </li>
           </ul>
           <p>
-            <em>Jul 2025 – Dec 2025</em>
+            <em>Jul 15th, 2025 – Dec 15th, 2025</em>
           </p>
         </div>
 
@@ -84,7 +84,7 @@ export default function Experience() {
             <li> Landing Page Component Development</li>
           </ul>
           <p>
-            <em>Oct 2024 – Apr 2025</em>
+            <em>Oct 1st, 2024 – Apr 12th, 2025</em>
           </p>
         </div>
         
@@ -104,7 +104,7 @@ export default function Experience() {
             <li> API Testing and Debugging </li>
           </ul>
           <p>
-            <em>Apr 2024 – Aug 2024</em>
+            <em>Apr 1st, 2024 – Aug 15th, 2024</em>
           </p>
         </div>
 
@@ -124,7 +124,7 @@ export default function Experience() {
             <li> Unit Conversion Testing </li>
           </ul>
           <p>
-            <em>Oct 2023 – Dec 2023</em>
+            <em>Oct 1st, 2023 – Dec 15th, 2023</em>
           </p>
         </div>
       </div>
