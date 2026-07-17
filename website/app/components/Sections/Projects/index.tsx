@@ -8,6 +8,48 @@ export default function Projects() {
       <div className="container">
         <h2>Projects</h2>
 
+        {/* AI Nexus */}
+        <div className={styles.project}>
+          <h3>
+            <a
+              href="https://github.com/Karti722/ai-nexus"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              AI Nexus - Full-Stack AI Engineering Learning Platform
+            </a>
+          </h3>
+          <p>
+            <em>May 2026 – Present</em>
+          </p>
+          <ul>
+            <li>
+              Built a full-stack AI engineering platform spanning 10 interactive
+              chapters covering RAG, embeddings-based retrieval, AI agents, MCP,
+              and Anthropic Claude API integration.
+            </li>
+            <li>
+              Architected a polyglot microservices system across 4 containerized
+              services (Next.js, Express, FastAPI, MCP server) exposing 15 REST
+              endpoints, orchestrated with Docker Compose.
+            </li>
+            <li>
+              Implemented 7 from-scratch algorithms for cost optimization and
+              quality assurance, including BPE tokenization, semantic caching,
+              TextRank summarization, and ROUGE-L/embedding-based evaluation.
+            </li>
+            <li>
+              Integrated a pgvector-backed PostgreSQL vector store for RAG
+              retrieval and a custom MCP server exposing tools to the AI agent
+              over stdio.
+            </li>
+            <li>
+              Wrote deployment guides for AWS, Azure, and GCP, citing 40+
+              academic and industry sources.
+            </li>
+          </ul>
+        </div>
+
         {/* LogBlog */}
         <div className={styles.project}>
           <h3>
@@ -20,7 +62,7 @@ export default function Projects() {
             </a>
           </h3>
           <p>
-            <em>June 4 – July 10, 2025</em> |{" "}
+            <em>June 4 â July 10, 2025</em> |{" "}
             <a
               href="https://github.com/Karti722/LogBlog"
               target="_blank"
@@ -70,7 +112,7 @@ export default function Projects() {
             </a>
           </h3>
           <p>
-            <em>July 18 – September 9, 2025</em> |{" "}
+            <em>July 18 â September 9, 2025</em> |{" "}
             <a
               href="https://github.com/Karti722/surveyKarrot"
               target="_blank"
@@ -162,7 +204,7 @@ export default function Projects() {
             </a>
           </h3>
           <p>
-            <em>Feb – May 2025</em> |{" "}
+            <em>Feb â May 2025</em> |{" "}
             <a
               href="https://github.com/Karti722/lumaa-spring-2025-swe-submission-from-kartikeya"
               target="_blank"
