@@ -57,7 +57,7 @@ export default function Skills() {
         <h2>Skills</h2>
         <p className={styles.intro}>
           The languages, frameworks, and AI tooling I use to design, build, and ship
-          production software — from full-stack web apps to LLM-powered agents.
+          production software.
         </p>
 
         {SKILL_CATEGORIES.map((category) => (
