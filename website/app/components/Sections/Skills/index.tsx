@@ -1,6 +1,8 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import styles from "./Skills.module.css";
+import CategoryIcon from "./CategoryIcon";
 
 type SkillCategory = {
   title: string;
@@ -50,7 +52,35 @@ const SKILL_CATEGORIES: SkillCategory[] = [
   },
 ];
 
+const DEFAULT_INDEX = Math.max(
+  SKILL_CATEGORIES.findIndex((category) => category.featured),
+  0
+);
+
 export default function Skills() {
+  const [activeIndex, setActiveIndex] = useState(DEFAULT_INDEX);
+  const [indicator, setIndicator] = useState({ left: 0, top: 0, width: 0, height: 0 });
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const active = SKILL_CATEGORIES[activeIndex];
+
+  useEffect(() => {
+    const measure = () => {
+      const el = tabRefs.current[activeIndex];
+      if (el) {
+        setIndicator({
+          left: el.offsetLeft,
+          top: el.offsetTop,
+          width: el.offsetWidth,
+          height: el.offsetHeight,
+        });
+      }
+    };
+
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [activeIndex]);
+
   return (
     <section id="skills" className={styles.skillsSection}>
       <div className="container">
@@ -60,28 +90,61 @@ export default function Skills() {
           production software.
         </p>
 
-        {SKILL_CATEGORIES.map((category) => (
-          <div
-            key={category.title}
-            className={`${styles.category} ${
-              category.featured ? styles.categoryFeatured : ""
-            }`}
-          >
-            <h3 className={styles.categoryTitle}>
+        <div className={styles.tabs} role="tablist" aria-label="Skill categories">
+          <span
+            className={styles.tabIndicator}
+            style={{
+              left: indicator.left,
+              top: indicator.top,
+              width: indicator.width,
+              height: indicator.height,
+            }}
+            aria-hidden="true"
+          />
+          {SKILL_CATEGORIES.map((category, index) => (
+            <button
+              key={category.title}
+              ref={(el) => {
+                tabRefs.current[index] = el;
+              }}
+              type="button"
+              role="tab"
+              id={`skill-tab-${index}`}
+              aria-selected={index === activeIndex}
+              aria-controls={`skill-panel-${index}`}
+              className={`${styles.tab} ${index === activeIndex ? styles.tabActive : ""}`}
+              onClick={() => setActiveIndex(index)}
+            >
+              <CategoryIcon name={category.title} className={styles.tabIcon} />
               {category.title}
-              {category.featured && (
-                <span className={styles.featuredBadge}>currently building with</span>
-              )}
-            </h3>
+              {category.featured && <span className={styles.tabDot} aria-hidden="true" />}
+            </button>
+          ))}
+        </div>
+
+        <div
+          key={active.title}
+          role="tabpanel"
+          id={`skill-panel-${activeIndex}`}
+          aria-labelledby={`skill-tab-${activeIndex}`}
+          className={`${styles.panel} ${active.featured ? styles.panelFeatured : ""}`}
+        >
+          <div className={styles.panelInner}>
+            {active.featured && (
+              <p className={styles.featuredNote}>
+                <span className={styles.featuredPulse} aria-hidden="true" />
+                Actively building with these day to day
+              </p>
+            )}
             <ul className={styles.skillsList}>
-              {category.skills.map((skill) => (
+              {active.skills.map((skill) => (
                 <li key={skill} className={styles.skillItem}>
                   {skill}
                 </li>
               ))}
             </ul>
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );

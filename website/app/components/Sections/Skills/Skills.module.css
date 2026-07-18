@@ -2,87 +2,188 @@
   text-align: center;
   color: var(--muted-color);
   max-width: 620px;
-  margin: 0 auto 2.75rem;
+  margin: 0 auto 2.25rem;
   font-size: 1.05rem;
   line-height: 1.65;
 }
 
-.category {
+.tabs {
   position: relative;
-  margin-bottom: 1.5rem;
-  padding: 1.75rem 2rem 1.75rem 2.75rem;
-  background: var(--card-bg);
-  border-radius: 15px;
-  box-shadow: var(--box-shadow, 0 8px 30px rgba(0, 0, 0, 0.1));
-  transition: all 0.3s ease;
-}
-
-.category:last-child {
-  margin-bottom: 0;
-}
-
-.category::before {
-  content: "";
-  position: absolute;
-  left: 16px;
-  top: 16px;
-  bottom: 16px;
-  width: 6px;
-  border-radius: 6px;
-  background: var(--card-accent-gradient);
-  opacity: 0.45;
-  transition: all 180ms ease;
-}
-
-.category:hover {
-  transform: translateX(4px);
-  box-shadow: var(--box-shadow-strong, 0 12px 40px rgba(0, 0, 0, 0.14));
-}
-
-.categoryFeatured::before {
-  background: var(--accent-gradient);
-  opacity: 1;
-  box-shadow: 0 6px 20px var(--card-accent-glow);
-}
-
-.categoryTitle {
   display: flex;
-  align-items: center;
-  gap: 0.6rem;
   flex-wrap: wrap;
-  color: var(--muted-color);
-  font-size: 0.78rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 1.15rem;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
 }
 
-.featuredBadge {
+.tabIndicator {
+  position: absolute;
+  border-radius: 999px;
+  background: var(--accent-gradient);
+  box-shadow: 0 8px 22px var(--card-accent-glow);
+  transition:
+    left 320ms cubic-bezier(0.4, 0, 0.2, 1),
+    top 320ms cubic-bezier(0.4, 0, 0.2, 1),
+    width 320ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+.tab {
+  position: relative;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  text-transform: none;
-  letter-spacing: normal;
+  gap: 0.5rem;
+  border: 1px solid var(--section-border-color);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-color);
+  border-radius: 999px;
+  padding: 0.55rem 1.2rem;
   font-weight: 700;
-  font-size: 0.74rem;
-  color: var(--accent-strong);
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
-.featuredBadge::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent-gradient);
+.tabIcon {
   flex-shrink: 0;
 }
 
+.tab:hover {
+  border-color: var(--accent-strong);
+  transform: translateY(-1px);
+}
+
+.tabActive {
+  color: #fff;
+  border-color: transparent;
+  background: transparent;
+}
+
+.tabActive:hover {
+  transform: none;
+}
+
+.tabDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.85;
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  animation: skillsFadeIn 350ms ease;
+}
+
+.panelInner {
+  position: relative;
+  padding: 2rem 2.25rem;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: var(--box-shadow, 0 8px 30px rgba(0, 0, 0, 0.1));
+}
+
+.panelFeatured {
+  padding: 2px;
+  border-radius: 17px;
+  background: var(--accent-gradient);
+}
+
+.panelFeatured .panelInner::before {
+  content: "";
+  position: absolute;
+  top: -70px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  background: var(--accent-gradient);
+  filter: blur(75px);
+  opacity: 0.3;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: orbFloat 7s ease-in-out infinite;
+}
+
+.panelFeatured .panelInner::after {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: var(--accent-gradient);
+  filter: blur(80px);
+  opacity: 0.22;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: orbFloat 8s ease-in-out infinite reverse;
+}
+
+@keyframes orbFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-12px, 12px) scale(1.1);
+  }
+}
+
+@keyframes skillsFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.featuredNote {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-strong);
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.featuredPulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  animation: pulseDot 1.8s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0% {
+    box-shadow: 0 0 0 0 var(--card-accent-glow);
+  }
+  70% {
+    box-shadow: 0 0 0 7px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
 .skillsList {
+  position: relative;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
+  justify-content: center;
+  gap: 0.6rem;
   padding: 0;
 }
 
@@ -90,12 +191,14 @@
   background: rgba(255, 255, 255, 0.5);
   color: var(--text-color);
   border: 1px solid var(--section-border-color);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.05rem;
   border-radius: 999px;
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   font-weight: 600;
   line-height: 1.3;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+  animation: chipIn 320ms ease backwards;
 }
 
 .skillItem:hover {
@@ -106,24 +209,81 @@
   box-shadow: 0 8px 20px var(--card-accent-glow);
 }
 
-.categoryFeatured .skillItem {
-  border-color: var(--accent-strong);
-  color: var(--accent-strong);
+@keyframes chipIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-.categoryFeatured .skillItem:hover {
-  background: var(--accent-gradient);
-  color: #fff;
+.skillItem:nth-child(1) {
+  animation-delay: 0ms;
+}
+.skillItem:nth-child(2) {
+  animation-delay: 35ms;
+}
+.skillItem:nth-child(3) {
+  animation-delay: 70ms;
+}
+.skillItem:nth-child(4) {
+  animation-delay: 105ms;
+}
+.skillItem:nth-child(5) {
+  animation-delay: 140ms;
+}
+.skillItem:nth-child(6) {
+  animation-delay: 175ms;
+}
+.skillItem:nth-child(7) {
+  animation-delay: 210ms;
+}
+.skillItem:nth-child(8) {
+  animation-delay: 245ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .skillItem,
+  .featuredPulse,
+  .panelFeatured .panelInner::before,
+  .panelFeatured .panelInner::after {
+    animation: none;
+  }
+
+  .tabIndicator {
+    transition: none;
+  }
 }
 
 @media (max-width: 768px) {
   .intro {
     font-size: 0.98rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
   }
 
-  .category {
-    padding: 1.5rem 1.5rem 1.5rem 2rem;
+  .tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.25rem;
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+
+  .tab {
+    flex-shrink: 0;
+    padding: 0.5rem 1rem;
+    font-size: 0.84rem;
+  }
+
+  .panelInner {
+    padding: 1.5rem 1.5rem;
   }
 
   .skillItem {
@@ -133,19 +293,8 @@
 }
 
 @media (max-width: 480px) {
-  .category {
-    padding: 1.25rem 1.1rem 1.25rem 1.6rem;
-  }
-
-  .category::before {
-    left: 12px;
-    top: 12px;
-    bottom: 12px;
-    width: 5px;
-  }
-
-  .categoryTitle {
-    font-size: 0.72rem;
+  .panelInner {
+    padding: 1.25rem;
   }
 
   .skillItem {
