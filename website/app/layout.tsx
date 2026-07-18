@@ -3,6 +3,7 @@ import "./globals.css";
 import { ReactNode } from "react";
 import ThemeProvider from "./components/ThemeProvider";
 import Footer from "./components/Footer";
+import PageLoader from "./components/PageLoader";
 
 export const metadata = {
   title: "Kartikeya Kumaria Portfolio",
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           }}
         />
         <ThemeProvider>
+          <PageLoader />
           {children}
           <Footer />
         </ThemeProvider>

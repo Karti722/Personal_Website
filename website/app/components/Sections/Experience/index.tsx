@@ -1,132 +1,151 @@
 "use client";
 
+import { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./Experience.module.css";
+import { parseDetailedExperience, DetailedJob } from "./parseDetailedExperience";
+import { renderInlineMarkdown } from "./renderInlineMarkdown";
+
+type JobSummary = {
+  role: string;
+  company: string;
+  url: string;
+  summaryPoints: string[];
+  date: string;
+};
+
+const JOBS: JobSummary[] = [
+  {
+    role: "AI Enabler Apprentice",
+    company: "Redminds",
+    url: "https://rediminds.com/",
+    summaryPoints: ["Full Stack IRO Software Development"],
+    date: "Jan 2nd, 2026 – July 10th, 2026",
+  },
+  {
+    role: "Software Developer",
+    company: "UCSC BLUEPRINT",
+    url: "https://www.ucscblueprint.com/",
+    summaryPoints: ["React Development"],
+    date: "Feb 1st, 2024 – Feb 12th, 2026",
+  },
+  {
+    role: "Full Stack Developer Intern",
+    company: "PACR",
+    url: "https://pacr.co/",
+    summaryPoints: ["Search API Integration"],
+    date: "Jul 15th, 2025 – Dec 15th, 2025",
+  },
+  {
+    role: "Webmaster",
+    company: "CruzHacks 2025",
+    url: "https://cruzhacks.com/",
+    summaryPoints: ["Landing Page Component Development"],
+    date: "Oct 1st, 2024 – Apr 12th, 2025",
+  },
+  {
+    role: "Backend Developer Intern",
+    company: "SKYIT (Subsidiary of GBCS Group)",
+    url: "https://skyit.services/",
+    summaryPoints: ["API Testing and Debugging"],
+    date: "Apr 1st, 2024 – Aug 15th, 2024",
+  },
+  {
+    role: "Software Engineer Intern",
+    company: "CodeDay",
+    url: "https://labs.codeday.org/",
+    summaryPoints: ["Unit Conversion Testing"],
+    date: "Oct 1st, 2023 – Dec 15th, 2023",
+  },
+];
 
 export default function Experience() {
+  const [detailed, setDetailed] = useState(false);
+  const [rawMarkdown, setRawMarkdown] = useState<string | null>(null);
+  const [fetchFailed, setFetchFailed] = useState(false);
+  const fetchStartedRef = useRef(false);
+
+  useEffect(() => {
+    if (!detailed || rawMarkdown !== null || fetchStartedRef.current) return;
+
+    fetchStartedRef.current = true;
+    let cancelled = false;
+
+    fetch("/info/DETAILED-WORK-EXPERIENCE.md")
+      .then((res) => {
+        if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`);
+        return res.text();
+      })
+      .then((text) => {
+        if (!cancelled) setRawMarkdown(text);
+      })
+      .catch(() => {
+        if (!cancelled) {
+          fetchStartedRef.current = false;
+          setFetchFailed(true);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [detailed, rawMarkdown]);
+
+  const isFetching = detailed && rawMarkdown === null && !fetchFailed;
+
+  const detailedJobs = useMemo<DetailedJob[] | null>(
+    () => (rawMarkdown ? parseDetailedExperience(rawMarkdown) : null),
+    [rawMarkdown]
+  );
+
   return (
     <section id="experience">
       <div className="container">
-        <h2>Experience</h2>
-        
-        {/* REDMINDS */}
-        <div className={styles.job}>
-          <h3>
-            AI Enabler Apprentice @{" "}
-            <a
-              href="https://rediminds.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Redminds
-            </a>
-          </h3>
-            <ul>
-              <li> Full Stack IRO Software Development </li>
-            </ul>
-          <p>
-            <em>Jan 2nd, 2026 – July 10th, 2026</em>
-          </p>
+        <div className={styles.headerRow}>
+          <h2>Experience</h2>
+          <button
+            type="button"
+            className={styles.viewToggle}
+            onClick={() => setDetailed((d) => !d)}
+            aria-pressed={detailed}
+          >
+            {detailed ? "Show Summary" : "Show Detailed"}
+          </button>
         </div>
 
-        {/* UCSC BLUEPRINT */}
-        <div className={styles.job}>
-          <h3>
-            Software Developer @{" "}
-            <a
-              href="https://www.ucscblueprint.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              UCSC BLUEPRINT
-            </a>
-          </h3>
-            <ul>
-              <li> React Development </li>
-            </ul>
-          <p>
-            <em>Feb 1st, 2024 – Feb 12th, 2026</em>
-          </p>
-        </div>
+        {JOBS.map((job, index) => {
+          const detail = detailedJobs?.[index];
 
-        {/* PACR */}
-        <div className={styles.job}>
-          <h3>
-            Full Stack Developer Intern @{" "}
-            <a
-              href="https://pacr.co/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              PACR
-            </a>
-          </h3>
-          <ul>
-            <li> Search API Integration </li>
-          </ul>
-          <p>
-            <em>Jul 15th, 2025 – Dec 15th, 2025</em>
-          </p>
-        </div>
+          return (
+            <div className={styles.job} key={job.company}>
+              <h3>
+                {job.role} @{" "}
+                <a href={job.url} target="_blank" rel="noopener noreferrer">
+                  {job.company}
+                </a>
+              </h3>
 
-        {/* CRUZHACKS */}
-        <div className={styles.job}>
-          <h3>
-            Webmaster @{" "}
-            <a
-              href="https://cruzhacks.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              CruzHacks 2025
-            </a>
-          </h3>
-          <ul>
-            <li> Landing Page Component Development</li>
-          </ul>
-          <p>
-            <em>Oct 1st, 2024 – Apr 12th, 2025</em>
-          </p>
-        </div>
-        
-        {/* SKYIT */}
-        <div className={styles.job}>
-          <h3>
-            Backend Developer Intern @{" "}
-            <a
-              href="https://skyit.services/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              SKYIT (Subsidiary of GBCS Group)
-            </a>
-          </h3>
-          <ul>
-            <li> API Testing and Debugging </li>
-          </ul>
-          <p>
-            <em>Apr 1st, 2024 – Aug 15th, 2024</em>
-          </p>
-        </div>
+              {detailed && detail ? (
+                <ul>
+                  {detail.bullets.map((bullet, i) => (
+                    <li key={i}>{renderInlineMarkdown(bullet)}</li>
+                  ))}
+                </ul>
+              ) : detailed && isFetching ? (
+                <p className={styles.loadingNote}>Loading detailed experience…</p>
+              ) : (
+                <ul>
+                  {job.summaryPoints.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              )}
 
-        {/* CODEDAY */}
-        <div className={styles.job}>
-          <h3>
-            Software Engineer Intern @{" "}
-            <a
-              href="https://labs.codeday.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              CodeDay
-            </a>
-          </h3>
-          <ul>
-            <li> Unit Conversion Testing </li>
-          </ul>
-          <p>
-            <em>Oct 1st, 2023 – Dec 15th, 2023</em>
-          </p>
-        </div>
+              <p>
+                <em>{job.date}</em>
+              </p>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

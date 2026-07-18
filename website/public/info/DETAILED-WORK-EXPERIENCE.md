@@ -3,22 +3,16 @@
 ## AI Enabler Apprentice @ [Redminds](https://rediminds.com/)
 *Jan 2026 – Jul 2026*
 
-- Shipped a database migration and UI update replacing a patient-age field with a date-of-birth field on the case upload form, updating the Sequelize schema and input handling accordingly.
-- Rebuilt the case attestation flow to point to an updated legal document and re-aligned the name, date, and signature input fields to match the new document layout, presenting the change directly in the IRO team meeting.
-- Designed and shipped an end-to-end clinician due date feature: added a new required date field, built a dedicated `/clinician-date` API to calculate the suggested due date from case metadata, wired it into the case upload form with validation preventing an invalid due date, and surfaced the field across the case upload form, cases dashboard, and case details page.
-- Enriched the case summary view with 39 additional case detail fields (parties, contact info, enrollee age, and more) pulled directly from the database, building two new reusable React components (`PreSummaryAdmin`, `DateTimeDisplayChip`) to render the data with proper table structure and date/timezone formatting.
-- Built an autosave feature for the clinician case review page: implemented draft fetch/save through new `GET`/`PUT` `/decision/draft` endpoints backed by a PostgreSQL `DecisionData` table, ran saves on a 60-second interval, and added a toggle letting users disable autosave.
-- Diagnosed and fixed a formatting bug where case summary and criteria text lost user-entered line breaks and spacing on re-render, replacing a fixed-size table cell with an autosizing textarea component and shipping the fix as a merged PR.
-- Made suggested case-upload questions inline-editable by toggling between display and input states on click, and verified edited questions persist to the database on case submission.
-- Added a conditional "partial approved units" quantity field to the clinical review flow, visible and required only when a reviewer marks a question "partial," including a new nullable database column, model update, and payload wiring from frontend form to backend API.
-- Extended the case search bar to match on state reference number in addition to case number, then iterated on its layout twice based on direct engineering-leadership feedback, repositioning it next to the jurisdiction filters and restructuring result rows into indented, labeled fields.
-- Implemented a case-notifications feature end-to-end, building three new REST endpoints (fetch, mark-one-read, mark-all-read) into a refactored, multi-file notification-center component and replacing the previous mock prototype data.
-- Built automated case-status email notifications, refactoring the server-side email service to send distinct messages for case assignment, QA-changes-requested, and QA-approval, with recipient routing based on the assigned case reviewer.
-- Added mobile responsiveness across the entire case management platform, applying responsive styling to 12+ page components (dashboard, case upload/edit, case details, messaging, document viewer, and more) in a 12-commit, 35-file pull request while maintaining CodeQL compliance.
-- Reworked the case submission flow to make PDF upload optional, adding a submit button and read-only message preview to the decision-send modal so cases can be marked complete without a mandatory file upload.
-- Partnered with the AI engineering team to extend the case schema with two new structured fields (guideline categories, bundling issues) and integrated a FastAPI/Gemini-based microservice endpoint that extracts these fields directly from uploaded clinical PDFs to auto-populate new cases.
-- Added and validated two additional structured case fields (out-of-area referral flag and reason) across the case upload, edit, and details pages with Zod-enforced form validation, then handed the new columns to the AI team to extend the PDF-extraction automation.
-- Built an autosave feature for the case-edit page with a user-facing toggle, immediate save-on-enable behavior, and prop-driven autosave state propagated to all nested question/service-code subcomponents.
+- Shipped a database migration and UI update replacing a patient-age field with a date-of-birth field on the case upload form.
+- Rebuilt the case attestation flow to align with an updated legal document, presenting the change directly in the IRO team meeting.
+- Designed and shipped an end-to-end clinician due-date feature, including a dedicated API to calculate the suggested due date from case metadata and validation across the case upload, dashboard, and details pages.
+- Enriched the case summary view with 39 additional case detail fields pulled directly from the database, building two new reusable React components to render the data with proper formatting.
+- Built autosave functionality for both the clinician case review page and the case-edit page, each with a user-facing toggle and interval-based draft persistence.
+- Diagnosed and fixed a formatting bug that stripped user-entered line breaks from case summary text, and shipped several supporting UX improvements to the case-upload flow.
+- Extended the case search bar to match on state reference number in addition to case number, iterating on its layout twice based on direct engineering-leadership feedback.
+- Implemented an end-to-end case-notifications feature and automated case-status email notifications routed to the assigned reviewer.
+- Added mobile responsiveness across the entire case management platform in a 12-commit, 35-file pull request while maintaining CodeQL compliance.
+- Partnered with the AI engineering team to extend the case schema with new structured fields and integrate a FastAPI/Gemini-based microservice that auto-extracts them from uploaded clinical PDFs.
 
 ## Software Developer @ [UCSC BLUEPRINT](https://www.ucscblueprint.com/)
 *Feb 2024 – Feb 2026*
