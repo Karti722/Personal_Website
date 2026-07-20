@@ -87,7 +87,7 @@ export default function Projects() {
             </a>
           </h3>
           <p>
-            <em>May 2026 – Present</em> |{" "}
+            <em>July 16th 2026 – July 20, 2026</em> |{" "}
             <a
               href="https://github.com/Karti722/ai-nexus"
               target="_blank"
