@@ -79,7 +79,7 @@ export default function Projects() {
         <div className={styles.project}>
           <h3>
             <a
-              href="https://github.com/Karti722/ai-nexus"
+              href="https://ai-nexus-5e5vxuuemq-uc.a.run.app"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -87,33 +87,47 @@ export default function Projects() {
             </a>
           </h3>
           <p>
-            <em>May 2026 – Present</em>
+            <em>May 2026 – Present</em> |{" "}
+            <a
+              href="https://github.com/Karti722/ai-nexus"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Repository
+            </a>
           </p>
           <ProjectDetails tldr={tldr} isFetching={isFetching} summary={summaries?.[0]?.summary}>
             <ul>
               <li>
                 Built a full-stack AI engineering platform spanning 10 interactive
-                chapters covering RAG, embeddings-based retrieval, AI agents, MCP,
-                and Anthropic Claude API integration.
+                chapters covering RAG, AI agents, MCP tool-calling, prompt engineering,
+                and applied concerns like caching and evaluation, each backed by a real
+                working implementation instead of a mockup.
               </li>
               <li>
                 Architected a polyglot microservices system across 4 containerized
-                services (Next.js, Express, FastAPI, MCP server) exposing 15 REST
-                endpoints, orchestrated with Docker Compose.
+                services (Next.js, Express, FastAPI, MCP server) communicating over
+                REST and MCP&apos;s stdio protocol, run locally with Docker Compose
+                and deployed to Google Cloud Run in production.
               </li>
               <li>
-                Implemented 7 from-scratch algorithms for cost optimization and
-                quality assurance, including BPE tokenization, semantic caching,
-                TextRank summarization, and ROUGE-L/embedding-based evaluation.
+                Integrated real hosted AI APIs — Anthropic Claude (chat, agent
+                tool-calling, token counting), Voyage AI (embeddings), and
+                WeatherAPI.com (a live external tool call through a custom MCP
+                server) — alongside hand-rolled algorithms (TextRank summarization,
+                semantic caching, ROUGE-L/embedding-based evaluation) for the concepts
+                best learned by implementing them directly.
               </li>
               <li>
-                Integrated a pgvector-backed PostgreSQL vector store for RAG
-                retrieval and a custom MCP server exposing tools to the AI agent
-                over stdio.
+                Built a pgvector-backed PostgreSQL vector store with HNSW indexing for
+                real RAG retrieval, and a custom MCP client/server pair exposing tools
+                to the AI agent over stdio.
               </li>
               <li>
-                Wrote deployment guides for AWS, Azure, and GCP, citing 40+
-                academic and industry sources.
+                Deployed the full stack to Google Cloud Run on a $0/month architecture
+                (serverless Postgres, Secret Manager, Artifact Registry) and automated
+                redeployment with a GitHub Actions CI/CD pipeline authenticated via
+                Workload Identity Federation, no long-lived service-account keys.
               </li>
             </ul>
           </ProjectDetails>

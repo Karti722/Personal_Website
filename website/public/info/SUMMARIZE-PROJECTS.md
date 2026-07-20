@@ -1,7 +1,7 @@
 # Kartikeya Kumaria's Project Summaries (TL;DR)
 
 ## AI Nexus - Full-Stack AI Engineering Learning Platform
-A full-stack, 10-chapter platform teaching AI engineering hands-on — RAG, embeddings, AI agents, and MCP — built as a 4-service polyglot microservices system (Next.js, Express, FastAPI, MCP server) with 7 algorithms implemented from scratch, including BPE tokenization and semantic caching.
+A full-stack, 10-chapter platform teaching AI engineering hands-on with RAG, AI agents, and MCP tool-calling --> built as a 4-service polyglot microservices system (Next.js, Express, FastAPI, MCP server) integrating real Anthropic, Voyage AI, and WeatherAPI calls, deployed live on Google Cloud Run with a GitHub Actions CI/CD pipeline authenticated via Workload Identity Federation.
 
 ## LogBlog - AI-Powered Full-Stack Blog Platform
 An AI-powered blog platform that auto-generates tutorials from posts using a custom ML pipeline (SentenceTransformer, PyTorch), with a Django REST Framework backend and a React/Vite frontend deployed across Railway, Supabase, and Vercel.
