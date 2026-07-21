@@ -21,7 +21,7 @@ export const JOBS: JobSummary[] = [
     company: "Redminds",
     url: "https://rediminds.com/",
     summaryPoints: ["Full Stack IRO Software Development"],
-    date: "Jan 2nd, 2026 – July 10th, 2026",
+    date: "Jan 12th, 2026 – July 10th, 2026",
   },
   {
     role: "Software Developer",
@@ -113,7 +113,7 @@ export default function Experience() {
             onClick={() => setDetailed((d) => !d)}
             aria-pressed={detailed}
           >
-            {detailed ? "Show Summary" : "Show Detailed"}
+            {detailed ? "Show Summary" : "Detailed Experience"}
           </button>
         </div>
 

@@ -53,7 +53,7 @@
 *Oct 2023 – Dec 2023*
 
 - Extended the Open Energy Dashboard (OED) with features supporting federal climate analytics compliance.
-- Merged [Pull Request #1087](https://github.com/OpenEnergyDashboard/OED/pull/1087) to implement BTU conversion functionality; documented the implementation and testing process in a 12-page [LinkedIn blog post](https://www.linkedin.com/posts/kartikeya-kumaria_the-significance-of-test-driven-development-ugcPost-7137670732314001408-gpGf/) (also available as a PDF).
+- Merged [Pull Request #1087](https://github.com/OpenEnergyDashboard/OED/pull/1087) to implement BTU conversion functionality; documented the implementation and testing process in a 12-page [LinkedIn blog post](https://www.linkedin.com/posts/kartikeya-kumaria_the-significance-of-test-driven-development-ugcPost-7137670732314001408-gpGf/) (also available as a [PDF](/pdfs/The%20Significance%20of%20Test%20Driven%20Development%20%28TDD%29.pdf)).
 - Built a JavaScript-based conversion engine for CSV energy data.
 - Wrote unit and integration tests using Mocha.js.
 - Used Docker and Git for collaborative development and deployment.
