@@ -7,15 +7,13 @@ import styles from "./PageLoader.module.css";
 const MIN_VISIBLE_MS = 500;
 const FADE_MS = 300;
 
-export default function PageLoader() {
-  const pathname = usePathname();
+function PageLoaderInner() {
   const [visible, setVisible] = useState(true);
   const [fadingOut, setFadingOut] = useState(false);
 
+  // Remounted per-navigation via `key={pathname}` in the wrapper below, so
+  // state above always starts fresh — no reset-on-effect needed here.
   useEffect(() => {
-    setVisible(true);
-    setFadingOut(false);
-
     const fadeTimer = setTimeout(() => setFadingOut(true), MIN_VISIBLE_MS);
     const hideTimer = setTimeout(() => setVisible(false), MIN_VISIBLE_MS + FADE_MS);
 
@@ -23,7 +21,7 @@ export default function PageLoader() {
       clearTimeout(fadeTimer);
       clearTimeout(hideTimer);
     };
-  }, [pathname]);
+  }, []);
 
   if (!visible) return null;
 
@@ -37,4 +35,9 @@ export default function PageLoader() {
       <span className={styles.srOnly}>Loading…</span>
     </div>
   );
+}
+
+export default function PageLoader() {
+  const pathname = usePathname();
+  return <PageLoaderInner key={pathname} />;
 }

@@ -1,0 +1,97 @@
+.frame {
+  position: relative;
+}
+
+.corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity 240ms steps(4), transform 240ms steps(4);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.frame:hover .corner,
+.frame:focus-within .corner {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.corner::before,
+.corner::after {
+  content: "";
+  position: absolute;
+  background: var(--accent-strong);
+}
+
+/* horizontal bar */
+.corner::before {
+  width: 14px;
+  height: 3px;
+}
+
+/* vertical bar */
+.corner::after {
+  width: 3px;
+  height: 14px;
+}
+
+.tl {
+  top: -6px;
+  left: -6px;
+}
+.tl::before {
+  top: 0;
+  left: 0;
+}
+.tl::after {
+  top: 0;
+  left: 0;
+}
+
+.tr {
+  top: -6px;
+  right: -6px;
+}
+.tr::before {
+  top: 0;
+  right: 0;
+}
+.tr::after {
+  top: 0;
+  right: 0;
+}
+
+.bl {
+  bottom: -6px;
+  left: -6px;
+}
+.bl::before {
+  bottom: 0;
+  left: 0;
+}
+.bl::after {
+  bottom: 0;
+  left: 0;
+}
+
+.br {
+  bottom: -6px;
+  right: -6px;
+}
+.br::before {
+  bottom: 0;
+  right: 0;
+}
+.br::after {
+  bottom: 0;
+  right: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .corner {
+    transition: none;
+  }
+}

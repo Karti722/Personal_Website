@@ -1,3 +1,10 @@
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
 .intro {
   text-align: center;
   color: var(--muted-color);
@@ -21,10 +28,12 @@
   border-radius: 999px;
   background: var(--accent-gradient);
   box-shadow: 0 8px 22px var(--card-accent-glow);
+  /* Stepped easing instead of a smooth glide — reads like a retro cursor
+     snapping between menu slots rather than a modern UI sliding pill. */
   transition:
-    left 320ms cubic-bezier(0.4, 0, 0.2, 1),
-    top 320ms cubic-bezier(0.4, 0, 0.2, 1),
-    width 320ms cubic-bezier(0.4, 0, 0.2, 1);
+    left 260ms steps(6),
+    top 260ms steps(6),
+    width 260ms steps(6);
   z-index: 0;
 }
 

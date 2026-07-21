@@ -4,6 +4,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./Experience.module.css";
 import { parseDetailedExperience, DetailedJob } from "./parseDetailedExperience";
 import { renderInlineMarkdown } from "./renderInlineMarkdown";
+import HudBadge from "../../HudBadge";
+import PixelIcon from "../../PixelIcon";
 
 type JobSummary = {
   role: string;
@@ -13,7 +15,7 @@ type JobSummary = {
   date: string;
 };
 
-const JOBS: JobSummary[] = [
+export const JOBS: JobSummary[] = [
   {
     role: "AI Enabler Apprentice",
     company: "Redminds",
@@ -101,7 +103,10 @@ export default function Experience() {
     <section id="experience">
       <div className="container">
         <div className={styles.headerRow}>
-          <h2>Experience</h2>
+          <h2 className={styles.heading}>
+            <PixelIcon variant="experience" />
+            Experience
+          </h2>
           <button
             type="button"
             className={styles.viewToggle}
@@ -122,10 +127,15 @@ export default function Experience() {
                 <a href={job.url} target="_blank" rel="noopener noreferrer">
                   {job.company}
                 </a>
+                {index === 0 && (
+                  <span className={styles.latestBadge}>
+                    <HudBadge tone="success">Latest</HudBadge>
+                  </span>
+                )}
               </h3>
 
               {detailed && detail ? (
-                <ul>
+                <ul key="detail" className={styles.detailBlock}>
                   {detail.bullets.map((bullet, i) => (
                     <li key={i}>{renderInlineMarkdown(bullet)}</li>
                   ))}
@@ -133,7 +143,7 @@ export default function Experience() {
               ) : detailed && isFetching ? (
                 <p className={styles.loadingNote}>Loading detailed experience…</p>
               ) : (
-                <ul>
+                <ul key="summary" className={styles.detailBlock}>
                   {job.summaryPoints.map((point) => (
                     <li key={point}>{point}</li>
                   ))}

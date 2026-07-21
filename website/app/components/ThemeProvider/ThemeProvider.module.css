@@ -225,5 +225,3 @@
   --success-glow-strong: rgba(3, 105, 161, 0.46);
 }
 
-:global(.mode-day) { filter: brightness(1.05) saturate(1.1); }
-:global(.mode-night) { filter: brightness(0.9) saturate(0.95); }

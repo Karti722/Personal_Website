@@ -2,7 +2,7 @@
   background: var(--header-gradient);
   color: var(--text-color);
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 1.5rem 1rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   position: relative;
   overflow: hidden;
@@ -21,6 +21,18 @@
   animation: shimmer 3s infinite;
 }
 
+/* Fills the wide empty margins either side of the centered profile
+   content on large screens with a faint pixel-dot texture instead of
+   leaving flat dead space. */
+.header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1.5px, transparent 1.5px);
+  background-size: 26px 26px;
+  z-index: 0;
+}
+
 .profileSection {
   display: flex;
   align-items: center;
@@ -31,6 +43,10 @@
   z-index: 1;
   width: min(100%, 980px);
   margin: 0 auto;
+}
+
+.photoFrame {
+  flex-shrink: 0;
 }
 
 .profilePhoto {
@@ -90,17 +106,18 @@
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: transparent;
-  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   text-decoration: none;
-  box-shadow: none;
-  opacity: 0.9;
-  transition: transform 0.16s ease-out, opacity 0.22s ease, filter 0.22s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  opacity: 1;
+  transition: transform 0.16s ease-out, opacity 0.22s ease, filter 0.22s ease, background 0.22s ease;
 }
 
 .iconLink:hover {
-  transform: translateY(-1px) scale(1.04);
+  transform: translateY(-1px) scale(1.06);
   opacity: 1;
+  background: #ffffff;
   filter: brightness(1.04);
 }
 
@@ -137,7 +154,7 @@
 
 @media (max-width: 768px) {
   .header {
-    padding: 2rem 0.8rem;
+    padding: 1.5rem 0.8rem;
   }
 
   .profileSection {
@@ -200,7 +217,7 @@
 
 @media (max-width: 480px) {
   .header {
-    padding: 1.5rem 0.6rem;
+    padding: 1.25rem 0.6rem;
   }
 
   .title {

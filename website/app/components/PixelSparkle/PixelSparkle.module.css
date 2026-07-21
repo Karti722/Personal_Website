@@ -1,0 +1,74 @@
+.wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.burst {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 3px;
+  background: var(--accent-strong);
+  opacity: 0;
+}
+
+.wrap:hover .particle,
+.wrap:focus-within .particle {
+  animation: sparkleFly 480ms steps(6) forwards;
+}
+
+@keyframes sparkleFly {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(var(--tx), var(--ty));
+  }
+}
+
+.p0 {
+  --tx: -16px;
+  --ty: -14px;
+  animation-delay: 0ms;
+}
+.p1 {
+  --tx: 16px;
+  --ty: -14px;
+  animation-delay: 30ms;
+}
+.p2 {
+  --tx: -20px;
+  --ty: 4px;
+  animation-delay: 60ms;
+}
+.p3 {
+  --tx: 20px;
+  --ty: 4px;
+  animation-delay: 40ms;
+}
+.p4 {
+  --tx: -10px;
+  --ty: 18px;
+  animation-delay: 80ms;
+}
+.p5 {
+  --tx: 10px;
+  --ty: 18px;
+  animation-delay: 20ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wrap:hover .particle,
+  .wrap:focus-within .particle {
+    animation: none;
+  }
+}

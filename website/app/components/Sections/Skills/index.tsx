@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./Skills.module.css";
 import CategoryIcon from "./CategoryIcon";
+import PixelIcon from "../../PixelIcon";
 
 type SkillCategory = {
   title: string;
@@ -10,10 +11,23 @@ type SkillCategory = {
   featured?: boolean;
 };
 
-const SKILL_CATEGORIES: SkillCategory[] = [
+export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: "Languages",
-    skills: ["Python", "JavaScript", "TypeScript"],
+    skills: ["Python", "JavaScript", "TypeScript", "C", "C++"],
+  },
+  {
+    title: "Frameworks & Libraries",
+    skills: [
+      "React.js",
+      "Next.js",
+      "Node.js",
+      "Nest.js",
+      "Express",
+      "FastAPI",
+      "Django REST Framework (DRF)",
+      "Sequelize",
+    ],
   },
   {
     title: "AI / ML",
@@ -30,19 +44,6 @@ const SKILL_CATEGORIES: SkillCategory[] = [
     ],
   },
   {
-    title: "Frameworks & Libraries",
-    skills: [
-      "React.js",
-      "Next.js",
-      "Node.js",
-      "Nest.js",
-      "Express",
-      "FastAPI",
-      "Django REST Framework (DRF)",
-      "Sequelize",
-    ],
-  },
-  {
     title: "Tools & Platforms",
     skills: ["Docker", "AWS", "GCP", "Azure", "Git", "GitHub", "CI/CD", "CodeQL"],
   },
@@ -52,10 +53,7 @@ const SKILL_CATEGORIES: SkillCategory[] = [
   },
 ];
 
-const DEFAULT_INDEX = Math.max(
-  SKILL_CATEGORIES.findIndex((category) => category.featured),
-  0
-);
+const DEFAULT_INDEX = 0;
 
 export default function Skills() {
   const [activeIndex, setActiveIndex] = useState(DEFAULT_INDEX);
@@ -84,7 +82,10 @@ export default function Skills() {
   return (
     <section id="skills" className={styles.skillsSection}>
       <div className="container">
-        <h2>Skills</h2>
+        <h2 className={styles.heading}>
+          <PixelIcon variant="skills" />
+          Skills
+        </h2>
         <p className={styles.intro}>
           The languages, frameworks, and AI tooling I use to design, build, and ship
           production software.

@@ -13,10 +13,10 @@ export default function Navbar() {
   const {
     theme,
     cycleTheme,
-    mode,
-    toggleMode,
     fontChoice,
     cycleFont,
+    pixelArt,
+    togglePixelArt,
   } = useSiteSettings();
 
   const fontLabel = useMemo(() => {
@@ -152,15 +152,16 @@ export default function Navbar() {
             </div>
 
             <div className={styles.settingsRow}>
-              <span className={styles.settingsLabel}>Brightness</span>
+              <span className={styles.settingsLabel}>Pixel Art</span>
               <button
                 type="button"
-                className={`${styles.settingsToggle} ${mode === "night" ? styles.on : ""}`}
-                onClick={toggleMode}
+                className={`${styles.settingsToggle} ${pixelArt ? styles.on : ""}`}
+                onClick={togglePixelArt}
                 role="switch"
-                aria-checked={mode === "night"}
+                aria-checked={pixelArt}
+                aria-label="Toggle pixel-art icons and dashed accents"
               >
-                {mode === "day" ? "Day" : "Night"}
+                {pixelArt ? "On" : "Off"}
               </button>
             </div>
           </div>

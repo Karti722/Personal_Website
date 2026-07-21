@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import PixelFrame from "../PixelFrame";
 import styles from "./Header.module.css";
 
 export default function Header() {
@@ -8,13 +9,15 @@ export default function Header() {
     <header id="header" className={styles.header}>
       <div className="container">
         <div className={styles.profileSection}>
-          <Image
-            src="/photos/karti.png"
-            alt="Kartikeya Kumaria Profile Photo"
-            className={styles.profilePhoto}
-            width={150}
-            height={150}
-          />
+          <PixelFrame className={styles.photoFrame}>
+            <Image
+              src="/photos/karti.png"
+              alt="Kartikeya Kumaria Profile Photo"
+              className={styles.profilePhoto}
+              width={150}
+              height={150}
+            />
+          </PixelFrame>
           <div className={styles.profileInfo}>
             <h1 className={styles.title}>Kartikeya Kumaria</h1>
             <p className={styles.textLine}>

@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import ThemeProvider from "./components/ThemeProvider";
 import Footer from "./components/Footer";
 import PageLoader from "./components/PageLoader";
+import ScrollTopButton from "./components/ScrollTopButton";
 
 export const metadata = {
   title: "Kartikeya Kumaria Portfolio",
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <PageLoader />
           {children}
           <Footer />
+          <ScrollTopButton />
         </ThemeProvider>
       </body>
     </html>

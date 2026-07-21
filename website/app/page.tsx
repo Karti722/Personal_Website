@@ -1,6 +1,7 @@
 "use client";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
+import StatsBar from "./components/StatsBar";
 import About from "./components/Sections/About";
 
 export default function HomePage() {
@@ -9,6 +10,7 @@ export default function HomePage() {
       <Navbar />
       <Header />
       <About />
+      <StatsBar />
     </>
   );
 }

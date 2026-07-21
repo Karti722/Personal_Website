@@ -6,9 +6,36 @@
   z-index: 1000;
   background: var(--section-bg);
   backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid var(--section-border-color);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   scroll-behavior: smooth;
+}
+
+.navbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--accent-strong) 0px,
+    var(--accent-strong) 10px,
+    transparent 10px,
+    transparent 16px
+  );
+}
+
+:global(.pixel-off) .navbar::after {
+  background: var(--accent-gradient);
+}
+
+/* Subpages (nav directly followed by a section) get a plain lined-shadow
+   divider instead of the dashed accent used on the landing page. */
+.navbar:has(+ section)::after {
+  height: 1px;
+  background: var(--section-border-color);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
 
 .navContainer {
@@ -24,7 +51,6 @@
 .navLogo {
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--accent-strong);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,12 +59,27 @@
   background: var(--accent-gradient);
   color: white;
   border-radius: 50%;
-  transition: all 0.3s ease;
+  box-shadow:
+    inset 0 -5px 8px rgba(0, 0, 0, 0.22),
+    inset 0 2px 3px rgba(255, 255, 255, 0.4),
+    0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .navLogo:hover {
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow:
+    inset 0 -5px 8px rgba(0, 0, 0, 0.22),
+    inset 0 2px 3px rgba(255, 255, 255, 0.4),
+    0 7px 14px rgba(0, 0, 0, 0.24);
+}
+
+.navLogo:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow:
+    inset 0 -3px 5px rgba(0, 0, 0, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    0 2px 6px rgba(0, 0, 0, 0.18);
 }
 
 .navMenu {

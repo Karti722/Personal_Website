@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import PixelIcon from "../../PixelIcon";
 import styles from "./About.module.css";
 
 export default function About() {
@@ -9,7 +10,10 @@ export default function About() {
   return (
     <section id="about">
       <div className="container">
-        <h2>About Me</h2>
+        <h2 className={styles.heading}>
+          <PixelIcon variant="about" />
+          About Me
+        </h2>
 
         <button
           onClick={() => setIsTLDR(!isTLDR)}
@@ -19,7 +23,7 @@ export default function About() {
         </button>
 
         {!isTLDR ? (
-          <p>
+          <p key="full" className={styles.textFade}>
             My name is Kartikeya Kumaria and I’m a driven software developer who has completed a Bachelor of Science in Computer Science from the{" "}
             <a href="https://www.ucsc.edu/" target="_blank" rel="noopener noreferrer">
               University of California, Santa Cruz
@@ -31,7 +35,7 @@ export default function About() {
             Above all, I want to create technology that feels thoughtful, software that not only works well but also connects with the people who use it.
           </p>
         ) : (
-          <p>
+          <p key="tldr" className={styles.textFade}>
             Full stack developer with a Computer Science degree from the{" "}
             <a href="https://www.ucsc.edu/" target="_blank" rel="noopener noreferrer">
               University of California, Santa Cruz

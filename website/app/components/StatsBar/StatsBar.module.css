@@ -1,0 +1,126 @@
+.wrap {
+  margin: 0 0 1.25rem;
+}
+
+.bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--section-bg);
+  border: 1px solid var(--section-border-color);
+  border-radius: 14px;
+  box-shadow: var(--box-shadow);
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.stat::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  background: var(--accent-gradient);
+  transition: opacity 0.2s ease;
+  z-index: -1;
+}
+
+.stat:hover,
+.stat:focus-visible {
+  transform: translateY(-3px);
+  border-color: transparent;
+  box-shadow: var(--box-shadow-strong, 0 16px 34px rgba(0, 0, 0, 0.14));
+}
+
+.stat:hover::after {
+  opacity: 0.06;
+}
+
+.stat:hover .arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent-strong) 12%, var(--card-bg) 88%);
+  flex-shrink: 0;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: var(--accent-strong);
+}
+
+.statText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+  justify-content: center;
+  flex: 1;
+}
+
+.value {
+  font-family: var(--font-family-base);
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--text-color);
+  line-height: 1;
+}
+
+.label {
+  font-size: 0.74rem;
+  color: var(--muted-color);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.arrow {
+  color: var(--accent-strong);
+  font-size: 1rem;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .bar {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat {
+    padding: 0.9rem 1rem;
+  }
+  .value {
+    font-size: 1.1rem;
+  }
+}
+
+@media print {
+  .wrap {
+    display: none;
+  }
+}

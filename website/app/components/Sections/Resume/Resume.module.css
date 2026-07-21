@@ -1,3 +1,10 @@
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
 .resumeContainer {
   background: var(--card-bg);
   border-radius: 15px;

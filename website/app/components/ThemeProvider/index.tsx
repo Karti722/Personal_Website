@@ -37,21 +37,19 @@ const FONT_CHOICES = [
 
 type FontChoice = (typeof FONT_CHOICES)[number];
 
-type Mode = "day" | "night";
-
 const LS_KEY = "site-theme";
 const FONT_KEY = "site-font";
-const MODE_KEY = "site-mode";
+const PIXEL_ART_KEY = "site-pixel-art";
 
 type SiteSettingsContextValue = {
   isDefault: boolean;
   theme: Theme;
   cycleTheme: () => void;
   toggleDefault: () => void;
-  mode: Mode;
-  toggleMode: () => void;
   fontChoice: FontChoice;
   cycleFont: () => void;
+  pixelArt: boolean;
+  togglePixelArt: () => void;
 };
 
 const SiteSettingsContext = createContext<SiteSettingsContextValue | null>(null);
@@ -129,22 +127,10 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     return "system";
   });
 
-  const [mode, setMode] = useState<Mode>(() => {
-    if (typeof window === "undefined") return "day";
-
-    const stored = localStorage.getItem(MODE_KEY);
-    if (stored === "day" || stored === "night") return stored;
-
-    try {
-      if (
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-      ) {
-        return "night";
-      }
-    } catch {}
-
-    return "day";
+  const [pixelArt, setPixelArt] = useState<boolean>(() => {
+    if (typeof window === "undefined") return true;
+    const stored = localStorage.getItem(PIXEL_ART_KEY);
+    return stored !== "off";
   });
 
   const prevRef = useRef<Theme | null>(null);
@@ -155,12 +141,10 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
 
       Array.from(el.classList).forEach((c) => {
         if (c.startsWith("theme-")) el.classList.remove(c);
-        if (c.startsWith("mode-")) el.classList.remove(c);
       });
 
       const themeClass = `theme-${theme}`;
-      const modeClass = `mode-${mode}`;
-      el.classList.add(themeClass, modeClass);
+      el.classList.add(themeClass);
     };
 
     applyClass();
@@ -174,19 +158,7 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
       const cookieVal = encodeURIComponent(JSON.stringify(payload));
       document.cookie = `${LS_KEY}=${cookieVal}; path=/; max-age=${60 * 60 * 24 * 365}; samesite=lax`;
     } catch {}
-  }, [theme, isDefault, mode]);
-
-  useEffect(() => {
-    const el = document.documentElement;
-    Array.from(el.classList).forEach((c) => {
-      if (c.startsWith("mode-")) el.classList.remove(c);
-    });
-    el.classList.add(`mode-${mode}`);
-
-    try {
-      localStorage.setItem(MODE_KEY, mode);
-    } catch {}
-  }, [mode]);
+  }, [theme, isDefault]);
 
   useEffect(() => {
     const el = document.documentElement;
@@ -199,6 +171,13 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
       localStorage.setItem(FONT_KEY, fontChoice);
     } catch {}
   }, [fontChoice]);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("pixel-off", !pixelArt);
+    try {
+      localStorage.setItem(PIXEL_ART_KEY, pixelArt ? "on" : "off");
+    } catch {}
+  }, [pixelArt]);
 
   const cycleTheme = () => {
     setTheme((current) => {
@@ -229,8 +208,8 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     });
   };
 
-  const toggleMode = () => {
-    setMode((m) => (m === "day" ? "night" : "day"));
+  const togglePixelArt = () => {
+    setPixelArt((p) => !p);
   };
 
   const contextValue: SiteSettingsContextValue = {
@@ -238,10 +217,10 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     theme,
     cycleTheme,
     toggleDefault,
-    mode,
-    toggleMode,
     fontChoice,
     cycleFont,
+    pixelArt,
+    togglePixelArt,
   };
 
   return (
