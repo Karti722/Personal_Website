@@ -1,25 +1,27 @@
-# Author
-Kartikeya Kumaria
+# Personal Portfolio Website
 
-# Website Info
-This repository contains the complete codebase for my personal portfolio website.
-It is designed to showcase my software development milestones.
+This repository contains the source code for my personal portfolio website, built to showcase my projects, technical skills, and software development journey.
 
-# Tech Stack
-Using Typescript + Next.js + Vercel.
+## 🌐 Live Website
 
-## Personal info
-1) LinkedIn: [Kartikeya Kumaria](https://www.linkedin.com/in/kartikeya-kumaria/)
-2) Email: [kartikeyaku@gmail.com](mailto:kartikeyaku@gmail.com)
-3) Live site: [Live Demo](https://kartikeyakumaria.vercel.app/)
+**Portfolio:** https://kartikeyakumaria.com/
 
-## Roles I fulfilled:
-1) Software Developer
-2) Full-Stack Developer
-3) Front-End Developer
-4) Back-End Developer.
+## 🛠️ Tech Stack
 
-## Notes
-- Theme toggling is available on desktop and laptop.
-- It is intentionally disabled on mobile to keep the interface uncluttered.
-- Full codebase architecture and refactor explanation is available at `website/public/info/CODEBASE-EXPLANATION.md`.
+- TypeScript
+- Next.js
+- Vercel
+
+## 📬 Contact
+
+- **LinkedIn:** https://www.linkedin.com/in/kartikeya-kumaria/
+- **Email:** kartikeyaku@gmail.com
+
+## 💼 Roles
+
+Throughout my career, I fulfilled the following roles:
+
+- Software Developer
+- Full-Stack Developer
+- Front-End Developer
+- Back-End Developer
