@@ -94,42 +94,68 @@ export const JOBS: Job[] = [
     role: "AI Enabler Apprentice",
     company: "Redminds",
     url: "https://rediminds.com/",
-    summaryPoints: ["Full Stack IRO Software Development"],
+    summaryPoints: [
+      "Shipped end-to-end features across a clinical case management platform, including a clinician due-date system, case notifications, and autosave for case review and editing.",
+      "Enriched the case summary view with 39 additional database fields via two new reusable React components.",
+      "Delivered mobile responsiveness across the entire platform in a 12-commit, 35-file pull request while maintaining CodeQL compliance.",
+      "Partnered with the AI engineering team to integrate a FastAPI/Gemini microservice that auto-extracts structured data from uploaded clinical PDFs.",
+    ],
     date: "Jan 12th, 2026 – July 10th, 2026",
   },
   {
     role: "Software Developer",
     company: "UCSC BLUEPRINT",
     url: "https://www.ucscblueprint.com/",
-    summaryPoints: ["React Development"],
+    summaryPoints: [
+      "Built and deployed a volunteer registration mobile app (Expo, React Native) for a nonprofit arts center, cutting sign-up time 60% and lifting conversions 40%.",
+      "Translated 12+ Figma components into responsive iOS/Android UI, improving cross-device compatibility by 95%.",
+      "Integrated Firebase Firestore and Authentication with custom error handling, improving profile load times 30% and cutting failed logins 50%.",
+      "Designed and launched YFIOB, a K–12 career-discovery web app with 100% test coverage, onboarding 5+ contributors.",
+    ],
     date: "Feb 1st, 2024 – Feb 12th, 2026",
   },
   {
     role: "Full Stack Developer Intern",
     company: "PACR",
     url: "https://pacr.co/",
-    summaryPoints: ["Search API Integration"],
+    summaryPoints: [
+      "Integrated the backend Search API into 10+ frontend components, improving user engagement 25% and cutting query latency 35%.",
+      "Built and documented 8+ React pages spanning login, registration, profile, and research search experiences.",
+      "Automated environment setup, linting, and CI workflows with Node.js, MongoDB, Docker, and AWS, cutting new-developer onboarding time 50%.",
+    ],
     date: "Jul 15th, 2025 – Dec 15th, 2025",
   },
   {
     role: "Webmaster",
     company: "CruzHacks 2025",
     url: "https://cruzhacks.com/",
-    summaryPoints: ["Landing Page Component Development"],
+    summaryPoints: [
+      "Implemented Figma designs for the CruzHacks website, contributing to a 20% increase in task completion.",
+      "Built 15+ reusable React components, cutting future development time by 30%.",
+      "Led weekly team meetings, boosting collaboration by 25%.",
+    ],
     date: "Oct 1st, 2024 – Apr 12th, 2025",
   },
   {
     role: "Backend Developer Intern",
     company: "SKYIT (Subsidiary of GBCS Group)",
     url: "https://skyit.services/",
-    summaryPoints: ["API Testing and Debugging"],
+    summaryPoints: [
+      "Restored client onboarding functionality by cleaning null entries in MySQL and correcting CSV inputs.",
+      "Developed a Django REST API endpoint to validate the authentication flow and verified database schema mappings.",
+      "Onboarded 3 backend developer interns and reduced internal bug reports by 20%.",
+    ],
     date: "Apr 1st, 2024 – Aug 15th, 2024",
   },
   {
     role: "Software Engineer Intern",
     company: "CodeDay",
     url: "https://labs.codeday.org/",
-    summaryPoints: ["Unit Conversion Testing"],
+    summaryPoints: [
+      "Implemented BTU conversion functionality for the Open Energy Dashboard, merging a public pull request.",
+      "Built a JavaScript-based conversion engine for CSV energy data with Mocha.js unit and integration tests.",
+      "Documented the implementation and testing process in a 12-page write-up on test-driven development.",
+    ],
     date: "Oct 1st, 2023 – Dec 15th, 2023",
   },
 ];
@@ -142,6 +168,7 @@ export type Project = {
   status: "Live" | "Prototype";
   dateRange: string;
   githubUrl?: string;
+  summary: string;
   bullets: ProjectBullet[];
 };
 
@@ -150,8 +177,10 @@ export const PROJECTS: Project[] = [
     name: "AI Nexus - Full-Stack AI Engineering Learning Platform",
     url: "https://ai-nexus-textbook.com/",
     status: "Live",
-    dateRange: "July 16th 2026 – July 20, 2026",
+    dateRange: "July 16th 2026 – July 23, 2026",
     githubUrl: "https://github.com/Karti722/ai-nexus",
+    summary:
+      "A full-stack, 10-chapter platform teaching AI engineering hands-on with RAG, AI agents, and MCP tool-calling — built as a 4-service polyglot microservices system (Next.js, Express, FastAPI, MCP server) integrating real Anthropic, Voyage AI, and WeatherAPI calls, deployed live on Google Cloud Run with a GitHub Actions CI/CD pipeline authenticated via Workload Identity Federation.",
     bullets: [
       "Built a full-stack AI engineering platform spanning 10 interactive chapters covering RAG, AI agents, MCP tool-calling, prompt engineering, and applied concerns like caching and evaluation, each backed by a real working implementation instead of a mockup.",
       "Architected a polyglot microservices system across 4 containerized services (Next.js, Express, FastAPI, MCP server) communicating over REST and MCP's stdio protocol, run locally with Docker Compose and deployed to Google Cloud Run in production.",
@@ -167,6 +196,8 @@ export const PROJECTS: Project[] = [
     status: "Live",
     dateRange: "June 4 – July 10, 2025",
     githubUrl: "https://github.com/Karti722/LogBlog",
+    summary:
+      "An AI-powered blog platform that auto-generates tutorials from posts using a custom ML pipeline (SentenceTransformer, PyTorch), with a Django REST Framework backend and a React/Vite frontend deployed across Railway, Supabase, and Vercel.",
     bullets: [
       "Developed comprehensive full-stack blog platform with AI tutorial generation using Django REST Framework.",
       "Built responsive frontend with React, Vite, Tailwind, and Context API.",
@@ -182,6 +213,8 @@ export const PROJECTS: Project[] = [
     status: "Live",
     dateRange: "July 18 – September 9, 2025",
     githubUrl: "https://github.com/Karti722/surveyKarrot",
+    summary:
+      "A full-stack survey platform with JWT authentication, role-based access, and a responsive dashboard for creating and analyzing surveys, built with React, TypeScript, Node.js/Express, and PostgreSQL.",
     bullets: [
       "Built full-stack survey platform with React, TypeScript, Node.js, Express.",
       "Implemented JWT auth, role-based access, and PostgreSQL integration.",
@@ -197,6 +230,8 @@ export const PROJECTS: Project[] = [
     status: "Live",
     dateRange: "Aug 2024",
     githubUrl: "https://github.com/Karti722/NumberGuessingGame",
+    summary:
+      "A full-stack number-guessing game with a Node.js/MongoDB backend, dynamic UI states, sound effects, and real-time feedback.",
     bullets: [
       "Built full-stack guessing game with Node.js backend and MongoDB.",
       "Implemented sound effects, dynamic UI states, and game logic APIs.",
@@ -210,6 +245,8 @@ export const PROJECTS: Project[] = [
     status: "Live",
     dateRange: "Feb – May 2025",
     githubUrl: "https://github.com/Karti722/lumaa-spring-2025-swe-submission-from-kartikeya",
+    summary:
+      "A full-stack task manager with JWT-authenticated REST APIs, built with React, Redux, Node.js, Express, and PostgreSQL.",
     bullets: [
       "Built full-stack app with React, Redux, Node.js, Express, PostgreSQL.",
       "Implemented JWT authentication and REST APIs.",
@@ -221,6 +258,8 @@ export const PROJECTS: Project[] = [
     name: "TicTacToeWithEmotionAI",
     status: "Prototype",
     dateRange: "Collaborated with Peters",
+    summary:
+      "An AI-driven Tic-Tac-Toe game that reads the player's facial expression via webcam in real time, using TensorFlow/Keras for emotion classification and OpenCV for image capture.",
     bullets: [
       "Built AI-driven Tic-Tac-Toe using emotion recognition via webcam.",
       "Trained models using TensorFlow/Keras for emotion classification.",

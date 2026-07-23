@@ -6,7 +6,6 @@ import { parseDetailedExperience, DetailedJob } from "./parseDetailedExperience"
 import { renderInlineMarkdown } from "./renderInlineMarkdown";
 import HudBadge from "../../HudBadge";
 import PixelIcon from "../../PixelIcon";
-import Reveal from "../../Reveal";
 import TiltCard from "../../TiltCard";
 import PixelFrame from "../../PixelFrame";
 import { JOBS } from "../../../data/portfolio";
@@ -79,45 +78,43 @@ export default function Experience() {
           const detail = detailedJobs?.[index];
 
           return (
-            <Reveal delay={index * 60} key={job.company}>
-              <TiltCard>
-                <PixelFrame>
-                  <div className={styles.job}>
-                    <h3>
-                      {job.role} @{" "}
-                      <a href={job.url} target="_blank" rel="noopener noreferrer">
-                        {job.company}
-                      </a>
-                      {index === 0 && (
-                        <span className={styles.latestBadge}>
-                          <HudBadge tone="success">Latest</HudBadge>
-                        </span>
-                      )}
-                    </h3>
-
-                    {detailed && detail ? (
-                      <ul key="detail" className={styles.detailBlock}>
-                        {detail.bullets.map((bullet, i) => (
-                          <li key={i}>{renderInlineMarkdown(bullet)}</li>
-                        ))}
-                      </ul>
-                    ) : detailed && isFetching ? (
-                      <p className={styles.loadingNote}>Loading detailed experience…</p>
-                    ) : (
-                      <ul key="summary" className={styles.detailBlock}>
-                        {job.summaryPoints.map((point) => (
-                          <li key={point}>{point}</li>
-                        ))}
-                      </ul>
+            <TiltCard key={job.company}>
+              <PixelFrame>
+                <div className={styles.job}>
+                  <h3>
+                    {job.role} @{" "}
+                    <a href={job.url} target="_blank" rel="noopener noreferrer">
+                      {job.company}
+                    </a>
+                    {index === 0 && (
+                      <span className={styles.latestBadge}>
+                        <HudBadge tone="success">Latest</HudBadge>
+                      </span>
                     )}
+                  </h3>
 
-                    <p>
-                      <em>{job.date}</em>
-                    </p>
-                  </div>
-                </PixelFrame>
-              </TiltCard>
-            </Reveal>
+                  {detailed && detail ? (
+                    <ul key="detail" className={styles.detailBlock}>
+                      {detail.bullets.map((bullet, i) => (
+                        <li key={i}>{renderInlineMarkdown(bullet)}</li>
+                      ))}
+                    </ul>
+                  ) : detailed && isFetching ? (
+                    <p className={styles.loadingNote}>Loading detailed experience…</p>
+                  ) : (
+                    <ul key="summary" className={styles.detailBlock}>
+                      {job.summaryPoints.map((point) => (
+                        <li key={point}>{point}</li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <p>
+                    <em>{job.date}</em>
+                  </p>
+                </div>
+              </PixelFrame>
+            </TiltCard>
           );
         })}
       </div>

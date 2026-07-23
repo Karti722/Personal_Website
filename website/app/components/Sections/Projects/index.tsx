@@ -1,8 +1,7 @@
 "use client";
 
-import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import { useState } from "react";
 import styles from "./Projects.module.css";
-import { parseProjectSummaries, ProjectSummary } from "./parseProjectSummaries";
 import HudBadge from "../../HudBadge";
 import Reveal from "../../Reveal";
 import TiltCard from "../../TiltCard";
@@ -13,27 +12,21 @@ import { PROJECTS, ProjectBullet } from "../../../data/portfolio";
 export { PROJECTS } from "../../../data/portfolio";
 export const PROJECT_COUNT = PROJECTS.length;
 
-type ProjectDetailsProps = {
-  tldr: boolean;
-  isFetching: boolean;
-  summary?: string;
-  children: ReactNode;
-};
-
-function ProjectDetails({ tldr, isFetching, summary, children }: ProjectDetailsProps) {
-  if (tldr && summary) {
+function ProjectDetails({ tldr, project }: { tldr: boolean; project: (typeof PROJECTS)[number] }) {
+  if (tldr) {
     return (
       <p className={`${styles.tldrText} ${styles.detailBlock}`} key="tldr">
-        {summary}
+        {project.summary}
       </p>
     );
   }
-  if (tldr && isFetching) {
-    return <p className={styles.loadingNote}>Loading summary…</p>;
-  }
   return (
     <div className={styles.detailBlock} key="full">
-      {children}
+      <ul>
+        {project.bullets.map((bullet, bulletIndex) => (
+          <ProjectBulletItem bullet={bullet} key={bulletIndex} />
+        ))}
+      </ul>
     </div>
   );
 }
@@ -53,47 +46,6 @@ function ProjectBulletItem({ bullet }: { bullet: ProjectBullet }) {
 
 export default function Projects() {
   const [tldr, setTldr] = useState(true);
-  const [rawMarkdown, setRawMarkdown] = useState<string | null>(null);
-  const [fetchFailed, setFetchFailed] = useState(false);
-  const fetchStartedRef = useRef(false);
-
-  useEffect(() => {
-    if (!tldr || rawMarkdown !== null || fetchStartedRef.current) return;
-
-    fetchStartedRef.current = true;
-    let cancelled = false;
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 8000);
-
-    fetch("/info/SUMMARIZE-PROJECTS.md", { signal: controller.signal })
-      .then((res) => {
-        if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`);
-        return res.text();
-      })
-      .then((text) => {
-        if (!cancelled) setRawMarkdown(text);
-      })
-      .catch(() => {
-        if (!cancelled) {
-          fetchStartedRef.current = false;
-          setFetchFailed(true);
-        }
-      })
-      .finally(() => clearTimeout(timeout));
-
-    return () => {
-      cancelled = true;
-      controller.abort();
-      clearTimeout(timeout);
-    };
-  }, [tldr, rawMarkdown]);
-
-  const isFetching = tldr && rawMarkdown === null && !fetchFailed;
-
-  const summaries = useMemo<ProjectSummary[] | null>(
-    () => (rawMarkdown ? parseProjectSummaries(rawMarkdown) : null),
-    [rawMarkdown]
-  );
 
   return (
     <section id="projects">
@@ -144,17 +96,7 @@ export default function Projects() {
                       </>
                     )}
                   </p>
-                  <ProjectDetails
-                    tldr={tldr}
-                    isFetching={isFetching}
-                    summary={summaries?.[index]?.summary}
-                  >
-                    <ul>
-                      {project.bullets.map((bullet, bulletIndex) => (
-                        <ProjectBulletItem bullet={bullet} key={bulletIndex} />
-                      ))}
-                    </ul>
-                  </ProjectDetails>
+                  <ProjectDetails tldr={tldr} project={project} />
                 </div>
               </PixelFrame>
             </TiltCard>
