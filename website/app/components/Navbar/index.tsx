@@ -4,12 +4,15 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSiteSettings } from "../ThemeProvider";
+import PixelSparkle from "../PixelSparkle";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [showPixelToast, setShowPixelToast] = useState(false);
   const settingsRef = useRef<HTMLDivElement | null>(null);
+  const pixelToastTimeoutRef = useRef<number | null>(null);
   const {
     theme,
     cycleTheme,
@@ -18,6 +21,22 @@ export default function Navbar() {
     pixelArt,
     togglePixelArt,
   } = useSiteSettings();
+
+  const handleTogglePixelArt = () => {
+    const turningOn = !pixelArt;
+    togglePixelArt();
+    if (turningOn) {
+      setShowPixelToast(true);
+      if (pixelToastTimeoutRef.current) window.clearTimeout(pixelToastTimeoutRef.current);
+      pixelToastTimeoutRef.current = window.setTimeout(() => setShowPixelToast(false), 2200);
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (pixelToastTimeoutRef.current) window.clearTimeout(pixelToastTimeoutRef.current);
+    };
+  }, []);
 
   const fontLabel = useMemo(() => {
     if (fontChoice === "serif") return "Serif";
@@ -104,22 +123,24 @@ export default function Navbar() {
         </div>
 
         <div className={styles.navActions} ref={settingsRef}>
-          <button
-            type="button"
-            className={`${styles.settingsBtn} ${settingsOpen ? styles.active : ""}`}
-            aria-expanded={settingsOpen}
-            aria-controls="settings-menu"
-            onClick={() => setSettingsOpen((open) => !open)}
-          >
-            <Image
-              src="/svgs/settings.svg"
-              alt=""
-              width={27}
-              height={27}
-              aria-hidden="true"
-              className={styles.settingsIcon}
-            />
-          </button>
+          <PixelSparkle>
+            <button
+              type="button"
+              className={`${styles.settingsBtn} ${settingsOpen ? styles.active : ""}`}
+              aria-expanded={settingsOpen}
+              aria-controls="settings-menu"
+              onClick={() => setSettingsOpen((open) => !open)}
+            >
+              <Image
+                src="/svgs/settings.svg"
+                alt=""
+                width={27}
+                height={27}
+                aria-hidden="true"
+                className={styles.settingsIcon}
+              />
+            </button>
+          </PixelSparkle>
 
           <div
             id="settings-menu"
@@ -156,7 +177,7 @@ export default function Navbar() {
               <button
                 type="button"
                 className={`${styles.settingsToggle} ${pixelArt ? styles.on : ""}`}
-                onClick={togglePixelArt}
+                onClick={handleTogglePixelArt}
                 role="switch"
                 aria-checked={pixelArt}
                 aria-label="Toggle pixel-art icons and dashed accents"
@@ -176,6 +197,17 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+
+      {showPixelToast && (
+        <div className={styles.pixelToast} role="status">
+          <span className={styles.pixelToastBlocks} aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </span>
+          Pixel Mode On
+        </div>
+      )}
     </nav>
   );
 }

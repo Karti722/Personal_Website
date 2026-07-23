@@ -30,6 +30,30 @@
   }
 }
 
+.pixelBar {
+  display: flex;
+  gap: 6px;
+}
+
+.pixelBlock {
+  width: 14px;
+  height: 14px;
+  background: var(--accent-strong);
+  animation: pixelBounce 900ms steps(4) infinite;
+}
+
+@keyframes pixelBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-14px);
+    opacity: 1;
+  }
+}
+
 .srOnly {
   position: absolute;
   width: 1px;
@@ -49,5 +73,10 @@
 
   .spinner {
     animation: none;
+  }
+
+  .pixelBlock {
+    animation: none;
+    opacity: 1;
   }
 }

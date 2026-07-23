@@ -4,6 +4,7 @@ import { useState } from "react";
 import PixelIcon from "../../PixelIcon";
 import TiltCard from "../../TiltCard";
 import PixelFrame from "../../PixelFrame";
+import PixelSparkle from "../../PixelSparkle";
 import { ABOUT, UNIVERSITY } from "../../../data/portfolio";
 import styles from "./About.module.css";
 
@@ -19,19 +20,23 @@ export default function About() {
         </h2>
 
         <div className={styles.actions}>
-          <button
-            onClick={() => setIsTLDR(!isTLDR)}
-            className={styles.toggleBtn}
-          >
-            {isTLDR ? "Full Version" : "TLDR Summary"}
-          </button>
-          <a
-            href="/pdfs/Kartikeya_Portfolio.pdf"
-            download
-            className={styles.pdfBtn}
-          >
-            Print Portfolio as PDF
-          </a>
+          <PixelSparkle>
+            <button
+              onClick={() => setIsTLDR(!isTLDR)}
+              className={styles.toggleBtn}
+            >
+              {isTLDR ? "Full Version" : "TLDR Summary"}
+            </button>
+          </PixelSparkle>
+          <PixelSparkle>
+            <a
+              href="/pdfs/Kartikeya_Portfolio.pdf"
+              download
+              className={styles.pdfBtn}
+            >
+              Print Portfolio as PDF
+            </a>
+          </PixelSparkle>
         </div>
 
         <TiltCard>

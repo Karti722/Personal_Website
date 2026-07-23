@@ -7,6 +7,8 @@ import { PROJECT_COUNT } from "../Sections/Projects";
 import { CERT_COUNT } from "../Sections/Certifications";
 import Reveal from "../Reveal";
 import TiltCard from "../TiltCard";
+import PixelFrame from "../PixelFrame";
+import { useSiteSettings } from "../ThemeProvider";
 import styles from "./StatsBar.module.css";
 
 const STATS = [
@@ -39,6 +41,11 @@ function easeOutQuad(t: number) {
   return 1 - (1 - t) * (1 - t);
 }
 
+// Chunky "8-bit score counter" tick-up instead of a smooth interpolation.
+function easeSteps(t: number, steps = 8) {
+  return Math.min(1, Math.floor(t * steps) / steps);
+}
+
 function StatIcon({ kind }: { kind: "briefcase" | "code" | "certificate" }) {
   if (kind === "briefcase") {
     return (
@@ -66,9 +73,15 @@ function StatIcon({ kind }: { kind: "briefcase" | "code" | "certificate" }) {
 }
 
 export default function StatsBar() {
+  const { pixelArt } = useSiteSettings();
+  const pixelArtRef = useRef(pixelArt);
   const barRef = useRef<HTMLDivElement>(null);
   const [counts, setCounts] = useState<number[]>(() => STATS.map(() => 0));
   const startedRef = useRef(false);
+
+  useEffect(() => {
+    pixelArtRef.current = pixelArt;
+  }, [pixelArt]);
 
   useEffect(() => {
     const el = barRef.current;
@@ -91,7 +104,7 @@ export default function StatsBar() {
         const start = performance.now();
         const tick = (now: number) => {
           const progress = duration === 0 ? 1 : Math.min(1, (now - start) / duration);
-          const eased = easeOutQuad(progress);
+          const eased = pixelArtRef.current ? easeSteps(progress) : easeOutQuad(progress);
           setCounts(STATS.map((s) => Math.round(s.value * eased)));
           if (progress < 1) requestAnimationFrame(tick);
         };
@@ -111,18 +124,20 @@ export default function StatsBar() {
           {STATS.map((stat, i) => (
             <Reveal delay={i * 80} key={stat.label}>
               <TiltCard>
-                <Link href={stat.href} className={styles.stat} aria-label={stat.cta}>
-                  <span className={styles.iconWrap}>
-                    <StatIcon kind={stat.icon} />
-                  </span>
-                  <div className={styles.statText}>
-                    <span className={styles.value}>{counts[i]}</span>
-                    <span className={styles.label}>{stat.label}</span>
-                  </div>
-                  <span className={styles.arrow} aria-hidden="true">
-                    →
-                  </span>
-                </Link>
+                <PixelFrame>
+                  <Link href={stat.href} className={styles.stat} aria-label={stat.cta}>
+                    <span className={styles.iconWrap}>
+                      <StatIcon kind={stat.icon} />
+                    </span>
+                    <div className={styles.statText}>
+                      <span className={styles.value}>{counts[i]}</span>
+                      <span className={styles.label}>{stat.label}</span>
+                    </div>
+                    <span className={styles.arrow} aria-hidden="true">
+                      →
+                    </span>
+                  </Link>
+                </PixelFrame>
               </TiltCard>
             </Reveal>
           ))}

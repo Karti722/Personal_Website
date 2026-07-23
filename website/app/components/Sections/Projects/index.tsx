@@ -7,6 +7,7 @@ import Reveal from "../../Reveal";
 import TiltCard from "../../TiltCard";
 import PixelFrame from "../../PixelFrame";
 import PixelIcon from "../../PixelIcon";
+import PixelSparkle from "../../PixelSparkle";
 import { PROJECTS, ProjectBullet } from "../../../data/portfolio";
 
 export { PROJECTS } from "../../../data/portfolio";
@@ -55,14 +56,16 @@ export default function Projects() {
             <PixelIcon variant="projects" />
             Projects
           </h2>
-          <button
-            type="button"
-            className={styles.viewToggle}
-            onClick={() => setTldr((t) => !t)}
-            aria-pressed={tldr}
-          >
-            {tldr ? "Show Full Details" : "Show TLDR Summaries"}
-          </button>
+          <PixelSparkle>
+            <button
+              type="button"
+              className={styles.viewToggle}
+              onClick={() => setTldr((t) => !t)}
+              aria-pressed={tldr}
+            >
+              {tldr ? "Show Full Details" : "Show TLDR Summaries"}
+            </button>
+          </PixelSparkle>
         </div>
 
         {PROJECTS.map((project, index) => (

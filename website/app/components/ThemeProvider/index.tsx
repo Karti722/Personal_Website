@@ -127,11 +127,23 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     return "system";
   });
 
-  const [pixelArt, setPixelArt] = useState<boolean>(() => {
-    if (typeof window === "undefined") return false;
-    const stored = localStorage.getItem(PIXEL_ART_KEY);
-    return stored === "on";
-  });
+  // Always initializes to false (matching the server-rendered value) to
+  // avoid a hydration mismatch — components like PixelIcon/PixelFrame and
+  // PageLoader render different DOM depending on this flag, so the first
+  // client render must match SSR exactly. The real stored preference is
+  // synced in afterward via the effect below, once we're past hydration.
+  const [pixelArt, setPixelArt] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (localStorage.getItem(PIXEL_ART_KEY) === "on") {
+      // Syncing from an external store (localStorage) on mount, not
+      // mirroring other React state — the pattern react-hooks/set-state-in-effect
+      // warns about doesn't apply here, and this can't be a lazy useState
+      // initializer without reintroducing the SSR hydration mismatch above.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setPixelArt(true);
+    }
+  }, []);
 
   const prevRef = useRef<Theme | null>(null);
 

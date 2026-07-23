@@ -199,3 +199,60 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
   background: var(--accent-gradient);
   border-radius: 2px;
 }
+
+/* Ambient dot-grid + scanline backdrop, sitting behind all page content
+   (z-index -1 keeps it strictly below the normal-flow stacking order, so
+   it can never cover text regardless of which components are
+   positioned). Colors ride on --accent-strong via color-mix so the
+   texture stays visible-but-subtle across every theme instead of being
+   tuned for one background. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+      0deg,
+      color-mix(in srgb, var(--accent-strong) 7%, transparent) 0px,
+      color-mix(in srgb, var(--accent-strong) 7%, transparent) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    radial-gradient(color-mix(in srgb, var(--accent-strong) 12%, transparent) 1.4px, transparent 1.4px);
+  background-size: 100% 4px, 24px 24px;
+}
+
+.pixel-off body::before {
+  content: none;
+}
+
+/* Blocky "tile-select" cursor over anything clickable — two nested
+   crisp-edged squares (white halo + black ring) so it reads against any
+   theme background instead of a hand-drawn arrow tuned for one color. */
+a,
+button,
+[role="button"],
+[role="tab"] {
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' shape-rendering='crispEdges'%3E%3Crect x='0' y='0' width='18' height='18' fill='none' stroke='white' stroke-width='4'/%3E%3Crect x='2' y='2' width='14' height='14' fill='none' stroke='black' stroke-width='2'/%3E%3C/svg%3E")
+      9 9,
+    pointer;
+}
+
+.pixel-off a,
+.pixel-off button,
+.pixel-off [role="button"],
+.pixel-off [role="tab"] {
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--accent-strong);
+  color: #ffffff;
+}
+
+.pixel-off ::selection {
+  background: color-mix(in srgb, var(--accent-strong) 30%, transparent);
+  color: inherit;
+}

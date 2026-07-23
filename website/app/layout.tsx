@@ -5,6 +5,7 @@ import ThemeProvider from "./components/ThemeProvider";
 import Footer from "./components/Footer";
 import PageLoader from "./components/PageLoader";
 import ScrollTopButton from "./components/ScrollTopButton";
+import PixelClickBurst from "./components/PixelClickBurst";
 
 export const metadata = {
   title: "Kartikeya Kumaria Portfolio",
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
         <ThemeProvider>
           <PageLoader />
+          <PixelClickBurst />
           {children}
           <Footer />
           <ScrollTopButton />

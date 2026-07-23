@@ -8,6 +8,7 @@ import HudBadge from "../../HudBadge";
 import PixelIcon from "../../PixelIcon";
 import TiltCard from "../../TiltCard";
 import PixelFrame from "../../PixelFrame";
+import PixelSparkle from "../../PixelSparkle";
 import { JOBS } from "../../../data/portfolio";
 
 export { JOBS } from "../../../data/portfolio";
@@ -64,14 +65,16 @@ export default function Experience() {
             <PixelIcon variant="experience" />
             Experience
           </h2>
-          <button
-            type="button"
-            className={styles.viewToggle}
-            onClick={() => setDetailed((d) => !d)}
-            aria-pressed={detailed}
-          >
-            {detailed ? "Show Summary" : "Detailed Experience"}
-          </button>
+          <PixelSparkle>
+            <button
+              type="button"
+              className={styles.viewToggle}
+              onClick={() => setDetailed((d) => !d)}
+              aria-pressed={detailed}
+            >
+              {detailed ? "Show Summary" : "Detailed Experience"}
+            </button>
+          </PixelSparkle>
         </div>
 
         {JOBS.map((job, index) => {

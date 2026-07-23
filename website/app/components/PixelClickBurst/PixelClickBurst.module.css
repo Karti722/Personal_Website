@@ -1,0 +1,27 @@
+.burst {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.particle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  background: var(--accent-strong);
+  opacity: 1;
+  animation: pixelBurstFly 420ms steps(5) forwards;
+}
+
+@keyframes pixelBurstFly {
+  to {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty));
+  }
+}
