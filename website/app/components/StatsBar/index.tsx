@@ -6,6 +6,7 @@ import { JOBS } from "../Sections/Experience";
 import { PROJECT_COUNT } from "../Sections/Projects";
 import { CERT_COUNT } from "../Sections/Certifications";
 import Reveal from "../Reveal";
+import TiltCard from "../TiltCard";
 import styles from "./StatsBar.module.css";
 
 const STATS = [
@@ -109,18 +110,20 @@ export default function StatsBar() {
         <div className={styles.bar} aria-label="Portfolio stats" ref={barRef}>
           {STATS.map((stat, i) => (
             <Reveal delay={i * 80} key={stat.label}>
-              <Link href={stat.href} className={styles.stat} aria-label={stat.cta}>
-                <span className={styles.iconWrap}>
-                  <StatIcon kind={stat.icon} />
-                </span>
-                <div className={styles.statText}>
-                  <span className={styles.value}>{counts[i]}</span>
-                  <span className={styles.label}>{stat.label}</span>
-                </div>
-                <span className={styles.arrow} aria-hidden="true">
-                  →
-                </span>
-              </Link>
+              <TiltCard>
+                <Link href={stat.href} className={styles.stat} aria-label={stat.cta}>
+                  <span className={styles.iconWrap}>
+                    <StatIcon kind={stat.icon} />
+                  </span>
+                  <div className={styles.statText}>
+                    <span className={styles.value}>{counts[i]}</span>
+                    <span className={styles.label}>{stat.label}</span>
+                  </div>
+                  <span className={styles.arrow} aria-hidden="true">
+                    →
+                  </span>
+                </Link>
+              </TiltCard>
             </Reveal>
           ))}
         </div>

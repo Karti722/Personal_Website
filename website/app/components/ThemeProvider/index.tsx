@@ -128,9 +128,9 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
   });
 
   const [pixelArt, setPixelArt] = useState<boolean>(() => {
-    if (typeof window === "undefined") return true;
+    if (typeof window === "undefined") return false;
     const stored = localStorage.getItem(PIXEL_ART_KEY);
-    return stored !== "off";
+    return stored === "on";
   });
 
   const prevRef = useRef<Theme | null>(null);

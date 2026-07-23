@@ -5,12 +5,21 @@
   gap: 0.75rem;
 }
 
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin: 0 auto 1.5rem auto;
+}
+
 /* Chunky "pressable" button — the bottom edge collapses on click, like a
    classic arcade-menu button rather than a modern flat one. */
 .toggleBtn {
   display: block;
   width: fit-content;
-  margin: 0 auto 1.5rem auto;
+  margin: 0;
   padding: 0.75rem 1.5rem;
   background: var(--accent-gradient);
   color: #ffffff;
@@ -54,6 +63,37 @@
   box-shadow: 0 1px 0 var(--accent-strong), var(--toggle-shadow);
 }
 
+.pdfBtn {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.75rem 1.5rem;
+  background: var(--success-gradient);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.2s ease;
+  box-shadow: 0 4px 0 var(--success-border), var(--toggle-shadow);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pdfBtn:hover {
+  transform: translateY(-2px);
+  filter: saturate(1.08);
+}
+
+.pdfBtn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--success-border), var(--toggle-shadow);
+}
+
 :global(#about p) {
   color: var(--muted-color);
   line-height: 1.55;
@@ -70,19 +110,29 @@
 }
 
 @media (max-width: 768px) {
-  .toggleBtn {
-    padding: 0.65rem 1.25rem;
+  .actions {
     margin-bottom: 1.2rem;
+  }
+
+  .toggleBtn,
+  .pdfBtn {
+    padding: 0.65rem 1.25rem;
     font-size: 0.95rem;
   }
 }
 
 @media (max-width: 480px) {
-  .toggleBtn {
-    padding: 0.6rem 1rem;
+  .actions {
+    flex-direction: column;
     margin-bottom: 1rem;
+  }
+
+  .toggleBtn,
+  .pdfBtn {
+    padding: 0.6rem 1rem;
     font-size: 0.85rem;
     width: 100%;
     max-width: 240px;
+    justify-content: center;
   }
 }

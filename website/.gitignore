@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated at build time (npm run pdf:portfolio / prebuild) — not committed
+/public/pdfs/Kartikeya_Portfolio.pdf

@@ -4,54 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./Skills.module.css";
 import CategoryIcon from "./CategoryIcon";
 import PixelIcon from "../../PixelIcon";
+import TiltCard from "../../TiltCard";
+import PixelFrame from "../../PixelFrame";
+import { SKILL_CATEGORIES } from "../../../data/portfolio";
 
-type SkillCategory = {
-  title: string;
-  skills: string[];
-  featured?: boolean;
-};
-
-export const SKILL_CATEGORIES: SkillCategory[] = [
-  {
-    title: "Languages",
-    skills: ["Python", "JavaScript", "TypeScript", "C", "C++"],
-  },
-  {
-    title: "Frameworks & Libraries",
-    skills: [
-      "React.js",
-      "Next.js",
-      "Node.js",
-      "Nest.js",
-      "Express",
-      "FastAPI",
-      "Django REST Framework (DRF)",
-      "Sequelize",
-    ],
-  },
-  {
-    title: "AI / ML",
-    featured: true,
-    skills: [
-      "LLM APIs (Anthropic Claude)",
-      "Retrieval-Augmented Generation (RAG)",
-      "Embeddings",
-      "AI Agents",
-      "Model Context Protocol (MCP)",
-      "Prompt Engineering",
-      "Vector Databases (pgvector, HNSW)",
-      "LLM Evaluation",
-    ],
-  },
-  {
-    title: "Tools & Platforms",
-    skills: ["Docker", "AWS", "GCP", "Azure", "Git", "GitHub", "CI/CD", "CodeQL"],
-  },
-  {
-    title: "Databases",
-    skills: ["PostgreSQL", "MySQL", "MongoDB", "Firestore", "pgvector"],
-  },
-];
+export { SKILL_CATEGORIES } from "../../../data/portfolio";
 
 const DEFAULT_INDEX = 0;
 
@@ -123,29 +80,32 @@ export default function Skills() {
           ))}
         </div>
 
-        <div
-          key={active.title}
-          role="tabpanel"
-          id={`skill-panel-${activeIndex}`}
-          aria-labelledby={`skill-tab-${activeIndex}`}
-          className={`${styles.panel} ${active.featured ? styles.panelFeatured : ""}`}
-        >
-          <div className={styles.panelInner}>
-            {active.featured && (
-              <p className={styles.featuredNote}>
-                <span className={styles.featuredPulse} aria-hidden="true" />
-                Actively building with these day to day
-              </p>
-            )}
-            <ul className={styles.skillsList}>
-              {active.skills.map((skill) => (
-                <li key={skill} className={styles.skillItem}>
-                  {skill}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <TiltCard key={active.title}>
+          <PixelFrame>
+            <div
+              role="tabpanel"
+              id={`skill-panel-${activeIndex}`}
+              aria-labelledby={`skill-tab-${activeIndex}`}
+              className={`${styles.panel} ${active.featured ? styles.panelFeatured : ""}`}
+            >
+              <div className={styles.panelInner}>
+                {active.featured && (
+                  <p className={styles.featuredNote}>
+                    <span className={styles.featuredPulse} aria-hidden="true" />
+                    Actively building with these day to day
+                  </p>
+                )}
+                <ul className={styles.skillsList}>
+                  {active.skills.map((skill) => (
+                    <li key={skill} className={styles.skillItem}>
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </PixelFrame>
+        </TiltCard>
       </div>
     </section>
   );

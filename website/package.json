@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node --experimental-strip-types scripts/generate-portfolio-pdf.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "pdf:portfolio": "node --experimental-strip-types scripts/generate-portfolio-pdf.mjs",
+    "pdf:portfolio:watch": "node --experimental-strip-types scripts/watch-portfolio-pdf.mjs"
   },
   "dependencies": {
     "next": "16.0.10",
@@ -14,6 +17,7 @@
     "react-dom": "19.2.0"
   },
   "devDependencies": {
+    "@sparticuz/chromium": "^147.0.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -21,6 +25,7 @@
     "baseline-browser-mapping": "^2.10.10",
     "eslint": "^9",
     "eslint-config-next": "16.0.1",
+    "puppeteer-core": "^25.3.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
