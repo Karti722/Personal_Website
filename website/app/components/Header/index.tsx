@@ -19,7 +19,7 @@ export default function Header() {
             />
           </PixelFrame>
           <div className={styles.profileInfo}>
-            <h1 className={styles.title}>Kartikeya</h1>
+            <h1 className={styles.title}>Kartikeya Kumaria</h1>
             <p className={styles.textLine}>
               Welcome to my Portfolio!
             </p>
