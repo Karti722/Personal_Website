@@ -66,7 +66,6 @@ export default function Navbar() {
   }, [theme]);
 
   const navItems = [
-    { label: "Skills", href: "/skills" },
     { label: "Experience", href: "/experience" },
     { label: "Projects", href: "/projects" },
     { label: "Certifications", href: "/certifications" },

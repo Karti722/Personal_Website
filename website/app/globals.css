@@ -51,7 +51,7 @@ section {
   position: relative;
 }
 
-/* Subpages (Skills/Experience/Projects/Certifications/Resume) go straight
+/* Subpages (Experience/Projects/Certifications/Resume) go straight
    from the fixed navbar into a section, leaving a flat gap above it. The
    landing page goes navbar -> header instead, so this doesn't affect it. */
 nav + section {
