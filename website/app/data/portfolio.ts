@@ -5,7 +5,7 @@
 
 export const PROFILE = {
   name: "Kartikeya Kumaria",
-  role: "Full-Stack Software Developer — B.S. Computer Science, UC Santa Cruz",
+  role: "Software Developer with a B.S. Computer Science from UC Santa Cruz",
   email: "kartikeyaku@gmail.com",
   linkedinUrl: "https://linkedin.com/in/kartikeya-kumaria",
   linkedinLabel: "linkedin.com/in/kartikeya-kumaria",
@@ -180,11 +180,11 @@ export const PROJECTS: Project[] = [
     dateRange: "July 16th 2026 – July 23, 2026",
     githubUrl: "https://github.com/Karti722/ai-nexus",
     summary:
-      "A full-stack, 10-chapter platform teaching AI engineering hands-on with RAG, AI agents, and MCP tool-calling — built as a 4-service polyglot microservices system (Next.js, Express, FastAPI, MCP server) integrating real Anthropic, Voyage AI, and WeatherAPI calls, deployed live on Google Cloud Run with a GitHub Actions CI/CD pipeline authenticated via Workload Identity Federation.",
+      "A full-stack, 10-chapter platform teaching AI engineering hands-on with RAG, AI agents, and MCP tool-calling. Built as a 4-service polyglot microservices system (Next.js, Express, FastAPI, MCP server) integrating real Anthropic, Voyage AI, and WeatherAPI calls, deployed live on Google Cloud Run with a GitHub Actions CI/CD pipeline authenticated via Workload Identity Federation.",
     bullets: [
       "Built a full-stack AI engineering platform spanning 10 interactive chapters covering RAG, AI agents, MCP tool-calling, prompt engineering, and applied concerns like caching and evaluation, each backed by a real working implementation instead of a mockup.",
       "Architected a polyglot microservices system across 4 containerized services (Next.js, Express, FastAPI, MCP server) communicating over REST and MCP's stdio protocol, run locally with Docker Compose and deployed to Google Cloud Run in production.",
-      "Integrated real hosted AI APIs — Anthropic Claude (chat, agent tool-calling, token counting), Voyage AI (embeddings), and WeatherAPI.com (a live external tool call through a custom MCP server) — alongside hand-rolled algorithms (TextRank summarization, semantic caching, ROUGE-L/embedding-based evaluation) for the concepts best learned by implementing them directly.",
+      "Integrated real hosted AI APIs: Anthropic Claude (chat, agent tool-calling, token counting), Voyage AI (embeddings), and WeatherAPI.com (a live external tool call through a custom MCP server) alongside hand-rolled algorithms (TextRank summarization, semantic caching, ROUGE-L/embedding-based evaluation) for the concepts best learned by implementing them directly.",
       "Built a pgvector-backed PostgreSQL vector store with HNSW indexing for real RAG retrieval, and a custom MCP client/server pair exposing tools to the AI agent over stdio.",
       "Deployed the full stack to Google Cloud Run on a $0/month architecture (serverless Postgres, Secret Manager, Artifact Registry) and automated redeployment with a GitHub Actions CI/CD pipeline authenticated via Workload Identity Federation, no long-lived service-account keys.",
       { label: "Demo Video", href: "https://youtu.be/5a_kGe4lKwo" },
